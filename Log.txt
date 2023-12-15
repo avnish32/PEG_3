@@ -1,1 +1,6 @@
 15 Dec - Added sample player that rotates based on cursor position.
+15 Dec - Added sprites and fire mechanism. Astronaut sprite pack from https://assetstore.unity.com/packages/2d/characters/2d-character-astronaut-182650
+15 Dec - Implemented P1 shooting; bullets from Astronaut sprite pack; smoke explosion from https://assetstore.unity.com/packages/2d/textures-materials/2d-flat-explosion-66932. 
+Tutorials/pages referred: 
+https://www.youtube.com/watch?v=LNLVOjbrQj4
+https://docs.unity3d.com/Packages/com.unity.inputsystem@1.5/api/UnityEngine.InputSystem.InputActionReference.html
