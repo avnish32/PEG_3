@@ -4,3 +4,9 @@
 Tutorials/pages referred: 
 https://www.youtube.com/watch?v=LNLVOjbrQj4
 https://docs.unity3d.com/Packages/com.unity.inputsystem@1.5/api/UnityEngine.InputSystem.InputActionReference.html
+
+16 Dec - Added teleportation
+16 Dec - Destroyed bullets when they go out of screen
+References:
+https://www.youtube.com/watch?v=lF26yGJbsQk
+https://docs.unity3d.com/ScriptReference/Renderer.OnBecameInvisible.html
