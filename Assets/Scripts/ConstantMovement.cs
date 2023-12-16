@@ -10,7 +10,7 @@ public class ConstantMovement : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        Debug.Log("Constantly moving object instantiated.");
+        //Debug.Log("Constantly moving object instantiated.");
         Rigidbody2D rb = GetComponent<Rigidbody2D>();
         rb.AddForce(rb.transform.up * movementSpeed, ForceMode2D.Impulse);
     }

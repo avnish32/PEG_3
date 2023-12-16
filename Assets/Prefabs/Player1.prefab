@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 4833463712994011895}
   - component: {fileID: 4358347695690659770}
   - component: {fileID: 3222716919378547661}
+  - component: {fileID: 7484109401547624215}
   m_Layer: 0
   m_Name: Player1
   m_TagString: Untagged
@@ -180,6 +181,25 @@ MonoBehaviour:
   bulletSpawnPt: {fileID: 9052640415717767548}
   bullet: {fileID: 5184762404069858944, guid: 6505ea5743d78b14a82c0a8ae63a505f, type: 3}
   playerFire: {fileID: 5035379285532259750, guid: 95de6ee2955e40c4b930cbf2966c6bf4, type: 3}
+--- !u!114 &7484109401547624215
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5019717006544369266}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8fda5e639ebaa6a45b1e2ff54e535871, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _towersInfo:
+  - tower: 0
+    towerPosition: {x: -2.91, y: 3.54, z: 0}
+  - tower: 1
+    towerPosition: {x: -2.91, y: -2, z: 0}
+  - tower: 2
+    towerPosition: {x: 6.61, y: 3.68, z: 0}
 --- !u!1 &7660524364888020503
 GameObject:
   m_ObjectHideFlags: 0
