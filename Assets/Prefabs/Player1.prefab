@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 4358347695690659770}
   - component: {fileID: 3222716919378547661}
   - component: {fileID: 7484109401547624215}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Player1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -32,7 +32,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 0.7, y: 0.7, z: 0.7}
   m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 9052640415717767548}
@@ -116,7 +116,7 @@ Rigidbody2D:
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
-  m_Constraints: 0
+  m_Constraints: 7
 --- !u!114 &4833463712994011895
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -179,7 +179,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bulletSpawnPt: {fileID: 9052640415717767548}
-  bullet: {fileID: 5184762404069858944, guid: 6505ea5743d78b14a82c0a8ae63a505f, type: 3}
+  bullet: {fileID: 7912317989692930135, guid: 3430c3ffa81599b4a87fc48f029e6904, type: 3}
   playerFire: {fileID: 5035379285532259750, guid: 95de6ee2955e40c4b930cbf2966c6bf4, type: 3}
 --- !u!114 &7484109401547624215
 MonoBehaviour:
@@ -209,7 +209,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 9052640415717767548}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: BulletSpawnPt
   m_TagString: Untagged
   m_Icon: {fileID: 0}

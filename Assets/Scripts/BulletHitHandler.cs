@@ -7,8 +7,17 @@ public class BulletHitHandler : MonoBehaviour
     [SerializeField]
     private GameObject hitEffect;
 
+    [SerializeField]
+    private float damage = 1f;
+
     private void OnCollisionEnter2D(Collision2D collision)
     {
+        Health otherObjectHealth = collision.gameObject.GetComponent<Health>();
+        if (otherObjectHealth != null)
+        {
+            otherObjectHealth.reduceHealth(damage);
+        }
+        
         if (hitEffect != null)
         {
             GameObject newHitEffect = Instantiate(hitEffect, collision.transform.position, Quaternion.identity);

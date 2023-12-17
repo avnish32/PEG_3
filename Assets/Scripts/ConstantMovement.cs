@@ -12,7 +12,8 @@ public class ConstantMovement : MonoBehaviour
     {
         //Debug.Log("Constantly moving object instantiated.");
         Rigidbody2D rb = GetComponent<Rigidbody2D>();
-        rb.AddForce(rb.transform.up * movementSpeed, ForceMode2D.Impulse);
+        //rb.AddForce(rb.transform.up * movementSpeed, ForceMode2D.Impulse);
+        rb.velocity = transform.up * movementSpeed;
     }
 
     // Update is called once per frame
