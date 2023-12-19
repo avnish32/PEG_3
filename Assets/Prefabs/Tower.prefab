@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 7923943284197224109}
   - component: {fileID: 3414788046266960217}
   - component: {fileID: 1250626108847625937}
+  - component: {fileID: 6580795016148218465}
   m_Layer: 8
   m_Name: Tower
   m_TagString: EnemyTarget
@@ -175,3 +176,17 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _health: 100
+--- !u!114 &6580795016148218465
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8507554255566829828}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6ba917502e1f75d41adaf195623dbc2d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _buttonForThisTower: {fileID: 0}
+  _thisTower: 0

@@ -81,7 +81,14 @@ public class EnemyBehavior : MonoBehaviour
     private void FindNewTarget()
     {
         GameObject[] targets = GameObject.FindGameObjectsWithTag("EnemyTarget");
-        SetTarget(targets[Random.Range(0, targets.Length)].transform);
+        if (targets.Length ==0)
+        {
+            Debug.Log("GAME OVER. Enemy won.");
+        } else
+        {
+            SetTarget(targets[Random.Range(0, targets.Length)].transform);
+        }
+        
     }
 
     private void RotateTowardsTarget(Transform target)

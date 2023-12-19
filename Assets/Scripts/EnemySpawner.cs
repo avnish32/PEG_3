@@ -25,13 +25,15 @@ public class EnemySpawner : MonoBehaviour
     private float _currentSpawnDelay;
 
     private List<GameObject> _enemyTargets;
+    GameObject player2;
 
     // Start is called before the first frame update
     void Start()
     {
         GameObject[] targetArray = GameObject.FindGameObjectsWithTag("EnemyTarget");
         _enemyTargets = targetArray.ToList<GameObject>();
-        _enemyTargets.Add(GameObject.FindGameObjectWithTag("Player2"));
+        player2 = GameObject.FindGameObjectWithTag("Player2");
+        _enemyTargets.Add(player2);
     }
 
     // Update is called once per frame
@@ -62,5 +64,10 @@ public class EnemySpawner : MonoBehaviour
     {
         _timeElapsedSinceStart += Time.deltaTime;
         _currentSpawnDelay = Mathf.Lerp(_maxSpawnDelay, _minSpawnDelay, (_timeElapsedSinceStart / _timeFromMaxToMin));
+    }
+
+    public void OnPlayer2Died()
+    {
+        _enemyTargets.Remove(player2);
     }
 }

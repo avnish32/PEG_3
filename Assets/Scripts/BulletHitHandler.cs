@@ -15,7 +15,7 @@ public class BulletHitHandler : MonoBehaviour
         Health otherObjectHealth = collision.gameObject.GetComponent<Health>();
         if (otherObjectHealth != null)
         {
-            otherObjectHealth.reduceHealth(damage);
+            otherObjectHealth.ReduceHealth(damage);
         }
         
         if (hitEffect != null)

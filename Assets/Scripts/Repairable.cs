@@ -12,7 +12,7 @@ public class Repairable : MonoBehaviour, IInteractable
 
     public void Interact()
     {
-        _health.setHealth(_health.getHealth() + (repairSpeed * Time.deltaTime));
+        _health.SetHealth(_health.GetHealth() + (repairSpeed * Time.deltaTime));
     }
 
     private void Awake()

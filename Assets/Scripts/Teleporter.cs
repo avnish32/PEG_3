@@ -23,9 +23,9 @@ public class Teleporter : MonoBehaviour
 
     private void Start()
     {   
-        _teleportToTower(Towers.TOWER_2);
+        TeleportToTower(Towers.TOWER_2);
     }
-    private void _teleportToTower(Towers destinationTower)
+    private void TeleportToTower(Towers destinationTower)
     {
         if (_currentTower == destinationTower)
             return;
@@ -35,23 +35,28 @@ public class Teleporter : MonoBehaviour
         _currentTower = destinationTower;
     }
 
-    public void teleportToTower1()
+    public void TeleportToTower1()
     {
-        _teleportToTower(Towers.TOWER_1);
+        TeleportToTower(Towers.TOWER_1);
     }
 
-    public void teleportToTower2()
+    public void TeleportToTower2()
     {
-        _teleportToTower(Towers.TOWER_2);
+        TeleportToTower(Towers.TOWER_2);
     }
 
-    public void teleportToTower3()
+    public void TeleportToTower3()
     {
-        _teleportToTower(Towers.TOWER_3);
+        TeleportToTower(Towers.TOWER_3);
+    }
+
+    public Towers GetCurrentTower()
+    {
+        return _currentTower;
     }
 }
 
-enum Towers
+public enum Towers
 {
     TOWER_1, TOWER_2, TOWER_3
 };
