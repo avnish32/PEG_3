@@ -1,8 +1,7 @@
-using System.Collections;
+using System;
 using System.Collections.Generic;
-using Unity.VisualScripting;
+using System.Linq;
 using UnityEngine;
-using UnityEngine.AI;
 
 public class EnemySpawner : MonoBehaviour
 {
@@ -25,12 +24,14 @@ public class EnemySpawner : MonoBehaviour
     private float _timeElapsedSinceLastSpawn = 0f;
     private float _currentSpawnDelay;
 
-    private GameObject[] _enemyTargets;
+    private List<GameObject> _enemyTargets;
 
     // Start is called before the first frame update
     void Start()
     {
-        _enemyTargets = GameObject.FindGameObjectsWithTag("EnemyTarget");
+        GameObject[] targetArray = GameObject.FindGameObjectsWithTag("EnemyTarget");
+        _enemyTargets = targetArray.ToList<GameObject>();
+        _enemyTargets.Add(GameObject.FindGameObjectWithTag("Player2"));
     }
 
     // Update is called once per frame
@@ -49,11 +50,12 @@ public class EnemySpawner : MonoBehaviour
 
     private void SpawnEnemy()
     {
-        Transform randomSpawnPoint = _spawnPts[Random.Range(0, _spawnPts.Length)];
-        Transform target = _enemyTargets[Random.Range(0, _enemyTargets.Length)].transform;
+        Transform randomSpawnPoint = _spawnPts[UnityEngine.Random.Range(0, _spawnPts.Length)];
+        Transform target = _enemyTargets.ElementAt(UnityEngine.Random.Range(0, _enemyTargets.Count)).transform;
 
         GameObject spawnedEnemy = Instantiate(_enemyToSpawn, randomSpawnPoint.position, Quaternion.identity);
-        spawnedEnemy.GetComponent<NavMeshAgent>().SetDestination(target.position);
+        spawnedEnemy.GetComponent<EnemyBehavior>().SetTarget(target);
+        //spawnedEnemy.GetComponent<NavMeshAgent>().SetDestination(target.position);
     }
 
     private void LerpSpawnDelay()

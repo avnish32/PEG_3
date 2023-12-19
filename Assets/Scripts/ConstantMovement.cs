@@ -15,10 +15,4 @@ public class ConstantMovement : MonoBehaviour
         //rb.AddForce(rb.transform.up * movementSpeed, ForceMode2D.Impulse);
         rb.velocity = transform.up * movementSpeed;
     }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
 }

@@ -9,7 +9,9 @@ public class EnemyBehavior : MonoBehaviour
     private NavMeshAgent _navMeshAgent;
     private Rigidbody2D _rb;
     private SpriteRenderer _spriteRenderer;
-    private bool isShooting = false;
+    private bool _isShooting = false;
+    private bool _isPlayerWithinShootingRange = false;
+    private Transform _player2;
 
     [SerializeField]
     private GameObject _bullet;
@@ -37,36 +39,54 @@ public class EnemyBehavior : MonoBehaviour
         _navMeshAgent.updateRotation = false;
         _navMeshAgent.updateUpAxis = false;
 
-        GameObject[] targets = GameObject.FindGameObjectsWithTag("EnemyTarget");
-        _target = targets[Random.Range(0, targets.Length)].transform;
-        _navMeshAgent.SetDestination(_target.position);
+        /*GameObject[] targets = GameObject.FindGameObjectsWithTag("EnemyTarget");
+        _target = targets[Random.Range(0, targets.Length)].transform;*/
+        //_navMeshAgent.SetDestination(_target.position);
 
     }
 
     // Update is called once per frame
     void Update()
     {
+        if (_target == null)
+        {
+            FindNewTarget();
+        }
         _navMeshAgent.SetDestination(_target.position);
         //Debug.Log("remaining dist: " + navMeshAgent.remainingDistance);
-        if (_navMeshAgent.remainingDistance <= _navMeshAgent.stoppingDistance)
+        if (_isPlayerWithinShootingRange)
+        {
+            RotateTowardsTarget(_player2);
+            TriggerShooting();
+        } else if(_navMeshAgent.remainingDistance <= _navMeshAgent.stoppingDistance)
         {
             //Debug.Log("Enemy Started shooting.");
-            setRotationAndSprite();
-
-            if (!isShooting)
-            {
-                InvokeRepeating("Shoot", 0f, 0.5f);
-                isShooting = true;
-            }
-            
-            //TODO place checks for when target is destroyed or P2 is nearby
-
+            RotateTowardsTarget(_target);
+            TriggerShooting();
+        } else
+        {
+            RotateTowardsTarget(_target);
         }
     }
 
-    private void setRotationAndSprite()
+    private void TriggerShooting()
     {
-        Vector2 lookAtDir = _target.position - transform.position;
+        if (!_isShooting)
+        {
+            InvokeRepeating("Shoot", 0f, 0.5f);
+            _isShooting = true;
+        }
+    }
+
+    private void FindNewTarget()
+    {
+        GameObject[] targets = GameObject.FindGameObjectsWithTag("EnemyTarget");
+        SetTarget(targets[Random.Range(0, targets.Length)].transform);
+    }
+
+    private void RotateTowardsTarget(Transform target)
+    {
+        Vector2 lookAtDir = target.position - transform.position;
         float lookAtAngleRadians = Mathf.Atan2(lookAtDir.y, lookAtDir.x);
         float lookAtAngleDegrees = (lookAtAngleRadians * Mathf.Rad2Deg) - 90f;
         _rb.rotation = lookAtAngleDegrees;
@@ -94,5 +114,48 @@ public class EnemyBehavior : MonoBehaviour
     private void Shoot()
     {
         Instantiate(_bullet, _bulletSpawnPt.position, _bulletSpawnPt.rotation);
+    }
+
+    public void OnTriggerEnter2D(Collider2D collision)
+    {
+        
+        GameObject otherObject = collision.gameObject;
+        if (otherObject != null && otherObject.CompareTag("Player2") && otherObject != _target.gameObject)
+        {
+            Debug.Log("OnTriggerEnter2D fired.");
+            _isPlayerWithinShootingRange = true;
+            if (_player2 == null)
+            {
+                _player2 = otherObject.transform;
+            }
+            /*RotateTowardsTarget(otherObject.transform);
+            TriggerShooting();*/
+        }
+    }
+
+    private void OnTriggerExit2D(Collider2D collision)
+    {
+        
+        GameObject otherObject = collision.gameObject;
+        if (otherObject != null && otherObject.CompareTag("Player2") && otherObject != _target.gameObject)
+        {
+            Debug.Log("OnTriggerExit2D fired.");
+            _isPlayerWithinShootingRange = false;
+            /*if (_target != null)
+            {
+                RotateTowardsTarget(_target);
+                TriggerShooting();
+            } else
+            {
+                FindNewTarget();
+            }*/
+            
+        }
+    }
+
+    public void SetTarget(Transform target)
+    {
+        _target = target;
+        _navMeshAgent.SetDestination(_target.position);
     }
 }

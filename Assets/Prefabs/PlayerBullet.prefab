@@ -8,6 +8,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 4769012967936176285, guid: 6505ea5743d78b14a82c0a8ae63a505f, type: 3}
+      propertyPath: m_UseFullKinematicContacts
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 5184762404069858944, guid: 6505ea5743d78b14a82c0a8ae63a505f, type: 3}
       propertyPath: m_Name
       value: PlayerBullet

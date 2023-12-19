@@ -17,7 +17,7 @@ GameObject:
   - component: {fileID: 7484109401547624215}
   m_Layer: 8
   m_Name: Player1
-  m_TagString: Untagged
+  m_TagString: Player1
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -98,7 +98,7 @@ Rigidbody2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5019717006544369266}
-  m_BodyType: 0
+  m_BodyType: 1
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
@@ -195,11 +195,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _towersInfo:
   - tower: 0
-    towerPosition: {x: -2.91, y: 3.54, z: 0}
+    towerPosition: {x: -3.73, y: 2.31, z: 0}
   - tower: 1
-    towerPosition: {x: -2.91, y: -2, z: 0}
+    towerPosition: {x: 3.9, y: 2.31, z: 0}
   - tower: 2
-    towerPosition: {x: 6.61, y: 3.68, z: 0}
+    towerPosition: {x: -0.02, y: 0.01, z: 0}
 --- !u!1 &7660524364888020503
 GameObject:
   m_ObjectHideFlags: 0

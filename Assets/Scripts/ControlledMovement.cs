@@ -16,21 +16,12 @@ public class ControlledMovement : MonoBehaviour
         _rb = GetComponent<Rigidbody2D>();
     }
 
-    // Start is called before the first frame update
-    void Start()
-    {
-
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        //if (horizontalAxisBinding.)
-    }
-
     private void FixedUpdate()
     {
         _rb.velocity = _movementInput * _movementSpeed;
+        /*float xMovement = _movementInput.x * _movementSpeed * Time.deltaTime;
+        float yMovement = _movementInput.y * _movementSpeed * Time.deltaTime;
+        transform.Translate(xMovement, yMovement, 0);*/
     }
 
     void OnMove(InputValue inputValue)
