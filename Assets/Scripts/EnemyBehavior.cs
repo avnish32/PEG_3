@@ -120,7 +120,8 @@ public class EnemyBehavior : MonoBehaviour
     {
         
         GameObject otherObject = collision.gameObject;
-        if (otherObject != null && otherObject.CompareTag("Player2") && otherObject != _target.gameObject)
+        if (otherObject != null && otherObject.CompareTag("Player2") &&
+            _target != null && otherObject != _target.gameObject)
         {
             Debug.Log("OnTriggerEnter2D fired.");
             _isPlayerWithinShootingRange = true;
