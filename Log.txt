@@ -29,6 +29,7 @@ No References.
 
 20 Dec - Added health bar that changes color based on value.
 20 Dec - Added interact msg when player goes near.
+20 Dec - Bullets can now only travel a fixed distance. This forces P1 to change towers. Also Added a fade out effect for bullets.
 References:
 https://docs.unity3d.com/ScriptReference/Color.Lerp.html
 https://www.youtube.com/watch?v=_lREXfAMUcE
