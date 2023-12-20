@@ -13,7 +13,10 @@ public class Tower : MonoBehaviour
 
     private void OnDestroy()
     {
-        Destroy(_buttonForThisTower.gameObject);
+        if ( _buttonForThisTower != null )
+        {
+            Destroy(_buttonForThisTower.gameObject);
+        }
 
         GameObject player1 = GameObject.FindGameObjectWithTag("Player1");
         if (player1 != null && player1.GetComponent<Teleporter>().GetCurrentTower() == _thisTower)

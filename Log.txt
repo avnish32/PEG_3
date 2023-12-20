@@ -26,3 +26,5 @@ https://docs.unity3d.com/ScriptReference/Mathf.Lerp.html
 19 Dec - Improved enemy shooting logic to shoot at Player 2 when it is near.
 19 Dec - Added new enemy that follows player 2 around.
 No References.
+
+20 Dec - Added health bar that changes color based on value.
