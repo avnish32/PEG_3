@@ -1853,6 +1853,11 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 3174576378380569073, guid: b750dc7dae822534eafd6c88e6711176, type: 3}
   m_PrefabInstance: {fileID: 1385062580}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1225696247 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 468588033265338831, guid: b750dc7dae822534eafd6c88e6711176, type: 3}
+  m_PrefabInstance: {fileID: 1385062580}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1257730694
 GameObject:
   m_ObjectHideFlags: 0
@@ -2118,6 +2123,18 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 579889588}
     m_Modifications:
+    - target: {fileID: 1250626108847625937, guid: b750dc7dae822534eafd6c88e6711176, type: 3}
+      propertyPath: _maxHealth
+      value: 50
+      objectReference: {fileID: 0}
+    - target: {fileID: 1486723151724716985, guid: b750dc7dae822534eafd6c88e6711176, type: 3}
+      propertyPath: m_SortingLayerID
+      value: 773518751
+      objectReference: {fileID: 0}
+    - target: {fileID: 1486723151724716985, guid: b750dc7dae822534eafd6c88e6711176, type: 3}
+      propertyPath: m_AdditionalShaderChannelsFlag
+      value: 25
+      objectReference: {fileID: 0}
     - target: {fileID: 2937931415729427709, guid: b750dc7dae822534eafd6c88e6711176, type: 3}
       propertyPath: m_AnchorMax.x
       value: 0
@@ -2166,14 +2183,30 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 4770799531975199656, guid: b750dc7dae822534eafd6c88e6711176, type: 3}
-      propertyPath: m_AnchoredPosition.y
-      value: -1.52
-      objectReference: {fileID: 0}
+    - target: {fileID: 3414788046266960217, guid: b750dc7dae822534eafd6c88e6711176, type: 3}
+      propertyPath: _interactMsgObject
+      value: 
+      objectReference: {fileID: 1225696247}
     - target: {fileID: 6580795016148218465, guid: b750dc7dae822534eafd6c88e6711176, type: 3}
       propertyPath: _buttonForThisTower
       value: 
       objectReference: {fileID: 1774223699}
+    - target: {fileID: 7923943284197224109, guid: b750dc7dae822534eafd6c88e6711176, type: 3}
+      propertyPath: m_Size.x
+      value: 1.7537551
+      objectReference: {fileID: 0}
+    - target: {fileID: 7923943284197224109, guid: b750dc7dae822534eafd6c88e6711176, type: 3}
+      propertyPath: m_Size.y
+      value: 1.8973339
+      objectReference: {fileID: 0}
+    - target: {fileID: 7923943284197224109, guid: b750dc7dae822534eafd6c88e6711176, type: 3}
+      propertyPath: m_Offset.x
+      value: -0.027611017
+      objectReference: {fileID: 0}
+    - target: {fileID: 7923943284197224109, guid: b750dc7dae822534eafd6c88e6711176, type: 3}
+      propertyPath: m_Offset.y
+      value: -0.33133304
+      objectReference: {fileID: 0}
     - target: {fileID: 8507554255566829828, guid: b750dc7dae822534eafd6c88e6711176, type: 3}
       propertyPath: m_Name
       value: Tower
@@ -3386,6 +3419,14 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 368418548805944720, guid: d56f707938ef6484aa99d1405cef7751, type: 3}
+      propertyPath: m_SortingLayerID
+      value: -1191676993
+      objectReference: {fileID: 0}
+    - target: {fileID: 368418548805944720, guid: d56f707938ef6484aa99d1405cef7751, type: 3}
+      propertyPath: m_AdditionalShaderChannelsFlag
+      value: 25
+      objectReference: {fileID: 0}
     - target: {fileID: 691679355209689241, guid: d56f707938ef6484aa99d1405cef7751, type: 3}
       propertyPath: _healthBarColor
       value: 

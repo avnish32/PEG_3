@@ -23,14 +23,9 @@ public class ControlledShooting : MonoBehaviour
         InvokeRepeating("CheckAndShoot", 0f, 0.1f);
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-    }
-
     void OnFire()
     {
-        Debug.Log("P1 fired.");
+        //Debug.Log("P1 fired.");
         CheckAndShoot();
     }
 

@@ -45,3 +45,12 @@ TagManager:
   - name: Default
     uniqueID: 0
     locked: 0
+  - name: EnemyHealthBar
+    uniqueID: 1495818199
+    locked: 0
+  - name: PlayerHealthBar
+    uniqueID: 3103290303
+    locked: 0
+  - name: TowerInfo
+    uniqueID: 773518751
+    locked: 0

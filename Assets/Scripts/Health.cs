@@ -1,5 +1,4 @@
 using System;
-using System.Linq;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -19,7 +18,10 @@ public class Health : MonoBehaviour
     [SerializeField]
     private float _maxHealth = 100f;
 
-    public Color healthColor;
+    private void Start()
+    {
+        SetHealth(_maxHealth);
+    }
 
     public float GetHealth()
     {
@@ -28,20 +30,20 @@ public class Health : MonoBehaviour
 
     public void SetHealth(float health)
     {
-        _currentHealth = Math.Min(health, 100f);
+        _currentHealth = Math.Min(health, _maxHealth);
+        _currentHealth = Mathf.Clamp(_currentHealth, 0f, _maxHealth);
         UpdateHealthBar();
     }
 
     public void ReduceHealth(float damage)
     {
-        _currentHealth -= damage;
-        UpdateHealthBar();
+        SetHealth(_currentHealth - damage);
 
         if (_currentHealth <= 0)
         {
             if (gameObject.CompareTag("Player2"))
             {
-                FindObjectOfType<EnemySpawner>().OnPlayer2Died();
+                FindObjectOfType<EnemySpawner>().OnEnemyTargetDestroyed(gameObject);
             }
             Destroy(gameObject);
         }
@@ -50,10 +52,6 @@ public class Health : MonoBehaviour
     private void UpdateHealthBar()
     {
         _healthBarSlider.value = _currentHealth / _maxHealth;
-        //r = Mathf.Lerp(255f, 0f, _currentHealth / _maxHealth);
-        //g = Mathf.Lerp(0f, 255f, _currentHealth / _maxHealth);
-        healthColor = Color.Lerp(Color.red, Color.green, _currentHealth/_maxHealth);
-        _healthBarColor.color = healthColor;
-        //Debug.Log("Color: R: " + r + "| G: " + g);
+        _healthBarColor.color = Color.Lerp(Color.red, Color.green, _currentHealth / _maxHealth); ;
     }
 }

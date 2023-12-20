@@ -11,19 +11,19 @@ public class Interactor : MonoBehaviour
     [SerializeField]
     private InputActionReference _interactAction;
 
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
     // Update is called once per frame
     void Update()
     {
-        if (_interactAction.action.IsPressed() && _isInteractableWithinRange && _interactableWithinRange != null)
+        if (_isInteractableWithinRange && _interactableWithinRange != null)
         {
-            //Debug.Log("Interacting with interactable.");
-            _interactableWithinRange.Interact();
+            if (_interactAction.action.IsPressed())
+            {
+                //_interactableWithinRange.HideInteractMsg();
+                _interactableWithinRange.Interact();
+            } else
+            {
+                _interactableWithinRange.DisplayInteractMsg();
+            }
         }
     }
 
@@ -31,7 +31,7 @@ public class Interactor : MonoBehaviour
     {
         if (collision != null && collision.gameObject.GetComponent<IInteractable>() != null)
         {
-            Debug.Log("Collided with an interactable.");
+            //Debug.Log("Collided with an interactable.");
             _isInteractableWithinRange = true;
             _interactableWithinRange = collision.gameObject.GetComponent<IInteractable>();
         }
@@ -41,7 +41,8 @@ public class Interactor : MonoBehaviour
     {
         if (collision != null && collision.gameObject.GetComponent<IInteractable>() != null)
         {
-            Debug.Log("Exited collider of interactable.");
+            //Debug.Log("Exited collider of interactable.");
+            _interactableWithinRange.HideInteractMsg();
             _isInteractableWithinRange = false;
             _interactableWithinRange = null;
         }

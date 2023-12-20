@@ -66,8 +66,8 @@ public class EnemySpawner : MonoBehaviour
         _currentSpawnDelay = Mathf.Lerp(_maxSpawnDelay, _minSpawnDelay, (_timeElapsedSinceStart / _timeFromMaxToMin));
     }
 
-    public void OnPlayer2Died()
+    public void OnEnemyTargetDestroyed(GameObject destroyedTarget)
     {
-        _enemyTargets.Remove(player2);
+        _enemyTargets.Remove(destroyedTarget);
     }
 }

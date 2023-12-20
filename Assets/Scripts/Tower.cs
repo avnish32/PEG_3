@@ -13,6 +13,8 @@ public class Tower : MonoBehaviour
 
     private void OnDestroy()
     {
+        FindObjectOfType<EnemySpawner>().OnEnemyTargetDestroyed(gameObject);
+
         if ( _buttonForThisTower != null )
         {
             Destroy(_buttonForThisTower.gameObject);

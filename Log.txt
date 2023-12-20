@@ -28,3 +28,8 @@ https://docs.unity3d.com/ScriptReference/Mathf.Lerp.html
 No References.
 
 20 Dec - Added health bar that changes color based on value.
+20 Dec - Added interact msg when player goes near.
+References:
+https://docs.unity3d.com/ScriptReference/Color.Lerp.html
+https://www.youtube.com/watch?v=_lREXfAMUcE
+https://docs.unity3d.com/550/Documentation/Manual/HOWTO-UICreateFromScripting.html

@@ -46,7 +46,7 @@ public class Player2Health : Health
         //Debug.Log("P2 health triggered.");
         if (collision != null && collision.gameObject.CompareTag("Player1"))
         {
-            Debug.Log("This gameobject is now in P1's replenish range.");
+            //Debug.Log("This gameobject is now in P1's replenish range.");
             _isInHealthRefillRange = true;
         }
     }
@@ -55,7 +55,7 @@ public class Player2Health : Health
     {
         if (collision != null && collision.gameObject.CompareTag("Player1"))
         {
-            Debug.Log("This gameobject is not in P1's replenish range anymore.");
+            //Debug.Log("This gameobject is not in P1's replenish range anymore.");
             _isInHealthRefillRange = false;
         }
     }
