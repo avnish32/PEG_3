@@ -13,7 +13,12 @@ public class Tower : MonoBehaviour
 
     private void OnDestroy()
     {
-        FindObjectOfType<EnemySpawner>().OnEnemyTargetDestroyed(gameObject);
+        EnemySpawner enemySpawner = FindObjectOfType<EnemySpawner>();
+        if (enemySpawner != null)
+        {
+            enemySpawner.OnEnemyTargetDestroyed(gameObject);
+        }
+            
 
         if ( _buttonForThisTower != null )
         {

@@ -29,4 +29,9 @@ public class ControlledMovement : MonoBehaviour
         _movementInput = inputValue.Get<Vector2>();
         //Debug.Log("Input value from system: " + _movementInput);
     }
+
+    private void OnDeath()
+    {
+        this.enabled = false;
+    }
 }

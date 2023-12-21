@@ -14,16 +14,19 @@ public class Interactor : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (_isInteractableWithinRange && _interactableWithinRange != null)
+        if (!_isInteractableWithinRange || _interactableWithinRange == null)
         {
-            if (_interactAction.action.IsPressed())
-            {
-                //_interactableWithinRange.HideInteractMsg();
-                _interactableWithinRange.Interact();
-            } else
-            {
-                _interactableWithinRange.DisplayInteractMsg();
-            }
+            return;
+        }
+        
+        
+        if (_interactAction.action.IsPressed())
+        {
+            //_interactableWithinRange.HideInteractMsg();
+            //_interactableWithinRange.Interact();
+        } else
+        {
+            _interactableWithinRange.DisplayInteractMsg();
         }
     }
 
@@ -46,5 +49,10 @@ public class Interactor : MonoBehaviour
             _isInteractableWithinRange = false;
             _interactableWithinRange = null;
         }
+    }
+
+    private void OnDeath()
+    {
+        this.enabled = false;
     }
 }

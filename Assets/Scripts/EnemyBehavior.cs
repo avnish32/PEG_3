@@ -5,10 +5,13 @@ using UnityEngine.AI;
 
 public class EnemyBehavior : MonoBehaviour
 {
+    public enum BulletSpawnPt
+    {
+        UP, DOWN, LEFT, RIGHT
+    };
+
     private Transform _target;
     private NavMeshAgent _navMeshAgent;
-    private Rigidbody2D _rb;
-    private SpriteRenderer _spriteRenderer;
     private bool _isShooting = false;
     private bool _isPlayerWithinShootingRange = false;
     private Transform _player2;
@@ -16,22 +19,21 @@ public class EnemyBehavior : MonoBehaviour
     [SerializeField]
     private GameObject _bullet;
     [SerializeField]
-    private Transform _bulletSpawnPt;
+    private Transform _bulletSpawnPtLeft;
+    [SerializeField]
+    private Transform _bulletSpawnPtRight;
+    [SerializeField]
+    private Transform _bulletSpawnPtUp;
+    [SerializeField]
+    private Transform _bulletSpawnPtDown;
+    [SerializeField]
+    private Transform _currentBulletSpawnPt;
 
-    [SerializeField]
-    private Sprite down;
-    [SerializeField]
-    private Sprite up;
-    [SerializeField]
-    private Sprite left;
-    [SerializeField]
-    private Sprite right;
+    private Vector2 _lookAtDir;
 
     // Start is called before the first frame update
     private void Awake()
     {
-        _rb = GetComponent<Rigidbody2D>();
-        _spriteRenderer = GetComponent<SpriteRenderer>();
         _navMeshAgent = GetComponent<NavMeshAgent>();
     }
     void Start()
@@ -39,9 +41,7 @@ public class EnemyBehavior : MonoBehaviour
         _navMeshAgent.updateRotation = false;
         _navMeshAgent.updateUpAxis = false;
 
-        /*GameObject[] targets = GameObject.FindGameObjectsWithTag("EnemyTarget");
-        _target = targets[Random.Range(0, targets.Length)].transform;*/
-        //_navMeshAgent.SetDestination(_target.position);
+        _currentBulletSpawnPt = _bulletSpawnPtDown;
 
     }
 
@@ -93,13 +93,13 @@ public class EnemyBehavior : MonoBehaviour
 
     private void RotateTowardsTarget(Transform target)
     {
-        Vector2 lookAtDir = target.position - transform.position;
-        float lookAtAngleRadians = Mathf.Atan2(lookAtDir.y, lookAtDir.x);
+        _lookAtDir = target.position - transform.position;
+        float lookAtAngleRadians = Mathf.Atan2(_lookAtDir.y, _lookAtDir.x);
         float lookAtAngleDegrees = (lookAtAngleRadians * Mathf.Rad2Deg) - 90f;
-        _rb.rotation = lookAtAngleDegrees;
+        _currentBulletSpawnPt.rotation = Quaternion.Euler(0f, 0f, lookAtAngleDegrees);
 
         
-        //TODO make all sprites face down like player. Until then, commented this block.
+        //Sprites controlled using animation now. Still left this here for ref.
         /*if (lookAtAngleDegrees < -45f || lookAtAngleDegrees >= 225f)
         {
             _spriteRenderer.sprite = right;
@@ -120,7 +120,7 @@ public class EnemyBehavior : MonoBehaviour
 
     private void Shoot()
     {
-        Instantiate(_bullet, _bulletSpawnPt.position, _bulletSpawnPt.rotation);
+        Instantiate(_bullet, _currentBulletSpawnPt.position, _currentBulletSpawnPt.rotation);
     }
 
     public void OnTriggerEnter2D(Collider2D collision)
@@ -136,8 +136,6 @@ public class EnemyBehavior : MonoBehaviour
             {
                 _player2 = otherObject.transform;
             }
-            /*RotateTowardsTarget(otherObject.transform);
-            TriggerShooting();*/
         }
     }
 
@@ -148,22 +146,43 @@ public class EnemyBehavior : MonoBehaviour
         if (otherObject != null && otherObject.CompareTag("Player2") && otherObject != _target.gameObject)
         {
             Debug.Log("OnTriggerExit2D fired.");
-            _isPlayerWithinShootingRange = false;
-            /*if (_target != null)
-            {
-                RotateTowardsTarget(_target);
-                TriggerShooting();
-            } else
-            {
-                FindNewTarget();
-            }*/
-            
+            _isPlayerWithinShootingRange = false;            
         }
+    }
+
+    private void OnDeath()
+    {
+        this.enabled = false;
+        CancelInvoke("Shoot");
     }
 
     public void SetTarget(Transform target)
     {
         _target = target;
         _navMeshAgent.SetDestination(_target.position);
+    }
+
+    public void SetBulletSpawnPt(BulletSpawnPt bulletSpawnPt)
+    {
+        switch(bulletSpawnPt)
+        {
+            case BulletSpawnPt.UP:
+                _currentBulletSpawnPt = _bulletSpawnPtUp;
+                break;
+            case BulletSpawnPt.RIGHT:
+                _currentBulletSpawnPt = _bulletSpawnPtRight;
+                break;
+            case BulletSpawnPt.LEFT:
+                _currentBulletSpawnPt = _bulletSpawnPtLeft;
+                break;
+            default:
+                _currentBulletSpawnPt = _bulletSpawnPtDown;
+                break;
+        }
+    }
+
+    public Vector2 GetLookAtDir()
+    {
+        return _lookAtDir;
     }
 }

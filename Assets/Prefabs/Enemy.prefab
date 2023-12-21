@@ -1,5 +1,36 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!1 &828078689798490470
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 4810510205990241612}
+  m_Layer: 9
+  m_Name: BulletSpawnPt_Right
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4810510205990241612
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 828078689798490470}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0.303, y: -0.599, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 2246610549728741876}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &3521464968909104972
 GameObject:
   m_ObjectHideFlags: 0
@@ -16,6 +47,8 @@ GameObject:
   - component: {fileID: 1743096852802346703}
   - component: {fileID: 1351391745376090635}
   - component: {fileID: 7678363143732807723}
+  - component: {fileID: 3537008625274427336}
+  - component: {fileID: 1994674595444436837}
   m_Layer: 9
   m_Name: Enemy
   m_TagString: Untagged
@@ -37,6 +70,9 @@ Transform:
   m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 2822072398841475803}
+  - {fileID: 4810510205990241612}
+  - {fileID: 7490697644356595334}
+  - {fileID: 995846198189467636}
   - {fileID: 7371220304341302815}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -78,9 +114,9 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingLayerID: 1495818199
+  m_SortingLayer: 1
+  m_SortingOrder: 50
   m_Sprite: {fileID: 21300000, guid: 0710756c92cc4b4faf0379f770d3e51f, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -154,11 +190,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _bullet: {fileID: 1401554614191076990, guid: 3a12be69d77225f469795250bb35e10d, type: 3}
-  _bulletSpawnPt: {fileID: 2822072398841475803}
-  down: {fileID: 21300000, guid: 68a9250c25b74858a9ca9223a9627ffe, type: 3}
-  up: {fileID: 21300000, guid: 0710756c92cc4b4faf0379f770d3e51f, type: 3}
-  left: {fileID: 21300000, guid: 9d2ce67ec203477a9729523a164ec653, type: 3}
-  right: {fileID: 21300000, guid: 9d2ce67ec203477a9729523a164ec653, type: 3}
+  _bulletSpawnPtLeft: {fileID: 2822072398841475803}
+  _bulletSpawnPtRight: {fileID: 4810510205990241612}
+  _bulletSpawnPtUp: {fileID: 7490697644356595334}
+  _bulletSpawnPtDown: {fileID: 995846198189467636}
+  _currentBulletSpawnPt: {fileID: 0}
 --- !u!61 &1743096852802346703
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -191,7 +227,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: 0.030607224, y: -0.25505984}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -202,7 +238,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 3.6, y: 3}
+  m_Size: {x: 1.7431641, y: 2.204213}
   m_EdgeRadius: 0
 --- !u!114 &1351391745376090635
 MonoBehaviour:
@@ -220,6 +256,7 @@ MonoBehaviour:
   _healthBarSlider: {fileID: 7996294834201831004}
   _healthBarColor: {fileID: 7559482685329528826}
   _maxHealth: 25
+  _deathAnimationLength: 3
 --- !u!58 &7678363143732807723
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -255,6 +292,39 @@ CircleCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Radius: 5
+--- !u!95 &3537008625274427336
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3521464968909104972}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 1c2559afa1ffeae408d5aabb337f448e, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &1994674595444436837
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3521464968909104972}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8f7ebaa205633fd47b60550771d5fdca, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &4185368822364649667
 GameObject:
   m_ObjectHideFlags: 0
@@ -265,7 +335,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2822072398841475803}
   m_Layer: 9
-  m_Name: BulletSpawnPt
+  m_Name: BulletSpawnPt_Left
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -280,7 +350,69 @@ Transform:
   m_GameObject: {fileID: 4185368822364649667}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: -0.426, y: -0.599, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 2246610549728741876}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &5494522105786069528
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 995846198189467636}
+  m_Layer: 9
+  m_Name: BulletSpawnPt_Down
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &995846198189467636
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5494522105786069528}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: -1.28, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 2246610549728741876}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &8358714931914895534
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 7490697644356595334}
+  m_Layer: 9
+  m_Name: BulletSpawnPt_Up
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &7490697644356595334
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8358714931914895534}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: -0.14, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -385,6 +517,10 @@ PrefabInstance:
     - target: {fileID: 5717597601165592575, guid: 9a1271d098afa2546bfd6193dcb1eb10, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8303717848769638587, guid: 9a1271d098afa2546bfd6193dcb1eb10, type: 3}
+      propertyPath: m_SortingOrder
+      value: 100
       objectReference: {fileID: 0}
     - target: {fileID: 8303717848769638587, guid: 9a1271d098afa2546bfd6193dcb1eb10, type: 3}
       propertyPath: m_SortingLayerID

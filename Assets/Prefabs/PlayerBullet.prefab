@@ -24,6 +24,18 @@ PrefabInstance:
       propertyPath: m_Color.r
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 3721507563173624100, guid: 6505ea5743d78b14a82c0a8ae63a505f, type: 3}
+      propertyPath: m_SortingLayer
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 3721507563173624100, guid: 6505ea5743d78b14a82c0a8ae63a505f, type: 3}
+      propertyPath: m_SortingOrder
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3721507563173624100, guid: 6505ea5743d78b14a82c0a8ae63a505f, type: 3}
+      propertyPath: m_SortingLayerID
+      value: -1191676993
+      objectReference: {fileID: 0}
     - target: {fileID: 4769012967936176285, guid: 6505ea5743d78b14a82c0a8ae63a505f, type: 3}
       propertyPath: m_UseFullKinematicContacts
       value: 1

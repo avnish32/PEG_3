@@ -18,6 +18,9 @@ public class Health : MonoBehaviour
     [SerializeField]
     private float _maxHealth = 100f;
 
+    [SerializeField]
+    private float _deathAnimationLength = 0f;
+
     private void Start()
     {
         SetHealth(_maxHealth);
@@ -39,13 +42,13 @@ public class Health : MonoBehaviour
     {
         SetHealth(_currentHealth - damage);
 
-        if (_currentHealth <= 0)
+        if (_currentHealth == 0)
         {
             if (gameObject.CompareTag("Player2"))
             {
                 FindObjectOfType<EnemySpawner>().OnEnemyTargetDestroyed(gameObject);
             }
-            Destroy(gameObject);
+            BroadcastMessage("OnDeath");
         }
     }
 
@@ -53,5 +56,18 @@ public class Health : MonoBehaviour
     {
         _healthBarSlider.value = _currentHealth / _maxHealth;
         _healthBarColor.color = Color.Lerp(Color.red, Color.green, _currentHealth / _maxHealth); ;
+    }
+
+    private void OnDeath()
+    {
+        Destroy(_healthBarSlider.gameObject);
+        Animator animator = GetComponent<Animator>();
+
+        if (animator != null)
+        {
+            animator.Play("Death");
+        }
+
+        Destroy(gameObject, _deathAnimationLength);
     }
 }

@@ -12,6 +12,18 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 7
       objectReference: {fileID: 0}
+    - target: {fileID: 3721507563173624100, guid: 6505ea5743d78b14a82c0a8ae63a505f, type: 3}
+      propertyPath: m_SortingLayer
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3721507563173624100, guid: 6505ea5743d78b14a82c0a8ae63a505f, type: 3}
+      propertyPath: m_SortingOrder
+      value: 25
+      objectReference: {fileID: 0}
+    - target: {fileID: 3721507563173624100, guid: 6505ea5743d78b14a82c0a8ae63a505f, type: 3}
+      propertyPath: m_SortingLayerID
+      value: 1495818199
+      objectReference: {fileID: 0}
     - target: {fileID: 5184762404069858944, guid: 6505ea5743d78b14a82c0a8ae63a505f, type: 3}
       propertyPath: m_Name
       value: EnemyBullet
@@ -20,13 +32,17 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 7
       objectReference: {fileID: 0}
+    - target: {fileID: 6716468631590897576, guid: 6505ea5743d78b14a82c0a8ae63a505f, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.028
+      objectReference: {fileID: 0}
     - target: {fileID: 7780929705704316465, guid: 6505ea5743d78b14a82c0a8ae63a505f, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0
+      value: -3.055468
       objectReference: {fileID: 0}
     - target: {fileID: 7780929705704316465, guid: 6505ea5743d78b14a82c0a8ae63a505f, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0
+      value: -3.9545844
       objectReference: {fileID: 0}
     - target: {fileID: 7780929705704316465, guid: 6505ea5743d78b14a82c0a8ae63a505f, type: 3}
       propertyPath: m_LocalPosition.z

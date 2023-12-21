@@ -77,9 +77,9 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
-  m_SortingOrder: 10
+  m_SortingLayerID: -1191676993
+  m_SortingLayer: 2
+  m_SortingOrder: 50
   m_Sprite: {fileID: 21300000, guid: 5c757809bf9d429ba7779a34713e82e7, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -232,7 +232,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _currentHealth: 100
-  _healthBar: {fileID: 6573868424872555970}
+  _healthBarSlider: {fileID: 0}
+  _healthBarColor: {fileID: 0}
+  _maxHealth: 100
   _healthRefillRate: 10
   _healthDepletionRate: 5
   _healthRefillRadius: 2
@@ -336,6 +338,10 @@ PrefabInstance:
       propertyPath: m_AnchorMax.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8303717848769638587, guid: 9a1271d098afa2546bfd6193dcb1eb10, type: 3}
+      propertyPath: m_SortingLayerID
+      value: -1191676993
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -346,14 +352,3 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 2713442221430003882, guid: 9a1271d098afa2546bfd6193dcb1eb10, type: 3}
   m_PrefabInstance: {fileID: 8511902065629492523}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &6573868424872555970 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 3250274380234424553, guid: 9a1271d098afa2546bfd6193dcb1eb10, type: 3}
-  m_PrefabInstance: {fileID: 8511902065629492523}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 67db9e8f0e2ae9c40bc1e2b64352a6b4, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
