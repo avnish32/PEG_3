@@ -72,4 +72,9 @@ public class Player2Animator : MonoBehaviour
                 break;
         }
     }
+
+    private void OnDeath()
+    {
+        this.enabled = false;
+    }
 }

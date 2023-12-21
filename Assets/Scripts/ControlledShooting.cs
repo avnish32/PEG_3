@@ -37,4 +37,9 @@ public class ControlledShooting : MonoBehaviour
         }
         
     }
+
+    private void OnDeath()
+    {
+        CancelInvoke();
+    }
 }

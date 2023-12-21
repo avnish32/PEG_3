@@ -725,6 +725,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 5019717006544369266, guid: 38ad1af7c74edbb4b9905936e3526193, type: 3}
       insertIndex: -1
       addedObject: {fileID: 962981168}
+    - targetCorrespondingSourceObject: {fileID: 5019717006544369266, guid: 38ad1af7c74edbb4b9905936e3526193, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 962981174}
   m_SourcePrefab: {fileID: 100100000, guid: 38ad1af7c74edbb4b9905936e3526193, type: 3}
 --- !u!1 &420393229
 GameObject:
@@ -1390,6 +1393,27 @@ CircleCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Radius: 2
+--- !u!95 &962981174
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 962981161}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: a41389a3f046bd142ac5a7fe8111e7b9, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &995307649
 GameObject:
   m_ObjectHideFlags: 0

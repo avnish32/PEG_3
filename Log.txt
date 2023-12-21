@@ -37,6 +37,7 @@ https://docs.unity3d.com/550/Documentation/Manual/HOWTO-UICreateFromScripting.ht
 
 21 Dec - Added animations to P2 and enemies.
 21 Dec - Adjusted bullet spawn points of enemies based on their direction.
+21 Dec - Added death animations and handled OnDeath events.
 References:
 https://www.youtube.com/watch?v=oebtkjwjkcs
 https://www.youtube.com/watch?v=S3ys0jCUE9s

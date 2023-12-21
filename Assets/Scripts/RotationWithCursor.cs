@@ -76,4 +76,9 @@ public class RotationWithCursor : MonoBehaviour
             //Debug.Log("P1 rotation: " + rotationInDegrees);
         }
     }
+
+    private void OnDeath()
+    {
+        this.enabled = false;
+    }
 }

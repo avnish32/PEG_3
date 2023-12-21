@@ -68,6 +68,7 @@ public class Health : MonoBehaviour
             animator.Play("Death");
         }
 
+        this.enabled = false;
         Destroy(gameObject, _deathAnimationLength);
     }
 }

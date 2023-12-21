@@ -27,12 +27,17 @@ public class Teleporter : MonoBehaviour
     }
     private void TeleportToTower(Towers destinationTower)
     {
-        if (_currentTower == destinationTower)
+        if (!this.enabled || _currentTower == destinationTower)
             return;
 
         Vector3 destinationPosition = _towerToLocationMap[destinationTower];
         transform.position = destinationPosition;
         _currentTower = destinationTower;
+    }
+
+    private void OnDeath()
+    {
+        this.enabled = false;
     }
 
     public void TeleportToTower1()

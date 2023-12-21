@@ -32,6 +32,7 @@ public class ControlledMovement : MonoBehaviour
 
     private void OnDeath()
     {
+        _rb.velocity = Vector2.zero;
         this.enabled = false;
     }
 }

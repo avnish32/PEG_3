@@ -28,7 +28,9 @@ public class Tower : MonoBehaviour
         GameObject player1 = GameObject.FindGameObjectWithTag("Player1");
         if (player1 != null && player1.GetComponent<Teleporter>().GetCurrentTower() == _thisTower)
         {
-            Destroy(player1);
+            player1.BroadcastMessage("OnDeath");
+            player1.GetComponent<Animator>().Play("Death");
+            Destroy(player1, 3f);
         }
     }
 }

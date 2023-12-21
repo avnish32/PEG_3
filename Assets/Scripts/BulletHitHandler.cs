@@ -13,7 +13,7 @@ public class BulletHitHandler : MonoBehaviour
     private void OnCollisionEnter2D(Collision2D collision)
     {
         Health otherObjectHealth = collision.gameObject.GetComponent<Health>();
-        if (otherObjectHealth != null)
+        if (otherObjectHealth != null && otherObjectHealth.enabled)
         {
             otherObjectHealth.ReduceHealth(damage);
         }
