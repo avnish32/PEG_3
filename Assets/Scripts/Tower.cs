@@ -35,7 +35,12 @@ public class Tower : MonoBehaviour
         if (player1 != null && player1.GetComponent<Teleporter>().GetCurrentTower() == _thisTower)
         {
             player1.BroadcastMessage("OnDeath");
-            player1.GetComponent<Animator>().Play("Death");
+            Animator p1Animator = player1.GetComponent<Animator>();
+            if (p1Animator != null)
+            {
+                p1Animator.enabled = true;
+                p1Animator.Play("Death");
+            }
             Destroy(player1, 3f);
         }
     }

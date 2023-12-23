@@ -180,7 +180,8 @@ MonoBehaviour:
   _currentHealth: 100
   _healthBarSlider: {fileID: 5370004770628539371}
   _healthBarColor: {fileID: 5518651554017305165}
-  _maxHealth: 100
+  _maxHealth: 50
+  _deathAnimationLength: 0
 --- !u!114 &6580795016148218465
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -340,11 +341,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2713442221430003882, guid: 9a1271d098afa2546bfd6193dcb1eb10, type: 3}
       propertyPath: m_SizeDelta.x
-      value: 1172
+      value: 640
       objectReference: {fileID: 0}
     - target: {fileID: 2713442221430003882, guid: 9a1271d098afa2546bfd6193dcb1eb10, type: 3}
       propertyPath: m_SizeDelta.y
-      value: 655
+      value: 480
       objectReference: {fileID: 0}
     - target: {fileID: 2713442221430003882, guid: 9a1271d098afa2546bfd6193dcb1eb10, type: 3}
       propertyPath: m_LocalPosition.x

@@ -66,7 +66,7 @@ public class Health : MonoBehaviour
         if (animator != null)
         {
             animator.Play("Death");
-        }
+        } 
 
         this.enabled = false;
         Destroy(gameObject, _deathAnimationLength);

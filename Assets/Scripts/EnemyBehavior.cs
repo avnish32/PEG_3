@@ -51,13 +51,13 @@ public class EnemyBehavior : MonoBehaviour
         if (LevelController.isGamePaused)
             return;
 
-        if (_target == null)
+        if (_target == null || !_target.GetComponent<Health>().enabled)
         {
             FindNewTarget();
         }
         _navMeshAgent.SetDestination(_target.position);
         //Debug.Log("remaining dist: " + navMeshAgent.remainingDistance);
-        if (_isPlayerWithinShootingRange)
+        if (_isPlayerWithinShootingRange && _player2.GetComponent<Health>().enabled)
         {
             RotateTowardsTarget(_player2);
             TriggerShooting();

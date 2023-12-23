@@ -44,3 +44,8 @@ https://www.youtube.com/watch?v=S3ys0jCUE9s
 
 23 Dec - Added time to last.
 23 Dec - Paused the game when players/enemy win.
+23 Dec - Added level bounds.
+23 Dec - Fixed bug where P2 couldn't move through enemy while their death animation played.
+23 Dec - Fixed bug where enemy keeps shooting while player death animation plays.
+23 Dec - Fixed bug where Player 1 animator was not letting script change sprites with rotation.
+No references.
