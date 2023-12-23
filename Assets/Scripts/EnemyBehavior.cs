@@ -48,6 +48,9 @@ public class EnemyBehavior : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (LevelController.isGamePaused)
+            return;
+
         if (_target == null)
         {
             FindNewTarget();
@@ -141,9 +144,8 @@ public class EnemyBehavior : MonoBehaviour
 
     private void OnTriggerExit2D(Collider2D collision)
     {
-        
         GameObject otherObject = collision.gameObject;
-        if (otherObject != null && otherObject.CompareTag("Player2") && otherObject != _target.gameObject)
+        if (otherObject != null && otherObject.CompareTag("Player2") && _target!=null && otherObject != _target.gameObject)
         {
             Debug.Log("OnTriggerExit2D fired.");
             _isPlayerWithinShootingRange = false;            
@@ -153,6 +155,11 @@ public class EnemyBehavior : MonoBehaviour
     private void OnDeath()
     {
         this.enabled = false;
+        BoxCollider2D enemyBoxCollider = GetComponent<BoxCollider2D>();
+        if (enemyBoxCollider != null)
+        {
+            enemyBoxCollider.enabled = false;
+        }
         CancelInvoke("Shoot");
     }
 

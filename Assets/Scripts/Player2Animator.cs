@@ -29,6 +29,11 @@ public class Player2Animator : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (LevelController.isGamePaused)
+        {
+            return;
+        }
+
         if (_movementInput != Vector2.zero)
         {
             SetState(PlayerState.WALKING);

@@ -41,3 +41,6 @@ https://docs.unity3d.com/550/Documentation/Manual/HOWTO-UICreateFromScripting.ht
 References:
 https://www.youtube.com/watch?v=oebtkjwjkcs
 https://www.youtube.com/watch?v=S3ys0jCUE9s
+
+23 Dec - Added time to last.
+23 Dec - Paused the game when players/enemy win.

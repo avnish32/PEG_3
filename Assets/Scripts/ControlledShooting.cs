@@ -31,6 +31,11 @@ public class ControlledShooting : MonoBehaviour
 
     void CheckAndShoot()
     {
+        if (LevelController.isGamePaused)
+        {
+            return;
+        }
+
         if (playerFire.action.IsPressed())
         {
             Instantiate(bullet, bulletSpawnPt.position, bulletSpawnPt.rotation);

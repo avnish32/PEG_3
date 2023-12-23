@@ -18,6 +18,12 @@ public class Tower : MonoBehaviour
         {
             enemySpawner.OnEnemyTargetDestroyed(gameObject);
         }
+
+        LevelController levelController = FindObjectOfType<LevelController>();
+        if (levelController != null)
+        {
+            levelController.OnTowerDeath();
+        }
             
 
         if ( _buttonForThisTower != null )

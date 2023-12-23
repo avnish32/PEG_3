@@ -23,7 +23,7 @@ public class Interactor : MonoBehaviour
         if (_interactAction.action.IsPressed())
         {
             //_interactableWithinRange.HideInteractMsg();
-            //_interactableWithinRange.Interact();
+            _interactableWithinRange.Interact();
         } else
         {
             _interactableWithinRange.DisplayInteractMsg();

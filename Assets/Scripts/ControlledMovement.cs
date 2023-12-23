@@ -18,6 +18,11 @@ public class ControlledMovement : MonoBehaviour
 
     private void FixedUpdate()
     {
+        if (LevelController.isGamePaused)
+        {
+            return;
+        }
+
         _rb.velocity = _movementInput * _movementSpeed;
         /*float xMovement = _movementInput.x * _movementSpeed * Time.deltaTime;
         float yMovement = _movementInput.y * _movementSpeed * Time.deltaTime;
