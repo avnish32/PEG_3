@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 using UnityEngine.Events;
+using UnityEngine.SceneManagement;
 
 public class LevelController : MonoBehaviour
 {
@@ -28,15 +29,16 @@ public class LevelController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        
         minutes = _timeToLast / 60;
         seconds = _timeToLast % 60;
         UpdateTimerText();
 
-        isGamePaused = false;
-        _pauseMenuPanel.gameObject.SetActive(false);
+        ResumeGame();
         //Debug.Log("In game menu disabled from levelController.");
 
         InvokeRepeating("UpdateTimeToLast", 0f, 1f);
+        //Debug.Log("LevelController start.");
     }
 
     private void Update()
@@ -60,28 +62,9 @@ public class LevelController : MonoBehaviour
     private void RestartLevel()
     {
         Debug.Log("Level restarting.");
-    }
-
-    public void ResumeGame()
-    {
-        Debug.Log("Resume game called.");
-        isGamePaused = false;
-        Time.timeScale = 1;
-        _pauseMenuPanel.gameObject.SetActive(false);
-    }
-
-    public void PauseGame()
-    {
-        isGamePaused = true;
-        Time.timeScale = 0;
-
-        _pauseMenuPanel.SetHeadingText("Game paused");
-        Debug.Log("Resume game added to onclick listeners.");
-        _pauseMenuPanel.SetResumeRestartButton(delegate { ResumeGame(); }, "Resume");
-        _pauseMenuPanel.gameObject.SetActive(true);
-    }
-
-    
+        //ResumeGame();
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+    }    
 
     private void TogglePause()
     {
@@ -126,13 +109,17 @@ public class LevelController : MonoBehaviour
         isGamePaused = true;
         Time.timeScale = 0;
 
-        _pauseMenuPanel.SetHeadingText("Enemies won");
-        _pauseMenuPanel.SetResumeRestartButton(delegate { RestartLevel(); }, "Restart");
-        _pauseMenuPanel.gameObject.SetActive(true);
+        if (_pauseMenuPanel != null)
+        {
+            _pauseMenuPanel.SetHeadingText("Enemies won");
+            _pauseMenuPanel.SetResumeRestartButton(delegate { RestartLevel(); }, "Restart");
+            _pauseMenuPanel.gameObject.SetActive(true);
+        }
     }
 
     public void OnTowerDeath()
     {
+        Debug.Log("On tower death called");
         --_numberOfTowersLeft;
 
         if (_numberOfTowersLeft == 0)
@@ -142,4 +129,32 @@ public class LevelController : MonoBehaviour
         }
     }
 
+    public void ResumeGame()
+    {
+        Debug.Log("Resume game called.");
+        isGamePaused = false;
+        Time.timeScale = 1;
+        _pauseMenuPanel.gameObject.SetActive(false);
+    }
+
+    public void PauseGame()
+    {
+        isGamePaused = true;
+        Time.timeScale = 0;
+
+        _pauseMenuPanel.SetHeadingText("Game paused");
+        Debug.Log("Resume game added to onclick listeners.");
+        _pauseMenuPanel.SetResumeRestartButton(delegate { ResumeGame(); }, "Resume");
+        _pauseMenuPanel.gameObject.SetActive(true);
+    }
+
+    public void LoadLevel(string levelName)
+    {
+        SceneManager.LoadScene(levelName);
+    }
+
+    public void QuitGame()
+    {
+        Application.Quit();
+    }
 }

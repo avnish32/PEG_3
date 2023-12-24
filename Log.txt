@@ -53,5 +53,6 @@ No references.
 24 Dec - Added tilemap to the level.
 24 Dec - Improved enemy spawning to look better with the tilemap. Now it looks like they are entering through one of the 4 gates.
 24 Dec - Added pause and level end menus.
+24 Dec - Added main menu.
 References:
 https://learn.unity.com/tutorial/introduction-to-tilemaps

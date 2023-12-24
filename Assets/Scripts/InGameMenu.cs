@@ -26,7 +26,7 @@ public class InGameMenu : MonoBehaviour
     public void SetResumeRestartButton(UnityAction buttonBehavior, string buttonText)
     {
         _resumeRestartButton.onClick.RemoveAllListeners();
-        Debug.Log(buttonBehavior + " added to onclick listeners.");
+        
         _resumeRestartButton.onClick.AddListener(()=> { buttonBehavior.Invoke(); });
         _resumeRestartButtonText.text = buttonText;
     }
