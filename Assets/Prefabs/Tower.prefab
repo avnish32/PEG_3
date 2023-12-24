@@ -196,6 +196,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _buttonForThisTower: {fileID: 0}
   _thisTower: 0
+  _explosionEffect: {fileID: 1046623303800713772, guid: cdc8c798f05338a4c8583a3884a0df94, type: 3}
 --- !u!1001 &2943171041357149728
 PrefabInstance:
   m_ObjectHideFlags: 0

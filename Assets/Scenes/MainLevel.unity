@@ -430,6 +430,7 @@ GameObject:
   - component: {fileID: 355848598}
   - component: {fileID: 355848597}
   - component: {fileID: 355848596}
+  - component: {fileID: 355848599}
   m_Layer: 0
   m_Name: Walkable
   m_TagString: Untagged
@@ -565,6 +566,27 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!95 &355848599
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 355848594}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 15e758bb18aad9c438161ec381f54da8, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1001 &401227146
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1217,6 +1239,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3827540283012372282, guid: 0d1334eefcae768499e20947bce5472c, type: 3}
+      propertyPath: m_Navigation.m_Mode
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3827540283012372282, guid: 0d1334eefcae768499e20947bce5472c, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 640412047}
@@ -1251,6 +1277,10 @@ PrefabInstance:
     - target: {fileID: 3904443817094626452, guid: 0d1334eefcae768499e20947bce5472c, type: 3}
       propertyPath: m_Name
       value: Tower Buttons Grid Panel
+      objectReference: {fileID: 0}
+    - target: {fileID: 6341586088356978052, guid: 0d1334eefcae768499e20947bce5472c, type: 3}
+      propertyPath: m_Navigation.m_Mode
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6341586088356978052, guid: 0d1334eefcae768499e20947bce5472c, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
@@ -1338,6 +1368,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6759835054991026893, guid: 0d1334eefcae768499e20947bce5472c, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7075081592824568295, guid: 0d1334eefcae768499e20947bce5472c, type: 3}
+      propertyPath: m_Navigation.m_Mode
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7075081592824568295, guid: 0d1334eefcae768499e20947bce5472c, type: 3}

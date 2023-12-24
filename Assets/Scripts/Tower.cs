@@ -11,8 +11,19 @@ public class Tower : MonoBehaviour
     [SerializeField]
     private Towers _thisTower;
 
+    [SerializeField]
+    private GameObject _explosionEffect;
+
     private void OnDestroy()
     {
+        
+    }
+
+    private void OnDeath()
+    {
+        GameObject towerExplosion = Instantiate(_explosionEffect, transform.position, Quaternion.identity);
+        Destroy(towerExplosion, 3f);
+
         EnemySpawner enemySpawner = FindObjectOfType<EnemySpawner>();
         if (enemySpawner != null)
         {
@@ -24,9 +35,9 @@ public class Tower : MonoBehaviour
         {
             levelController.OnTowerDeath();
         }
-            
 
-        if ( _buttonForThisTower != null )
+
+        if (_buttonForThisTower != null)
         {
             Destroy(_buttonForThisTower.gameObject);
         }
