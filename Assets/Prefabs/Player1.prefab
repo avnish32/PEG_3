@@ -282,11 +282,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _towersInfo:
   - tower: 0
-    towerPosition: {x: -3.73, y: 2.31, z: 0}
+    towerPosition: {x: -4.51, y: 1.97, z: 0}
   - tower: 1
-    towerPosition: {x: 3.9, y: 2.31, z: 0}
+    towerPosition: {x: 4.61, y: 1.97, z: 0}
   - tower: 2
-    towerPosition: {x: -0.02, y: 0.01, z: 0}
+    towerPosition: {x: 0.52, y: -1.93, z: 0}
 --- !u!58 &6530557523564310620
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -330,7 +330,7 @@ Animator:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5019717006544369266}
-  m_Enabled: 1
+  m_Enabled: 0
   m_Avatar: {fileID: 0}
   m_Controller: {fileID: 9100000, guid: a41389a3f046bd142ac5a7fe8111e7b9, type: 2}
   m_CullingMode: 0

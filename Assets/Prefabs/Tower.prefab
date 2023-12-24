@@ -164,7 +164,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _interactMsgObject: {fileID: 468588033265338831}
-  repairSpeed: 10
+  repairSpeed: 5
 --- !u!114 &1250626108847625937
 MonoBehaviour:
   m_ObjectHideFlags: 0

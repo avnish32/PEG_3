@@ -195,7 +195,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.025776625, y: -0.2964326}
+  m_Offset: {x: -0.03084898, y: -0.28227615}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -206,7 +206,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 2.0533943, y: 2.4071348}
+  m_Size: {x: 1.317256, y: 1.7842484}
   m_EdgeRadius: 0
 --- !u!114 &1661523392366629030
 MonoBehaviour:
@@ -238,7 +238,7 @@ MonoBehaviour:
   _healthBarColor: {fileID: 6713517097256944740}
   _maxHealth: 100
   _deathAnimationLength: 3
-  _healthRefillRate: 10
+  _healthRefillRate: 5
   _healthDepletionRate: 5
   _healthRefillRadius: 2
 --- !u!95 &7526597234213439344

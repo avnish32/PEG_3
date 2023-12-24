@@ -76,7 +76,7 @@ public class EnemyBehavior : MonoBehaviour
     {
         if (!_isShooting)
         {
-            InvokeRepeating("Shoot", 0f, 0.5f);
+            InvokeRepeating("Shoot", 0f, 0.25f);
             _isShooting = true;
         }
     }

@@ -49,3 +49,8 @@ https://www.youtube.com/watch?v=S3ys0jCUE9s
 23 Dec - Fixed bug where enemy keeps shooting while player death animation plays.
 23 Dec - Fixed bug where Player 1 animator was not letting script change sprites with rotation.
 No references.
+
+24 Dec - Added tilemap to the level.
+24 Dec - Improved enemy spawning to look better with the tilemap. Now it looks like they are entering through one of the 4 gates.
+References:
+https://learn.unity.com/tutorial/introduction-to-tilemaps
