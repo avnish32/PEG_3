@@ -42,15 +42,21 @@ TagManager:
   - 
   - 
   m_SortingLayers:
-  - name: Default
-    uniqueID: 0
+  - name: Floor
+    uniqueID: 3060132383
     locked: 0
   - name: EnemySprites
     uniqueID: 1495818199
     locked: 0
-  - name: PlayerSprites
-    uniqueID: 3103290303
+  - name: Walls
+    uniqueID: 1558165969
+    locked: 0
+  - name: Default
+    uniqueID: 0
     locked: 0
   - name: TowerSprites
     uniqueID: 773518751
+    locked: 0
+  - name: PlayerSprites
+    uniqueID: 3103290303
     locked: 0
