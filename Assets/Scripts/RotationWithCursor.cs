@@ -43,6 +43,11 @@ public class RotationWithCursor : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (LevelController.isGamePaused)
+        {
+            return;
+        }
+
         Vector2 mousePos = Input.mousePosition;
         Vector2 cursorScreenPos = cam.ScreenToWorldPoint(mousePos);
         Vector2 posDir = cursorScreenPos - rb.position;

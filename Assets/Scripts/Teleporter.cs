@@ -27,7 +27,7 @@ public class Teleporter : MonoBehaviour
     }
     private void TeleportToTower(Towers destinationTower)
     {
-        if (!this.enabled || _currentTower == destinationTower)
+        if (!this.enabled || _currentTower == destinationTower || LevelController.isGamePaused)
             return;
 
         Vector3 destinationPosition = _towerToLocationMap[destinationTower];
