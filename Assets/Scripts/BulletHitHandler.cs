@@ -20,7 +20,7 @@ public class BulletHitHandler : MonoBehaviour
         
         if (hitEffect != null)
         {
-            GameObject newHitEffect = Instantiate(hitEffect, collision.transform.position, Quaternion.identity);
+            GameObject newHitEffect = Instantiate(hitEffect, collision.GetContact(0).point, Quaternion.identity);
             Destroy(newHitEffect, 2f);
         }
         Destroy(gameObject);

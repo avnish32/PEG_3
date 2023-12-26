@@ -114,5 +114,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 26b00f2aa3cf97f47a68774b66c7bb45, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _destroyDistance: 5
+  _destroyDistance: 4
   _spriteRenderer: {fileID: 1844428336002146291}

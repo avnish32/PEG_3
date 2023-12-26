@@ -42,7 +42,6 @@ public class EnemyBehavior : MonoBehaviour
         _navMeshAgent.updateUpAxis = false;
 
         _currentBulletSpawnPt = _bulletSpawnPtDown;
-
     }
 
     // Update is called once per frame
@@ -60,11 +59,13 @@ public class EnemyBehavior : MonoBehaviour
         if (_isPlayerWithinShootingRange && _player2.GetComponent<Health>().enabled)
         {
             RotateTowardsTarget(_player2);
+            //Debug.Log("P1 is within shooting range.");
             TriggerShooting();
-        } else if(_navMeshAgent.remainingDistance <= _navMeshAgent.stoppingDistance)
+        } else if(!_navMeshAgent.pathPending && _navMeshAgent.remainingDistance <= _navMeshAgent.stoppingDistance)
         {
-            //Debug.Log("Enemy Started shooting.");
+            Debug.Log("Nav mesh remaining distance: "+_navMeshAgent.remainingDistance);
             RotateTowardsTarget(_target);
+            
             TriggerShooting();
         } else
         {
@@ -76,6 +77,7 @@ public class EnemyBehavior : MonoBehaviour
     {
         if (!_isShooting)
         {
+            Debug.Log("Trigger shooting called.");
             InvokeRepeating("Shoot", 0f, 0.25f);
             _isShooting = true;
         }
@@ -83,6 +85,10 @@ public class EnemyBehavior : MonoBehaviour
 
     private void FindNewTarget()
     {
+        Debug.Log("Find new target called.");
+        CancelInvoke("Shoot");
+        _isShooting = false;
+
         GameObject[] targets = GameObject.FindGameObjectsWithTag("EnemyTarget");
         if (targets.Length ==0)
         {
@@ -167,6 +173,7 @@ public class EnemyBehavior : MonoBehaviour
     {
         _target = target;
         _navMeshAgent.SetDestination(_target.position);
+        Debug.Log("Target changed. remaining distance: " + _navMeshAgent.remainingDistance);
     }
 
     public void SetBulletSpawnPt(BulletSpawnPt bulletSpawnPt)

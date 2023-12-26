@@ -61,5 +61,9 @@ https://learn.unity.com/tutorial/introduction-to-tilemaps
 26 Dec - Added L1 and L2.
 26 Dec - Removed player 1 rotation and rotated bullet spawn pt instead. This was done to avoid rotation of health replenish collider as it was at an offset to P1's origin.
 26 Dec - Removed Tower buttons and instead added functionality to teleport by clicking on the tower itself using raycasting.
+26 Dec - Added L3 - L7
+26 Dec - Reduced scale of objects to make more room.
+26 Dec - Instantiated bullet hit smoke effect on exact collision contact point.
+26 Dec - Fixed enemy navmesh stopping distance bug by usins navMeshAgent.pathPending.
 References:
 https://docs.unity3d.com/ScriptReference/Physics2D.Raycast.html

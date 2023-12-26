@@ -88,7 +88,10 @@ public class Teleporter : MonoBehaviour
     private void TeleportToTower(Towers destinationTower)
     {
         if (!this.enabled || _currentTower == destinationTower || LevelController.isGamePaused)
+        {
+            Debug.Log("Teleporter: Not enabled or current tower is same as destination or game is paused.");
             return;
+        }
 
         Vector3 destinationPosition = _towerToLocationMap[destinationTower];
         transform.position = destinationPosition;
@@ -123,7 +126,7 @@ public class Teleporter : MonoBehaviour
 
 public enum Towers
 {
-    TOWER_1, TOWER_2, TOWER_3
+    TOWER_1, TOWER_2, TOWER_3, TOWER_4
 };
 
 [Serializable]

@@ -57,8 +57,8 @@ Transform:
   m_GameObject: {fileID: 3665804689586489126}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 4, y: 4, z: 4}
+  m_LocalPosition: {x: 0, y: -1.5, z: 0}
+  m_LocalScale: {x: 10, y: 10, z: 10}
   m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 9120471503969052178}
@@ -149,7 +149,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.5, y: 0.5, z: 0.5}
+  m_LocalScale: {x: 0.3, y: 0.3, z: 0.3}
   m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 9052640415717767548}
@@ -250,14 +250,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c73dc303ba595ec4cbd39bdf891c56d7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  rb: {fileID: 6119574096987942261}
-  _bulletSpawnPt: {fileID: 0}
+  _controlledShooting: {fileID: 0}
+  _bulletSpawnPt: {fileID: 9052640415717767548}
   spriteRenderer: {fileID: -5581963546021442635}
   cam: {fileID: 0}
   down: {fileID: 21300000, guid: 4c46d6df534c06c4db874b7a93b07225, type: 3}
-  up: {fileID: 21300000, guid: 2483f24181feb184c9c2efe8b7241cd4, type: 3}
-  left: {fileID: 21300000, guid: c618791db69d8ff45afc2c32f33dd785, type: 3}
-  right: {fileID: 21300000, guid: 4a9f52df268d4d7408991a696acda4f4, type: 3}
+  up: {fileID: 21300000, guid: 57911bf358dd3fd43ab2541fba7e6913, type: 3}
+  left: {fileID: 21300000, guid: f81e03779a7e4854d805bc0e8631161d, type: 3}
+  right: {fileID: 21300000, guid: 7522385c2cd7b2e468616d32020329b3, type: 3}
   _bulletSpawnPtUp: {fileID: 8072770569769421885}
   _bulletSpawnPtDown: {fileID: 9052640415717767548}
   _bulletSpawnPtRight: {fileID: 7929048989858865997}
@@ -304,7 +304,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d920878f926fdae4e8196d9da42aafaa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bulletSpawnPt: {fileID: 9052640415717767548}
+  _bulletSpawnPt: {fileID: 0}
   bullet: {fileID: 7912317989692930135, guid: 3430c3ffa81599b4a87fc48f029e6904, type: 3}
   playerFire: {fileID: 5035379285532259750, guid: 95de6ee2955e40c4b930cbf2966c6bf4, type: 3}
 --- !u!114 &7484109401547624215
@@ -321,12 +321,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _towersInfo:
   - tower: 0
-    towerPosition: {x: -4.51, y: 1.97, z: 0}
+    towerPosition: {x: -4.5, y: -0.12, z: 0}
   - tower: 1
-    towerPosition: {x: 4.61, y: 1.97, z: 0}
+    towerPosition: {x: 4.554, y: 2.9, z: 0}
   - tower: 2
-    towerPosition: {x: 0.52, y: -1.93, z: 0}
-  _leftMouseButton: {fileID: 0}
+    towerPosition: {x: 4.566, y: -2.097, z: 0}
+  _leftMouseButton: {fileID: 5035379285532259750, guid: 95de6ee2955e40c4b930cbf2966c6bf4, type: 3}
 --- !u!58 &6530557523564310620
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -359,9 +359,9 @@ CircleCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: 0, y: -1.5}
   serializedVersion: 2
-  m_Radius: 2
+  m_Radius: 5
 --- !u!95 &2538094892089225259
 Animator:
   serializedVersion: 5
