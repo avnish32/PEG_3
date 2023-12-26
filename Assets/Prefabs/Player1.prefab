@@ -1,5 +1,36 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!1 &526505407945001592
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 8072770569769421885}
+  m_Layer: 8
+  m_Name: BulletSpawnPt_Up
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &8072770569769421885
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 526505407945001592}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 1, w: 0}
+  m_LocalPosition: {x: 0, y: 0.972, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 9120471503969052178}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 180}
 --- !u!1 &3665804689586489126
 GameObject:
   m_ObjectHideFlags: 0
@@ -122,6 +153,9 @@ Transform:
   m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 9052640415717767548}
+  - {fileID: 8072770569769421885}
+  - {fileID: 6536429968693494083}
+  - {fileID: 7929048989858865997}
   - {fileID: 679915325420492044}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -166,7 +200,7 @@ SpriteRenderer:
   m_SortingLayerID: -1191676993
   m_SortingLayer: 2
   m_SortingOrder: 50
-  m_Sprite: {fileID: 21300000, guid: 4c46d6df534c06c4db874b7a93b07225, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 57911bf358dd3fd43ab2541fba7e6913, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -217,12 +251,17 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rb: {fileID: 6119574096987942261}
+  _bulletSpawnPt: {fileID: 0}
   spriteRenderer: {fileID: -5581963546021442635}
   cam: {fileID: 0}
   down: {fileID: 21300000, guid: 4c46d6df534c06c4db874b7a93b07225, type: 3}
   up: {fileID: 21300000, guid: 2483f24181feb184c9c2efe8b7241cd4, type: 3}
   left: {fileID: 21300000, guid: c618791db69d8ff45afc2c32f33dd785, type: 3}
   right: {fileID: 21300000, guid: 4a9f52df268d4d7408991a696acda4f4, type: 3}
+  _bulletSpawnPtUp: {fileID: 8072770569769421885}
+  _bulletSpawnPtDown: {fileID: 9052640415717767548}
+  _bulletSpawnPtRight: {fileID: 7929048989858865997}
+  _bulletSpawnPtLeft: {fileID: 6536429968693494083}
 --- !u!114 &4358347695690659770
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -287,6 +326,7 @@ MonoBehaviour:
     towerPosition: {x: 4.61, y: 1.97, z: 0}
   - tower: 2
     towerPosition: {x: 0.52, y: -1.93, z: 0}
+  _leftMouseButton: {fileID: 0}
 --- !u!58 &6530557523564310620
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -353,7 +393,7 @@ GameObject:
   m_Component:
   - component: {fileID: 9052640415717767548}
   m_Layer: 8
-  m_Name: BulletSpawnPt
+  m_Name: BulletSpawnPt_Down
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -369,6 +409,68 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 1, w: 0}
   m_LocalPosition: {x: 0, y: -0.85, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 9120471503969052178}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 180}
+--- !u!1 &7798592672073548284
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 7929048989858865997}
+  m_Layer: 8
+  m_Name: BulletSpawnPt_Right
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &7929048989858865997
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7798592672073548284}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 1, w: 0}
+  m_LocalPosition: {x: 0.892, y: -0.127, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 9120471503969052178}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 180}
+--- !u!1 &8794840938185773920
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 6536429968693494083}
+  m_Layer: 8
+  m_Name: BulletSpawnPt_Left
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &6536429968693494083
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8794840938185773920}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 1, w: 0}
+  m_LocalPosition: {x: -0.77, y: -0.136, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []

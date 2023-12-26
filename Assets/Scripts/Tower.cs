@@ -5,19 +5,14 @@ using UnityEngine.UI;
 
 public class Tower : MonoBehaviour
 {
-    [SerializeField]
-    private Button _buttonForThisTower;
+    /*[SerializeField]
+    private Button _buttonForThisTower;*/
 
     [SerializeField]
     private Towers _thisTower;
 
     [SerializeField]
     private GameObject _explosionEffect;
-
-    private void OnDestroy()
-    {
-        
-    }
 
     private void OnDeath()
     {
@@ -37,10 +32,10 @@ public class Tower : MonoBehaviour
         }
 
 
-        if (_buttonForThisTower != null)
+        /*if (_buttonForThisTower != null)
         {
             Destroy(_buttonForThisTower.gameObject);
-        }
+        }*/
 
         GameObject player1 = GameObject.FindGameObjectWithTag("Player1");
         if (player1 != null && player1.GetComponent<Teleporter>().GetCurrentTower() == _thisTower)
@@ -54,5 +49,10 @@ public class Tower : MonoBehaviour
             }
             Destroy(player1, 3f);
         }
+    }
+
+    public Towers GetThisTower()
+    {
+        return _thisTower;
     }
 }

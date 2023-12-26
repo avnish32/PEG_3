@@ -7,7 +7,10 @@ using UnityEngine;
 public class RotationWithCursor : MonoBehaviour
 {
     [SerializeField]
-    private Rigidbody2D rb;
+    private ControlledShooting _controlledShooting;
+
+    [SerializeField]
+    private Transform _bulletSpawnPt;
 
     [SerializeField]
     private SpriteRenderer spriteRenderer;
@@ -24,20 +27,26 @@ public class RotationWithCursor : MonoBehaviour
     [SerializeField]
     private Sprite right;
 
-    private float rotationInDegrees;
+    [SerializeField]
+    private Transform _bulletSpawnPtUp;
+    [SerializeField]
+    private Transform _bulletSpawnPtDown;
+    [SerializeField]
+    private Transform _bulletSpawnPtRight;
+    [SerializeField]
+    private Transform _bulletSpawnPtLeft;
+
+    private float _rotationInDegrees;
 
     // Start is called before the first frame update
     void Start()
     {
-        if (rb == null)
-        {
-            rb = GetComponent<Rigidbody2D>();
-        }
-
         if (spriteRenderer == null)
         {
             spriteRenderer = GetComponent<SpriteRenderer>();
         }
+
+        _controlledShooting = GetComponent<ControlledShooting>();
     }
 
     // Update is called once per frame
@@ -48,42 +57,79 @@ public class RotationWithCursor : MonoBehaviour
             return;
         }
 
-        Vector2 mousePos = Input.mousePosition;
-        Vector2 cursorScreenPos = cam.ScreenToWorldPoint(mousePos);
-        Vector2 posDir = cursorScreenPos - rb.position;
-        double rotationInRadians = Math.Atan2(posDir.y, posDir.x);
-        rotationInDegrees = (float) rotationInRadians * Mathf.Rad2Deg;
+        CalculateRotationFromCursorPos();
 
-        rotationInDegrees += 90f;
-        if (rotationInDegrees < -45f || rotationInDegrees >= 225f)
+        //Debug.Log("rotationInDegrees = " + _rotationInDegrees);
+
+        SetSpriteAndBulletSpawnPtByRotation();
+
+        if (_controlledShooting != null)
+        {
+            _controlledShooting.SetBulletSpawnPt(_bulletSpawnPt);
+        }
+    }
+
+    private void CalculateRotationFromCursorPos()
+    {
+        Vector2 mousePos = Input.mousePosition;
+        Vector3 cursorScreenPos = cam.ScreenToWorldPoint(mousePos);
+        Vector3 posDir = cursorScreenPos - transform.position;
+        double rotationInRadians = Math.Atan2(posDir.y, posDir.x);
+        _rotationInDegrees = (float)rotationInRadians * Mathf.Rad2Deg;
+
+        _rotationInDegrees -= 90f;
+        if (_rotationInDegrees < 0)
+        {
+            _rotationInDegrees = 360f + _rotationInDegrees;
+        }
+    }
+
+    private void SetSpriteAndBulletSpawnPtByRotation()
+    {
+        if (_rotationInDegrees > 315f || _rotationInDegrees < 45f)
+        {
+            spriteRenderer.sprite = up;
+            _bulletSpawnPt = _bulletSpawnPtUp;
+        }
+        else if (_rotationInDegrees >= 45f && _rotationInDegrees < 135f)
         {
             spriteRenderer.sprite = left;
+            _bulletSpawnPt = _bulletSpawnPtLeft;
         }
-        else if (rotationInDegrees >= -45f && rotationInDegrees < 45f)
+        else if (_rotationInDegrees >= 135f && _rotationInDegrees < 225f)
         {
             spriteRenderer.sprite = down;
-        }
-        else if (rotationInDegrees >= 45f && rotationInDegrees < 135f)
-        {
-            spriteRenderer.sprite = right;
+            _bulletSpawnPt = _bulletSpawnPtDown;
         }
         else
         {
-            spriteRenderer.sprite = up;
+            spriteRenderer.sprite = right;
+            _bulletSpawnPt = _bulletSpawnPtRight;
         }
     }
 
     private void FixedUpdate()
     {
-        if (rb != null)
+        /*if (rb != null)
         {
             rb.rotation = rotationInDegrees;
             //Debug.Log("P1 rotation: " + rotationInDegrees);
+        }*/
+
+        if (_bulletSpawnPt != null)
+        {
+            _bulletSpawnPt.rotation = Quaternion.Euler(0f, 0f, _rotationInDegrees);
         }
+        
     }
 
     private void OnDeath()
     {
         this.enabled = false;
+    }
+
+    public Transform GetCurrentBulletSpawnPt()
+    {
+        return _bulletSpawnPt;
     }
 }

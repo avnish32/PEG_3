@@ -6,7 +6,7 @@ using UnityEngine.InputSystem;
 public class ControlledShooting : MonoBehaviour
 {
     [SerializeField]
-    private Transform bulletSpawnPt;
+    private Transform _bulletSpawnPt;
 
     [SerializeField]
     private GameObject bullet;
@@ -38,7 +38,7 @@ public class ControlledShooting : MonoBehaviour
 
         if (playerFire.action.IsPressed())
         {
-            Instantiate(bullet, bulletSpawnPt.position, bulletSpawnPt.rotation);
+            Instantiate(bullet, _bulletSpawnPt.position, _bulletSpawnPt.rotation);
         }
         
     }
@@ -46,5 +46,10 @@ public class ControlledShooting : MonoBehaviour
     private void OnDeath()
     {
         CancelInvoke();
+    }
+
+    public void SetBulletSpawnPt(Transform bulletSpawnPt)
+    {
+        _bulletSpawnPt = bulletSpawnPt;
     }
 }

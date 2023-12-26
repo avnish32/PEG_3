@@ -57,3 +57,9 @@ No references.
 24 Dec - Added explosion animation on tower death.
 References:
 https://learn.unity.com/tutorial/introduction-to-tilemaps
+
+26 Dec - Added L1 and L2.
+26 Dec - Removed player 1 rotation and rotated bullet spawn pt instead. This was done to avoid rotation of health replenish collider as it was at an offset to P1's origin.
+26 Dec - Removed Tower buttons and instead added functionality to teleport by clicking on the tower itself using raycasting.
+References:
+https://docs.unity3d.com/ScriptReference/Physics2D.Raycast.html
