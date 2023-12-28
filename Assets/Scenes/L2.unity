@@ -341,11 +341,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!4 &177748168 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 9052640415717767548, guid: 38ad1af7c74edbb4b9905936e3526193, type: 3}
-  m_PrefabInstance: {fileID: 418896727}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &254510850
 GameObject:
   m_ObjectHideFlags: 0
@@ -600,41 +595,25 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 4833463712994011895, guid: 38ad1af7c74edbb4b9905936e3526193, type: 3}
-      propertyPath: up
+    - target: {fileID: 3222716919378547661, guid: 38ad1af7c74edbb4b9905936e3526193, type: 3}
+      propertyPath: _bulletSound
       value: 
-      objectReference: {fileID: 21300000, guid: 57911bf358dd3fd43ab2541fba7e6913, type: 3}
+      objectReference: {fileID: 8300000, guid: d20e5f57752c38044a5ecdb7daa77585, type: 3}
     - target: {fileID: 4833463712994011895, guid: 38ad1af7c74edbb4b9905936e3526193, type: 3}
       propertyPath: cam
       value: 
       objectReference: {fileID: 2079845495}
-    - target: {fileID: 4833463712994011895, guid: 38ad1af7c74edbb4b9905936e3526193, type: 3}
-      propertyPath: left
-      value: 
-      objectReference: {fileID: 21300000, guid: f81e03779a7e4854d805bc0e8631161d, type: 3}
-    - target: {fileID: 4833463712994011895, guid: 38ad1af7c74edbb4b9905936e3526193, type: 3}
-      propertyPath: right
-      value: 
-      objectReference: {fileID: 21300000, guid: 7522385c2cd7b2e468616d32020329b3, type: 3}
-    - target: {fileID: 4833463712994011895, guid: 38ad1af7c74edbb4b9905936e3526193, type: 3}
-      propertyPath: _bulletSpawnPt
-      value: 
-      objectReference: {fileID: 177748168}
     - target: {fileID: 5019717006544369266, guid: 38ad1af7c74edbb4b9905936e3526193, type: 3}
       propertyPath: m_Name
       value: Player1
       objectReference: {fileID: 0}
     - target: {fileID: 7484109401547624215, guid: 38ad1af7c74edbb4b9905936e3526193, type: 3}
-      propertyPath: _leftMouseButton
+      propertyPath: _teleportSound
       value: 
-      objectReference: {fileID: 5035379285532259750, guid: 95de6ee2955e40c4b930cbf2966c6bf4, type: 3}
+      objectReference: {fileID: 8300000, guid: bbdae94792896554091d7b96a6e1029d, type: 3}
     - target: {fileID: 7484109401547624215, guid: 38ad1af7c74edbb4b9905936e3526193, type: 3}
       propertyPath: _towersInfo.Array.size
       value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 7484109401547624215, guid: 38ad1af7c74edbb4b9905936e3526193, type: 3}
-      propertyPath: _towersInfo.Array.data[1].tower
-      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7484109401547624215, guid: 38ad1af7c74edbb4b9905936e3526193, type: 3}
       propertyPath: _towersInfo.Array.data[0].towerPosition.x
@@ -5911,6 +5890,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 691679355209689241, guid: d56f707938ef6484aa99d1405cef7751, type: 3}
+      propertyPath: _deathSound
+      value: 
+      objectReference: {fileID: 8300000, guid: 8132ea3f7ce7c004396a3d664bfbdb6d, type: 3}
     - target: {fileID: 4141241745119359700, guid: d56f707938ef6484aa99d1405cef7751, type: 3}
       propertyPath: m_AnchorMax.x
       value: 0

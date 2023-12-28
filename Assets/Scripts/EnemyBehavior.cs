@@ -29,12 +29,18 @@ public class EnemyBehavior : MonoBehaviour
     [SerializeField]
     private Transform _currentBulletSpawnPt;
 
+    [SerializeField]
+    private AudioClip _shootSound;
+
     private Vector2 _lookAtDir;
+
+    private AudioSource _audioSource;
 
     // Start is called before the first frame update
     private void Awake()
     {
         _navMeshAgent = GetComponent<NavMeshAgent>();
+        _audioSource = GetComponent<AudioSource>();
     }
     void Start()
     {
@@ -63,7 +69,7 @@ public class EnemyBehavior : MonoBehaviour
             TriggerShooting();
         } else if(!_navMeshAgent.pathPending && _navMeshAgent.remainingDistance <= _navMeshAgent.stoppingDistance)
         {
-            Debug.Log("Nav mesh remaining distance: "+_navMeshAgent.remainingDistance);
+            //Debug.Log("Nav mesh remaining distance: "+_navMeshAgent.remainingDistance);
             RotateTowardsTarget(_target);
             
             TriggerShooting();
@@ -85,7 +91,7 @@ public class EnemyBehavior : MonoBehaviour
 
     private void FindNewTarget()
     {
-        Debug.Log("Find new target called.");
+        //Debug.Log("Find new target called.");
         CancelInvoke("Shoot");
         _isShooting = false;
 
@@ -130,6 +136,7 @@ public class EnemyBehavior : MonoBehaviour
     private void Shoot()
     {
         Instantiate(_bullet, _currentBulletSpawnPt.position, _currentBulletSpawnPt.rotation);
+        _audioSource.PlayOneShot(_shootSound);
     }
 
     public void OnTriggerEnter2D(Collider2D collision)
@@ -173,7 +180,7 @@ public class EnemyBehavior : MonoBehaviour
     {
         _target = target;
         _navMeshAgent.SetDestination(_target.position);
-        Debug.Log("Target changed. remaining distance: " + _navMeshAgent.remainingDistance);
+        //Debug.Log("Target changed. remaining distance: " + _navMeshAgent.remainingDistance);
     }
 
     public void SetBulletSpawnPt(BulletSpawnPt bulletSpawnPt)

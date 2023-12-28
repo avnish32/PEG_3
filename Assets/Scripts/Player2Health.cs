@@ -37,7 +37,8 @@ public class Player2Health : Health
             SetHealth(GetHealth() + (_healthRefillRate * Time.deltaTime));
         } else
         {
-            SetHealth(GetHealth() - (_healthDepletionRate * Time.deltaTime));
+            ReduceHealth(_healthDepletionRate * Time.deltaTime);
+            //SetHealth(GetHealth() - (_healthDepletionRate * Time.deltaTime));
         }
     }
 

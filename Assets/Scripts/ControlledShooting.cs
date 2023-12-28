@@ -12,10 +12,23 @@ public class ControlledShooting : MonoBehaviour
     private GameObject bullet;
 
     [SerializeField]
+    private AudioClip _bulletSound;
+
+    [SerializeField]
+    private AudioClip _deathSound;
+
+    private AudioSource _audioSource;
+
+    [SerializeField]
     //private InputActionAsset playerInputs; //Can be used when whole action asset along with all its maps needs to be referenced.
     //This requires a string name of the action. e.g. playerInputs.FindAction("Fire")
     private InputActionReference playerFire; //This is useful for when only one particular action needs to be referenced.
                                              //It also doesn't need a string to be referenced, so avoids hardcoding.
+
+    private void Awake()
+    {
+        _audioSource = GetComponent<AudioSource>();
+    }
 
     // Start is called before the first frame update
     void Start()
@@ -39,6 +52,7 @@ public class ControlledShooting : MonoBehaviour
         if (playerFire.action.IsPressed())
         {
             Instantiate(bullet, _bulletSpawnPt.position, _bulletSpawnPt.rotation);
+            _audioSource.PlayOneShot(_bulletSound);
         }
         
     }
@@ -46,6 +60,7 @@ public class ControlledShooting : MonoBehaviour
     private void OnDeath()
     {
         CancelInvoke();
+        AudioSource.PlayClipAtPoint(_deathSound, Camera.main.transform.position);
     }
 
     public void SetBulletSpawnPt(Transform bulletSpawnPt)

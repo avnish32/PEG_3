@@ -21,6 +21,14 @@ public class Health : MonoBehaviour
     [SerializeField]
     private float _deathAnimationLength = 0f;
 
+    [SerializeField]
+    AudioClip _deathSound;
+
+    private void Awake()
+    {
+        Debug.Log("Audio clip on awake: " + _deathSound);
+    }
+
     private void Start()
     {
         SetHealth(_maxHealth);
@@ -60,6 +68,7 @@ public class Health : MonoBehaviour
 
     private void OnDeath()
     {
+        AudioSource.PlayClipAtPoint(_deathSound, Camera.main.transform.position);
         Destroy(_healthBarSlider.gameObject);
         Animator animator = GetComponent<Animator>();
 

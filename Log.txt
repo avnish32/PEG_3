@@ -67,3 +67,5 @@ https://learn.unity.com/tutorial/introduction-to-tilemaps
 26 Dec - Fixed enemy navmesh stopping distance bug by usins navMeshAgent.pathPending.
 References:
 https://docs.unity3d.com/ScriptReference/Physics2D.Raycast.html
+
+28 Dec - Added SFX for shoot, death and tower destruction.

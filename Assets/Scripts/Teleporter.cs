@@ -12,14 +12,19 @@ public class Teleporter : MonoBehaviour
     [SerializeField]
     private InputActionReference _leftMouseButton;
 
+    [SerializeField]
+    private AudioClip _teleportSound;
+
     private Dictionary<Towers, Vector3> _towerToLocationMap;
     private Towers _currentTower;
     private Tower _towerUnderCursor;
     private Tower _towerOnLMBDown;
-    float _timeOnLastLMBPressOnTower;
+    private float _timeOnLastLMBPressOnTower;
+    private AudioSource _audioSource;
 
     private void Awake()
     {
+        _audioSource = GetComponent<AudioSource>();
         _towerToLocationMap = new Dictionary<Towers, Vector3>();
         foreach (TowerInfo towerInfo in _towersInfo)
         {
@@ -96,6 +101,7 @@ public class Teleporter : MonoBehaviour
         Vector3 destinationPosition = _towerToLocationMap[destinationTower];
         transform.position = destinationPosition;
         _currentTower = destinationTower;
+        _audioSource.PlayOneShot(_teleportSound);
     }
 
     private void OnDeath()
