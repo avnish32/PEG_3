@@ -646,19 +646,19 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7484109401547624215, guid: 38ad1af7c74edbb4b9905936e3526193, type: 3}
       propertyPath: _towersInfo.Array.data[0].towerPosition.x
-      value: 0.553
+      value: 0.506
       objectReference: {fileID: 0}
     - target: {fileID: 7484109401547624215, guid: 38ad1af7c74edbb4b9905936e3526193, type: 3}
       propertyPath: _towersInfo.Array.data[0].towerPosition.y
-      value: -0.089
+      value: -0.027
       objectReference: {fileID: 0}
     - target: {fileID: 9120471503969052178, guid: 38ad1af7c74edbb4b9905936e3526193, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0.553
+      value: 0.506
       objectReference: {fileID: 0}
     - target: {fileID: 9120471503969052178, guid: 38ad1af7c74edbb4b9905936e3526193, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -0.089
+      value: -0.027
       objectReference: {fileID: 0}
     - target: {fileID: 9120471503969052178, guid: 38ad1af7c74edbb4b9905936e3526193, type: 3}
       propertyPath: m_LocalPosition.z
@@ -2316,10 +2316,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 579889588}
     m_Modifications:
-    - target: {fileID: 1250626108847625937, guid: b750dc7dae822534eafd6c88e6711176, type: 3}
-      propertyPath: _maxHealth
-      value: 50
-      objectReference: {fileID: 0}
     - target: {fileID: 2937931415729427709, guid: b750dc7dae822534eafd6c88e6711176, type: 3}
       propertyPath: m_AnchorMax.x
       value: 0
@@ -2330,11 +2326,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3174576378380569073, guid: b750dc7dae822534eafd6c88e6711176, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0.55
+      value: 0.503
       objectReference: {fileID: 0}
     - target: {fileID: 3174576378380569073, guid: b750dc7dae822534eafd6c88e6711176, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -0.37
+      value: -0.45
       objectReference: {fileID: 0}
     - target: {fileID: 3174576378380569073, guid: b750dc7dae822534eafd6c88e6711176, type: 3}
       propertyPath: m_LocalPosition.z
@@ -2368,33 +2364,37 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 3414788046266960217, guid: b750dc7dae822534eafd6c88e6711176, type: 3}
-      propertyPath: repairSpeed
-      value: 5
+    - target: {fileID: 3555759139132984663, guid: b750dc7dae822534eafd6c88e6711176, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 500
       objectReference: {fileID: 0}
-    - target: {fileID: 6580795016148218465, guid: b750dc7dae822534eafd6c88e6711176, type: 3}
-      propertyPath: m_Camera
-      value: 
-      objectReference: {fileID: 2079845495}
-    - target: {fileID: 6580795016148218465, guid: b750dc7dae822534eafd6c88e6711176, type: 3}
-      propertyPath: _buttonForThisTower
-      value: 
+    - target: {fileID: 3555759139132984663, guid: b750dc7dae822534eafd6c88e6711176, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 100
       objectReference: {fileID: 0}
-    - target: {fileID: 7923943284197224109, guid: b750dc7dae822534eafd6c88e6711176, type: 3}
-      propertyPath: m_SpriteTilingProperty.drawMode
-      value: 1
+    - target: {fileID: 7430652092442014613, guid: b750dc7dae822534eafd6c88e6711176, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 500
       objectReference: {fileID: 0}
-    - target: {fileID: 7923943284197224109, guid: b750dc7dae822534eafd6c88e6711176, type: 3}
-      propertyPath: m_SpriteTilingProperty.newSize.x
-      value: 2.5
+    - target: {fileID: 7430652092442014613, guid: b750dc7dae822534eafd6c88e6711176, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 100
       objectReference: {fileID: 0}
-    - target: {fileID: 8099084616119110109, guid: b750dc7dae822534eafd6c88e6711176, type: 3}
-      propertyPath: m_DrawMode
-      value: 1
+    - target: {fileID: 7430652092442014613, guid: b750dc7dae822534eafd6c88e6711176, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -100
       objectReference: {fileID: 0}
     - target: {fileID: 8507554255566829828, guid: b750dc7dae822534eafd6c88e6711176, type: 3}
       propertyPath: m_Name
       value: Tower
+      objectReference: {fileID: 0}
+    - target: {fileID: 8999715163922526886, guid: b750dc7dae822534eafd6c88e6711176, type: 3}
+      propertyPath: m_fontSize
+      value: 60
+      objectReference: {fileID: 0}
+    - target: {fileID: 8999715163922526886, guid: b750dc7dae822534eafd6c88e6711176, type: 3}
+      propertyPath: m_fontSizeBase
+      value: 60
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

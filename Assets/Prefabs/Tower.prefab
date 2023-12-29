@@ -13,8 +13,8 @@ GameObject:
   - component: {fileID: 8336116179678264634}
   - component: {fileID: 7923943284197224109}
   - component: {fileID: 3414788046266960217}
-  - component: {fileID: 1250626108847625937}
   - component: {fileID: 6580795016148218465}
+  - component: {fileID: -7647358634436364072}
   m_Layer: 8
   m_Name: Tower
   m_TagString: EnemyTarget
@@ -79,7 +79,7 @@ SpriteRenderer:
   m_SortingLayerID: 773518751
   m_SortingLayer: 1
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 65745db1a4584b5c80590eba821edd5c, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 3e3e90f4795c3dc4c8bd6231c687b2bd, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -142,7 +142,7 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 2.56, y: 2.56}
+    oldSize: {x: 2.56, y: 3.95}
     newSize: {x: 2.5, y: 2.5}
     adaptiveTilingThreshold: 0.5
     drawMode: 1
@@ -165,26 +165,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _interactMsgObject: {fileID: 468588033265338831}
   repairSpeed: 5
---- !u!114 &1250626108847625937
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8507554255566829828}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3e7c82520e98f264e8a14daa984781dd, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _currentHealth: 100
-  _healthBarSlider: {fileID: 5370004770628539371}
-  _healthBarColor: {fileID: 5518651554017305165}
-  _maxHealth: 50
-  _deathAnimationLength: 0
-  _deathSound: {fileID: 8300000, guid: 20236435c3af038409d75fade4546fde, type: 3}
-  _spriteRenderer: {fileID: 0}
-  _spriteHitEffectBlinkDuration: 0.05
 --- !u!114 &6580795016148218465
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -199,6 +179,27 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _thisTower: 0
   _explosionEffect: {fileID: 1046623303800713772, guid: cdc8c798f05338a4c8583a3884a0df94, type: 3}
+--- !u!114 &-7647358634436364072
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8507554255566829828}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ba7929712f74f1548ba198c5702fb112, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _currentHealth: 0
+  _healthBarSlider: {fileID: 5370004770628539371}
+  _healthBarColor: {fileID: 5518651554017305165}
+  _maxHealth: 50
+  _deathAnimationLength: 0
+  _deathSound: {fileID: 8300000, guid: 20236435c3af038409d75fade4546fde, type: 3}
+  _spriteHitEffectBlinkDuration: 0.05
+  _damagedTower: {fileID: 21300000, guid: 4ff1013a9adb38b4a83d494b09df7954, type: 3}
+  _healthyTower: {fileID: 21300000, guid: 3e3e90f4795c3dc4c8bd6231c687b2bd, type: 3}
 --- !u!1001 &2943171041357149728
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -207,6 +208,14 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 4770799531975199656}
     m_Modifications:
+    - target: {fileID: 1837651643564424055, guid: 2523afaf8068f164eaae34d2570a92fa, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 500
+      objectReference: {fileID: 0}
+    - target: {fileID: 1837651643564424055, guid: 2523afaf8068f164eaae34d2570a92fa, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 100
+      objectReference: {fileID: 0}
     - target: {fileID: 3339696349163077615, guid: 2523afaf8068f164eaae34d2570a92fa, type: 3}
       propertyPath: m_Name
       value: RepairMsgPanel
@@ -241,11 +250,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5748498314082108853, guid: 2523afaf8068f164eaae34d2570a92fa, type: 3}
       propertyPath: m_SizeDelta.x
-      value: 300
+      value: 500
       objectReference: {fileID: 0}
     - target: {fileID: 5748498314082108853, guid: 2523afaf8068f164eaae34d2570a92fa, type: 3}
       propertyPath: m_SizeDelta.y
-      value: 50
+      value: 100
       objectReference: {fileID: 0}
     - target: {fileID: 5748498314082108853, guid: 2523afaf8068f164eaae34d2570a92fa, type: 3}
       propertyPath: m_LocalPosition.x
@@ -281,7 +290,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5748498314082108853, guid: 2523afaf8068f164eaae34d2570a92fa, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -50
+      value: -100
       objectReference: {fileID: 0}
     - target: {fileID: 5748498314082108853, guid: 2523afaf8068f164eaae34d2570a92fa, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -294,6 +303,14 @@ PrefabInstance:
     - target: {fileID: 5748498314082108853, guid: 2523afaf8068f164eaae34d2570a92fa, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6070103760594748550, guid: 2523afaf8068f164eaae34d2570a92fa, type: 3}
+      propertyPath: m_fontSize
+      value: 60
+      objectReference: {fileID: 0}
+    - target: {fileID: 6070103760594748550, guid: 2523afaf8068f164eaae34d2570a92fa, type: 3}
+      propertyPath: m_fontSizeBase
+      value: 60
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

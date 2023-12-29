@@ -72,3 +72,4 @@ https://docs.unity3d.com/ScriptReference/Physics2D.Raycast.html
 No references
 
 29 Dec - Added damage effect which turns sprite red using a coroutine.
+29 Dec - Improved tower sprite and added damaged tower sprite.

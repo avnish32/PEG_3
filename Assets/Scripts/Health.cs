@@ -7,7 +7,7 @@ using UnityEngine.UI;
 public class Health : MonoBehaviour
 {
     [SerializeField] 
-    private float _currentHealth;
+    protected float _currentHealth;
 
     [SerializeField]
     private Slider _healthBarSlider;
@@ -16,19 +16,18 @@ public class Health : MonoBehaviour
     private Image _healthBarColor;
 
     [SerializeField]
-    private float _maxHealth = 100f;
+    protected float _maxHealth = 100f;
 
     [SerializeField]
     private float _deathAnimationLength = 0f;
 
     [SerializeField]
-    AudioClip _deathSound;
-
-    [SerializeField]
-    SpriteRenderer _spriteRenderer;
+    private AudioClip _deathSound;
 
     [SerializeField]
     float _spriteHitEffectBlinkDuration = 0.05f;
+
+    protected SpriteRenderer _spriteRenderer;
 
     private void Awake()
     {
@@ -47,14 +46,14 @@ public class Health : MonoBehaviour
         return _currentHealth;
     }
 
-    public void SetHealth(float health)
+    public virtual void SetHealth(float health)
     {
         _currentHealth = Math.Min(health, _maxHealth);
         _currentHealth = Mathf.Clamp(_currentHealth, 0f, _maxHealth);
         UpdateHealthBar();
     }
 
-    public void ReduceHealth(float damage)
+    public virtual void ReduceHealth(float damage)
     {
         SetHealth(_currentHealth - damage);
 
