@@ -83,7 +83,7 @@ public class EnemyBehavior : MonoBehaviour
     {
         if (!_isShooting)
         {
-            Debug.Log("Trigger shooting called.");
+            //Debug.Log("Trigger shooting called.");
             InvokeRepeating("Shoot", 0f, 0.25f);
             _isShooting = true;
         }
@@ -146,7 +146,7 @@ public class EnemyBehavior : MonoBehaviour
         if (otherObject != null && otherObject.CompareTag("Player2") &&
             _target != null && otherObject != _target.gameObject)
         {
-            Debug.Log("OnTriggerEnter2D fired.");
+            //Debug.Log("OnTriggerEnter2D fired.");
             _isPlayerWithinShootingRange = true;
             if (_player2 == null)
             {
@@ -160,7 +160,7 @@ public class EnemyBehavior : MonoBehaviour
         GameObject otherObject = collision.gameObject;
         if (otherObject != null && otherObject.CompareTag("Player2") && _target!=null && otherObject != _target.gameObject)
         {
-            Debug.Log("OnTriggerExit2D fired.");
+            //Debug.Log("OnTriggerExit2D fired.");
             _isPlayerWithinShootingRange = false;            
         }
     }

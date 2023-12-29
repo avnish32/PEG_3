@@ -20,9 +20,9 @@ public class TowerHealth : Health
         }
     }
 
-    public override void SetHealth(float health)
+    public override void SetCurrentHealth(float health)
     {
-        base.SetHealth(health);
+        base.SetCurrentHealth(health);
 
         if (_currentHealth / _maxHealth >= 0.5f)
         {

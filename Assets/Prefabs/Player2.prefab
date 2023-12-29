@@ -239,11 +239,12 @@ MonoBehaviour:
   _maxHealth: 100
   _deathAnimationLength: 3
   _deathSound: {fileID: 8300000, guid: 8132ea3f7ce7c004396a3d664bfbdb6d, type: 3}
-  _spriteRenderer: {fileID: 0}
   _spriteHitEffectBlinkDuration: 0.1
   _healthRefillRate: 5
   _healthDepletionRate: 5
   _healthRefillRadius: 2
+  _healthReplenishSpriteEffectBlinkDuration: 2
+  _healthDepletionSpriteEffectBlinkDuration: 2
 --- !u!95 &7526597234213439344
 Animator:
   serializedVersion: 5

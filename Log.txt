@@ -73,3 +73,4 @@ No references
 
 29 Dec - Added damage effect which turns sprite red using a coroutine.
 29 Dec - Improved tower sprite and added damaged tower sprite.
+29 Dec - Added health depletion and replenish blink effect on Player 2, and similar damage and repair effects on Towers. The bullet hit damage effect always takes priority over other effects, and this was done by caching the started coroutines and stopping them whenever the bullet hit event was invoked.

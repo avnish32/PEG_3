@@ -5890,10 +5890,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 691679355209689241, guid: d56f707938ef6484aa99d1405cef7751, type: 3}
-      propertyPath: _deathSound
-      value: 
-      objectReference: {fileID: 8300000, guid: 8132ea3f7ce7c004396a3d664bfbdb6d, type: 3}
     - target: {fileID: 4141241745119359700, guid: d56f707938ef6484aa99d1405cef7751, type: 3}
       propertyPath: m_AnchorMax.x
       value: 0
