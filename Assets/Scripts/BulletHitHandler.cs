@@ -15,10 +15,10 @@ public class BulletHitHandler : MonoBehaviour
         Health otherObjectHealth = collision.gameObject.GetComponent<Health>();
         if (otherObjectHealth != null && otherObjectHealth.enabled)
         {
-            otherObjectHealth.ReduceHealth(damage);
+            otherObjectHealth.OnBulletHit(damage);
         }
         
-        if (hitEffect != null)
+        if (hitEffect != null && collision.contactCount > 0)
         {
             GameObject newHitEffect = Instantiate(hitEffect, collision.GetContact(0).point, Quaternion.identity);
             Destroy(newHitEffect, 2f);

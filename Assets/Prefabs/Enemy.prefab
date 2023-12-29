@@ -260,6 +260,8 @@ MonoBehaviour:
   _maxHealth: 25
   _deathAnimationLength: 3
   _deathSound: {fileID: 8300000, guid: 6d6a78aa8f55401478ecec02cdf2f1a0, type: 3}
+  _spriteRenderer: {fileID: 0}
+  _spriteHitEffectBlinkDuration: 0.05
 --- !u!58 &7678363143732807723
 CircleCollider2D:
   m_ObjectHideFlags: 0

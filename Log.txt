@@ -69,3 +69,6 @@ References:
 https://docs.unity3d.com/ScriptReference/Physics2D.Raycast.html
 
 28 Dec - Added SFX for shoot, death and tower destruction.
+No references
+
+29 Dec - Added damage effect which turns sprite red using a coroutine.

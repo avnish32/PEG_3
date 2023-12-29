@@ -183,6 +183,8 @@ MonoBehaviour:
   _maxHealth: 50
   _deathAnimationLength: 0
   _deathSound: {fileID: 8300000, guid: 20236435c3af038409d75fade4546fde, type: 3}
+  _spriteRenderer: {fileID: 0}
+  _spriteHitEffectBlinkDuration: 0.05
 --- !u!114 &6580795016148218465
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -24,9 +24,17 @@ public class Health : MonoBehaviour
     [SerializeField]
     AudioClip _deathSound;
 
+    [SerializeField]
+    SpriteRenderer _spriteRenderer;
+
+    [SerializeField]
+    float _spriteHitEffectBlinkDuration = 0.05f;
+
     private void Awake()
     {
-        Debug.Log("Audio clip on awake: " + _deathSound);
+        //Debug.Log("Audio clip on awake: " + _deathSound);
+        Debug.Log("Sine pi/2: " + Mathf.Sin(Mathf.PI / 2));
+        _spriteRenderer = GetComponent<SpriteRenderer>();
     }
 
     private void Start()
@@ -64,6 +72,24 @@ public class Health : MonoBehaviour
     {
         _healthBarSlider.value = _currentHealth / _maxHealth;
         _healthBarColor.color = Color.Lerp(Color.red, Color.green, _currentHealth / _maxHealth); ;
+    }
+
+    public void OnBulletHit(float damage)
+    {
+        ReduceHealth(damage);
+        StartCoroutine(StartBulletHitSpriteEffect(Time.time));
+    }
+
+    IEnumerator StartBulletHitSpriteEffect(float coroutineCallTime)
+    {
+        float sineAngle;
+        do
+        {
+            sineAngle = ((Time.time - coroutineCallTime) / _spriteHitEffectBlinkDuration)*Mathf.PI;
+            _spriteRenderer.color = Color.Lerp(Color.white, Color.red, Mathf.Sin(sineAngle));
+
+            yield return null;
+        } while (sineAngle < Mathf.PI);
     }
 
     private void OnDeath()
