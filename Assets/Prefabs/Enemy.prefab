@@ -9,7 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4810510205990241612}
-  m_Layer: 9
+  m_Layer: 7
   m_Name: BulletSpawnPt_Right
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -50,7 +50,7 @@ GameObject:
   - component: {fileID: 3537008625274427336}
   - component: {fileID: 1994674595444436837}
   - component: {fileID: -3231276629681490937}
-  m_Layer: 9
+  m_Layer: 7
   m_Name: Enemy
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -260,7 +260,6 @@ MonoBehaviour:
   _maxHealth: 25
   _deathAnimationLength: 3
   _deathSound: {fileID: 8300000, guid: 6d6a78aa8f55401478ecec02cdf2f1a0, type: 3}
-  _spriteRenderer: {fileID: 0}
   _spriteHitEffectBlinkDuration: 0.05
 --- !u!58 &7678363143732807723
 CircleCollider2D:
@@ -435,7 +434,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2822072398841475803}
-  m_Layer: 9
+  m_Layer: 7
   m_Name: BulletSpawnPt_Left
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -466,7 +465,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 995846198189467636}
-  m_Layer: 9
+  m_Layer: 7
   m_Name: BulletSpawnPt_Down
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -497,7 +496,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7490697644356595334}
-  m_Layer: 9
+  m_Layer: 7
   m_Name: BulletSpawnPt_Up
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -527,6 +526,14 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 2246610549728741876}
     m_Modifications:
+    - target: {fileID: 1574079489134154349, guid: 9a1271d098afa2546bfd6193dcb1eb10, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 2367775561372129345, guid: 9a1271d098afa2546bfd6193dcb1eb10, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
     - target: {fileID: 2713442221430003882, guid: 9a1271d098afa2546bfd6193dcb1eb10, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -611,6 +618,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: HealthBarCanvas
       objectReference: {fileID: 0}
+    - target: {fileID: 3672094695806372971, guid: 9a1271d098afa2546bfd6193dcb1eb10, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 4097358624038538507, guid: 9a1271d098afa2546bfd6193dcb1eb10, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
     - target: {fileID: 5717597601165592575, guid: 9a1271d098afa2546bfd6193dcb1eb10, type: 3}
       propertyPath: m_AnchorMax.x
       value: 0
@@ -618,6 +633,10 @@ PrefabInstance:
     - target: {fileID: 5717597601165592575, guid: 9a1271d098afa2546bfd6193dcb1eb10, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8255446680980360065, guid: 9a1271d098afa2546bfd6193dcb1eb10, type: 3}
+      propertyPath: m_Layer
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 8303717848769638587, guid: 9a1271d098afa2546bfd6193dcb1eb10, type: 3}
       propertyPath: m_SortingOrder

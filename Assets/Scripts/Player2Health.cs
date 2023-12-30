@@ -136,8 +136,17 @@ public class Player2Health : Health
 
     public override void OnBulletHit(float damage)
     {
-        StopCoroutine(_healthDepletionCoroutine);
-        StopCoroutine(_healthRefillCoroutine);
+        if (_healthDepletionCoroutine != null)
+        {
+            StopCoroutine(_healthDepletionCoroutine);
+        }
+
+        if (_healthRefillCoroutine != null)
+        {
+            StopCoroutine(_healthRefillCoroutine);
+        }
+        
+        
         _isHealthDepletionSpriteEffectRunning = false;
         _isHealthReplenishSpriteEffectRunning = false;
         base.OnBulletHit(damage);

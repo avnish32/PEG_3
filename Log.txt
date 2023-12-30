@@ -69,8 +69,13 @@ References:
 https://docs.unity3d.com/ScriptReference/Physics2D.Raycast.html
 
 28 Dec - Added SFX for shoot, death and tower destruction.
-No references
+References:
+SFX created using beta.blendwave.net
 
 29 Dec - Added damage effect which turns sprite red using a coroutine.
 29 Dec - Improved tower sprite and added damaged tower sprite.
 29 Dec - Added health depletion and replenish blink effect on Player 2, and similar damage and repair effects on Towers. The bullet hit damage effect always takes priority over other effects, and this was done by caching the started coroutines and stopping them whenever the bullet hit event was invoked.
+
+30 Dec - Added BGM to main menu and levels.
+References:
+Music created using beepbox.co

@@ -23,7 +23,7 @@ public class MainMenuController : MonoBehaviour
 
     public void OnPlayButtonClicked()
     {
-        SceneManager.LoadScene("MainLevel");
+        SceneManager.LoadScene("L1");
     }
 
     public void DisplayLevelSelect()
