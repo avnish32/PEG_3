@@ -100,7 +100,16 @@ public class LevelController : MonoBehaviour
         Time.timeScale = 0;
 
         _pauseMenuPanel.SetHeadingText("Players won");
-        _pauseMenuPanel.SetResumeRestartButton(() => { RestartLevel(); }, "Restart");
+
+        //If current level is the last level
+        if(SceneManager.GetActiveScene().buildIndex == SceneManager.sceneCountInBuildSettings - 1)
+        {
+            _pauseMenuPanel.SetResumeRestartButton(() => { RestartLevel(); }, "Restart");
+        } else
+        {
+            _pauseMenuPanel.SetResumeRestartButton(() => { LoadNextLevel(); }, "Next");
+        }
+        
         _pauseMenuPanel.gameObject.SetActive(true);
     }
 
@@ -151,6 +160,11 @@ public class LevelController : MonoBehaviour
     public void LoadLevel(string levelName)
     {
         SceneManager.LoadScene(levelName);
+    }
+
+    public void LoadNextLevel()
+    {
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
     }
 
     public void QuitGame()

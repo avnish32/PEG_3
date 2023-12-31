@@ -79,3 +79,8 @@ SFX created using beta.blendwave.net
 30 Dec - Added BGM to main menu and levels.
 References:
 Music created using beepbox.co
+
+31 Dec - Bound main menu level select buttons with corresponding levels.
+31 Dec - Added some text info in controls panel.
+31 Dec - Changed 'Restart'  button to 'Next' button if players win and current level is not last level.
+No references.
