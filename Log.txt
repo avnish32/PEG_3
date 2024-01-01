@@ -88,5 +88,6 @@ No references.
 01 Jan - Added scrolling BG in main menu.
 01 Jan - Improved controls panel appearance.
 01 Jan - Added thumbnails to level select buttons.
+01 Jan - Added Credits panel.
 References:
 Scrolling BG inspired by: https://www.youtube.com/watch?v=lF26yGJbsQk
