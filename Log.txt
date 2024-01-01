@@ -86,3 +86,4 @@ Music created using beepbox.co
 No references.
 
 01 Jan - Added scrolling BG in main menu.
+01 Jane - Improved controls panel appearance.
