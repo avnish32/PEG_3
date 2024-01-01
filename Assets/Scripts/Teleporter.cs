@@ -36,8 +36,8 @@ public class Teleporter : MonoBehaviour
 
     private void Start()
     {
-        //Debug.Log("Teleporter start.");
-        TeleportToTower(Towers.TOWER_1);
+        Debug.Log("Teleporter start.");
+        TeleportToTower(Towers.TOWER_1, true);
     }
 
     private void Update()
@@ -83,18 +83,30 @@ public class Teleporter : MonoBehaviour
             if (_towerOnLMBDown != null && _towerOnLMBDown == _towerUnderCursor && Time.time - _timeOnLastLMBPressOnTower <= 1.0f)
             {
                 //Debug.Log("Teleporting.");
-                TeleportToTower(_towerOnLMBDown.GetThisTower());
+                TeleportToTower(_towerOnLMBDown.GetThisTower(), false);
             }
             return;
         }
     }
 
 
-    private void TeleportToTower(Towers destinationTower)
+    private void TeleportToTower(Towers destinationTower, bool isStartCall)
     {
-        if (!this.enabled || _currentTower == destinationTower || LevelController.isGamePaused)
+        if (!this.enabled)
         {
-            Debug.Log("Teleporter: Not enabled or current tower is same as destination or game is paused.");
+            Debug.Log("Teleporter: Not enabled.");
+            return;
+        } 
+
+        if  (_currentTower == destinationTower)
+        {
+            Debug.Log("Teleporter: current tower is same as destination.");
+            return;
+        } 
+        
+        if (LevelController.isGamePaused && !isStartCall)
+        {
+            Debug.Log("Teleporter: Game is paused.");
             return;
         }
 
@@ -111,17 +123,17 @@ public class Teleporter : MonoBehaviour
 
     public void TeleportToTower1()
     {
-        TeleportToTower(Towers.TOWER_1);
+        TeleportToTower(Towers.TOWER_1, false);
     }
 
     public void TeleportToTower2()
     {
-        TeleportToTower(Towers.TOWER_2);
+        TeleportToTower(Towers.TOWER_2, false);
     }
 
     public void TeleportToTower3()
     {
-        TeleportToTower(Towers.TOWER_3);
+        TeleportToTower(Towers.TOWER_3, false);
     }
 
     public Towers GetCurrentTower()

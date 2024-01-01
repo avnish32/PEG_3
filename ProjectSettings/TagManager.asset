@@ -45,14 +45,17 @@ TagManager:
   - name: Floor
     uniqueID: 3060132383
     locked: 0
+  - name: Decor
+    uniqueID: 1806888211
+    locked: 0
+  - name: Default
+    uniqueID: 0
+    locked: 0
   - name: EnemySprites
     uniqueID: 1495818199
     locked: 0
   - name: Walls
     uniqueID: 1558165969
-    locked: 0
-  - name: Default
-    uniqueID: 0
     locked: 0
   - name: TowerSprites
     uniqueID: 773518751
