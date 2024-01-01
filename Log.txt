@@ -86,4 +86,7 @@ Music created using beepbox.co
 No references.
 
 01 Jan - Added scrolling BG in main menu.
-01 Jane - Improved controls panel appearance.
+01 Jan - Improved controls panel appearance.
+01 Jan - Added thumbnails to level select buttons.
+References:
+Scrolling BG inspired by: https://www.youtube.com/watch?v=lF26yGJbsQk
