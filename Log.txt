@@ -84,3 +84,5 @@ Music created using beepbox.co
 31 Dec - Added some text info in controls panel.
 31 Dec - Changed 'Restart'  button to 'Next' button if players win and current level is not last level.
 No references.
+
+01 Jan - Added scrolling BG in main menu.
