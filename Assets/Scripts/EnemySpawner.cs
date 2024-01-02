@@ -35,7 +35,12 @@ public class EnemySpawner : MonoBehaviour
         GameObject[] targetArray = GameObject.FindGameObjectsWithTag("EnemyTarget");
         _enemyTargets = targetArray.ToList<GameObject>();
         player2 = GameObject.FindGameObjectWithTag("Player2");
-        _enemyTargets.Add(player2);
+
+        if (player2 != null )
+        {
+            _enemyTargets.Add(player2);
+        }
+        
         _nextEnemySpawnDelay = _maxSpawnDelay;
     }
 
@@ -53,7 +58,7 @@ public class EnemySpawner : MonoBehaviour
         }
     }
 
-    private float SpawnEnemy()
+    protected float SpawnEnemy()
     {
         Transform randomSpawnPoint = _spawnPts[UnityEngine.Random.Range(0, _spawnPts.Length)];
         Transform target = _enemyTargets.ElementAt(UnityEngine.Random.Range(0, _enemyTargets.Count)).transform;
