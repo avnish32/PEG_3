@@ -34,7 +34,7 @@ public class PanelFader : MonoBehaviour
              coroutineRunningTime = Time.unscaledTime - callTime;
 
             float opacity = Mathf.Lerp(0f, 1f, coroutineRunningTime / fadeInTime);
-            Debug.Log("Fading in. opacity: " + opacity);
+            //Debug.Log("Fading in. opacity: " + opacity);
 
             foreach (Image image in _imagesToFade)
             {

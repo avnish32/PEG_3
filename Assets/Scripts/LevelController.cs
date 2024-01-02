@@ -5,6 +5,7 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.SceneManagement;
+using static UnityEditor.Experimental.GraphView.GraphView;
 
 public class LevelController : MonoBehaviour
 {
@@ -56,7 +57,7 @@ public class LevelController : MonoBehaviour
         {
             return;
         }
-        _timerText.text = "Just " + minutes.ToString("00") + ":" + seconds.ToString("00") + " more...";
+        _timerText.text = minutes.ToString("00") + ":" + seconds.ToString("00");
     }
 
     private void RestartLevel()
@@ -90,16 +91,16 @@ public class LevelController : MonoBehaviour
         if (_timeToLast == 0)
         {
             Debug.Log("Players won!");
-            OnPlayersWon();
+            OnLevelEnd("Players won!");
         }
     }
 
-    private void OnPlayersWon()
+    private void OnLevelEnd(string levelEndText)
     {
         isGamePaused = true;
         Time.timeScale = 0;
 
-        _pauseMenuPanel.SetHeadingText("Players won");
+        _pauseMenuPanel.SetHeadingText(levelEndText);
 
         //If current level is the last level
         if(SceneManager.GetActiveScene().buildIndex == SceneManager.sceneCountInBuildSettings - 1)
@@ -136,6 +137,11 @@ public class LevelController : MonoBehaviour
             Debug.Log("Enemies won.");
             OnEnemyWon();
         }
+    }
+
+    public void OnTutorialEnd()
+    {
+        OnLevelEnd("End of tutorial.");
     }
 
     public void ResumeGame()

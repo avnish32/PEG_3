@@ -63,7 +63,13 @@ public class TutorialController : MonoBehaviour
             {
                 msgDisplayDuration = float.Parse(msgCommands[(Array.IndexOf(msgCommands, "DURATION"))+1]);
             }
-            Debug.Log("msgDisplayDuration: " + msgDisplayDuration);
+
+            if (msgCommands.Contains("TUTORIALENDED"))
+            {
+                GameObject.FindFirstObjectByType<LevelController>().OnTutorialEnd();
+            }
+
+            //Debug.Log("msgDisplayDuration: " + msgDisplayDuration);
             _panelFader.FadeIn(1f);
             yield return new WaitForSecondsRealtime(msgDisplayDuration);
             Time.timeScale = 1f;
