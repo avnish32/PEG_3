@@ -114,6 +114,14 @@ public class Teleporter : MonoBehaviour
         transform.position = destinationPosition;
         _currentTower = destinationTower;
         _audioSource.PlayOneShot(_teleportSound);
+
+        if (!isStartCall)
+        {
+            foreach (var bomb in FindObjectsOfType<Bomb>())
+            {
+                bomb.BroadcastMessage("OnPlayerTeleport", destinationTower);
+            };
+        }
     }
 
     private void OnDeath()
