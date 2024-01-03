@@ -60,6 +60,9 @@ TagManager:
   - name: TowerSprites
     uniqueID: 773518751
     locked: 0
+  - name: BombSprites
+    uniqueID: 1615750981
+    locked: 0
   - name: PlayerSprites
     uniqueID: 3103290303
     locked: 0

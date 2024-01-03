@@ -30,14 +30,14 @@ public class Teleporter : MonoBehaviour
         {
             _towerToLocationMap.Add(towerInfo.tower, towerInfo.towerPosition);
         }
-        _currentTower = Towers.TOWER_3;
+        _currentTower = Towers.TOWER_YELLOW;
 
     }
 
     private void Start()
     {
         Debug.Log("Teleporter start.");
-        TeleportToTower(Towers.TOWER_1, true);
+        TeleportToTower(Towers.TOWER_RED, true);
     }
 
     private void Update()
@@ -123,17 +123,17 @@ public class Teleporter : MonoBehaviour
 
     public void TeleportToTower1()
     {
-        TeleportToTower(Towers.TOWER_1, false);
+        TeleportToTower(Towers.TOWER_RED, false);
     }
 
     public void TeleportToTower2()
     {
-        TeleportToTower(Towers.TOWER_2, false);
+        TeleportToTower(Towers.TOWER_BLUE, false);
     }
 
     public void TeleportToTower3()
     {
-        TeleportToTower(Towers.TOWER_3, false);
+        TeleportToTower(Towers.TOWER_YELLOW, false);
     }
 
     public Towers GetCurrentTower()
@@ -144,7 +144,7 @@ public class Teleporter : MonoBehaviour
 
 public enum Towers
 {
-    TOWER_1, TOWER_2, TOWER_3, TOWER_4
+    TOWER_RED, TOWER_BLUE, TOWER_YELLOW, TOWER_GREEN
 };
 
 [Serializable]
