@@ -878,10 +878,9 @@ MonoBehaviour:
     Stay close to your companion and within their pedestal''s boundary to refill
     your health. '
   - Since your bullets can travel only a limited distance, you will need to teleport
-    to different pedestals to kill enemies. Click on the pedestal to teleport to
-    it.
-  - If a pedestal suffers damage, Player 2 can carry out repairs by standing near
-    it and holding the  'E' button.
+    to different pedestals to kill enemies. Click on a pedestal to teleport to it.
+  - If a pedestal suffers damage, Player 2 can carry out repairs by standing next
+    to it and holding the  'E' button.
   - Keeping all pedestals healthy is essential...
   - If Player 1 is on a pedestal when it gets destroyed, they will die with it.
   - Occasionally, an enemy will drop a bomb on pedestals.
@@ -4550,11 +4549,6 @@ MonoBehaviour:
   _enemyToSpawn: {fileID: 3521464968909104972, guid: 92dd6cd357e97ee419a043e2f29b8daa, type: 3}
   _bomberToSpawn: {fileID: 1737388904600013813, guid: 69fc98a34df85114588023a501b0364d, type: 3}
   _shooterSpawnPts:
-  - {fileID: 1630278962}
-  - {fileID: 1630278961}
-  - {fileID: 1630278960}
-  - {fileID: 1630278959}
-  - {fileID: 1630278958}
   - {fileID: 1630278957}
   - {fileID: 1630278956}
   - {fileID: 1630278955}

@@ -75,15 +75,10 @@ public class TutorialController : MonoBehaviour
                 msgDisplayDuration = float.Parse(msgCommands[(Array.IndexOf(msgCommands, "DURATION"))+1]);
             }
 
-            if (msgCommands.Contains("TUTORIALENDED"))
-            {
-                GameObject.FindFirstObjectByType<LevelController>().OnTutorialEnd();
-            }
-
             //Debug.Log("msgDisplayDuration: " + msgDisplayDuration);
             _panelFader.FadeIn(1f);
 
-            if (msgCommands.Contains("WAITFOREXTGOAHEAD"))
+            if (msgCommands.Contains("WAITFOREXTGOAHEAD") && !_canProceedAhead)
             {
                 yield return new WaitUntil(() => _canProceedAhead);
             }
@@ -91,12 +86,18 @@ public class TutorialController : MonoBehaviour
             {
                 yield return new WaitForSecondsRealtime(msgDisplayDuration);
             }
+
             _canProceedAhead = false;
             Time.timeScale = 1f;
             _panelFader.FadeOut(1f);
             yield return new WaitForSecondsRealtime(1f);
-        }      
-        
+
+            if (msgCommands.Contains("TUTORIALENDED"))
+            {
+                GameObject.FindFirstObjectByType<LevelController>().OnTutorialEnd();
+            }
+        }
+
     }
 
     public void ProceedWithTutorial()

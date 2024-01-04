@@ -52,6 +52,9 @@ public class Bomb : MonoBehaviour, IInteractable
     private AudioClip _tickSound;
 
     [SerializeField]
+    private AudioClip _defusedSound;
+
+    [SerializeField]
     [Tooltip("This needs to be the half of damage radius sprite scale.")]
     private float _damageRadius;
 
@@ -129,7 +132,12 @@ public class Bomb : MonoBehaviour, IInteractable
         defusalSeqPanelRect.sizeDelta = new Vector2(seqLength + 1, defusalSeqPanelRect.sizeDelta.y);
 
         List<Towers> towerListForNextPass = new List<Towers>(_towersMasterList);
-
+        GameObject player1 = GameObject.FindGameObjectWithTag("Player1");
+        if (player1 != null )
+        {
+            Towers p1CurrentTower = player1.GetComponent<Teleporter>().GetCurrentTower();
+            towerListForNextPass.Remove( p1CurrentTower );
+        }
 
         for (int i = 0; i < seqLength; i++)
         {
@@ -291,6 +299,7 @@ public class Bomb : MonoBehaviour, IInteractable
     private void DefuseBomb()
     {
         //Debug.Log("Bomb defused.");
+        _audioSource.PlayOneShot(_defusedSound);
         _isBombDefused = true;
         Destroy(_defusalSeqPanel.gameObject);
         

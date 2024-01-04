@@ -71,11 +71,11 @@ public class EnemyBehavior : MonoBehaviour
         {
             //Debug.Log("Nav mesh remaining distance: "+_navMeshAgent.remainingDistance);
             RotateTowardsTarget(_target);
-            
             TriggerShooting();
         } else
         {
             RotateTowardsTarget(_target);
+            StopShooting();
         }
     }
 
@@ -89,11 +89,16 @@ public class EnemyBehavior : MonoBehaviour
         }
     }
 
+    private void StopShooting()
+    {
+        CancelInvoke("Shoot");
+        _isShooting = false;
+    }
+
     private void FindNewTarget()
     {
         //Debug.Log("Find new target called.");
-        CancelInvoke("Shoot");
-        _isShooting = false;
+        StopShooting();
 
         GameObject[] targets = GameObject.FindGameObjectsWithTag("EnemyTarget");
         if (targets.Length ==0)
@@ -173,7 +178,7 @@ public class EnemyBehavior : MonoBehaviour
         {
             enemyBoxCollider.enabled = false;
         }
-        CancelInvoke("Shoot");
+        StopShooting();
         _navMeshAgent.isStopped = true;
     }
 

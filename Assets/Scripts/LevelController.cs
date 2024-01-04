@@ -119,6 +119,10 @@ public class LevelController : MonoBehaviour
 
     public void OnTutorialEnd()
     {
+        if (isGamePaused)
+        {
+            ResumeGame();
+        }
         OnLevelEnd("End of tutorial.");
     }
 

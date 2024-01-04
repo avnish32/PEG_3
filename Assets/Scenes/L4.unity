@@ -871,6 +871,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Red Tower
       objectReference: {fileID: 0}
+    - target: {fileID: 5491564056313377421, guid: 691395f08ec817e4583e937085c2e082, type: 3}
+      propertyPath: _maxHealth
+      value: 75
+      objectReference: {fileID: 0}
     - target: {fileID: 8155819576554725032, guid: 691395f08ec817e4583e937085c2e082, type: 3}
       propertyPath: m_AnchorMax.x
       value: 0
@@ -3458,6 +3462,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7948290270955712642, guid: 8dd4b534c809ccb45a1f26b976e9ef34, type: 3}
+      propertyPath: _maxHealth
+      value: 75
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -3691,6 +3699,10 @@ PrefabInstance:
     - target: {fileID: 2145107807493033331, guid: 814f57ddad96fef4eba0eeaeba3ed84d, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2368412882719088982, guid: 814f57ddad96fef4eba0eeaeba3ed84d, type: 3}
+      propertyPath: _maxHealth
+      value: 75
       objectReference: {fileID: 0}
     - target: {fileID: 4832840293426733194, guid: 814f57ddad96fef4eba0eeaeba3ed84d, type: 3}
       propertyPath: m_Name
@@ -6504,6 +6516,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 579889588}
     m_Modifications:
+    - target: {fileID: 415155329863559781, guid: f31f27054db421144a2e8c7f828684f0, type: 3}
+      propertyPath: _maxHealth
+      value: 75
+      objectReference: {fileID: 0}
     - target: {fileID: 4096115441712531008, guid: f31f27054db421144a2e8c7f828684f0, type: 3}
       propertyPath: m_AnchorMax.x
       value: 0
@@ -6820,6 +6836,10 @@ PrefabInstance:
     - target: {fileID: 1253828374502246028, guid: fdb87a1a94429064382b7f1dca3aa8a7, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4184629433597822837, guid: fdb87a1a94429064382b7f1dca3aa8a7, type: 3}
+      propertyPath: _minSpawnDelay
+      value: 5
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

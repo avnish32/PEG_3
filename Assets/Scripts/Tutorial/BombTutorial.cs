@@ -7,7 +7,7 @@ public class BombTutorial : Bomb
     new private void Start()
     {
         base.Start();
-        _timer.SetInitialTime(60);
+        _timer.SetInitialTime(120);
     }
 
     public override void DisplayInteractMsg()
