@@ -2,22 +2,59 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
+using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class Bomb : MonoBehaviour
+public class Bomb : MonoBehaviour, IInteractable
 {
     private List<Towers> _defusalSequence;
     private List<Towers> _towersMasterList;
     private Dictionary<Towers, Sprite> _towerToSpriteMap;
     private List<GameObject> _defusalSeqInstdSprites;
     private List<Towers> _playerTeleportHistory;
+    private SpriteRenderer _spriteRenderer;
+    private AudioSource _audioSource;
+    private Timer _timer;
+    private bool _isBombDefused = false;
+    private float _maxTimerPanelOpacity;
 
     [SerializeField]
     private GameObject _defusalSeqSpriteObject;
 
     [SerializeField]
     private RectTransform _defusalSeqPanel;
+
+    [SerializeField]
+    private Image _timerPanel;
+
+    [SerializeField]
+    private TextMeshProUGUI _timerText;
+
+    [SerializeField]
+    private Sprite _defusedBombSprite;
+
+    [SerializeField]
+    private SpriteRenderer _damageRadiusSprite;
+
+    [SerializeField]
+    private float _fadeOutTime = 3f;
+
+    [SerializeField]
+    private GameObject _explosionEffect;
+
+    [SerializeField]
+    private AudioClip _explosionSound;
+
+    [SerializeField]
+    private AudioClip _tickSound;
+
+    [SerializeField]
+    [Tooltip("This needs to be the half of damage radius sprite scale.")]
+    private float _damageRadius;
+
+    [SerializeField]
+    private float _damage = 10f;
 
     [Serializable]
     struct TowerSpriteInfo
@@ -29,20 +66,31 @@ public class Bomb : MonoBehaviour
     [SerializeField]
     private TowerSpriteInfo[] _towerSprites;
 
+    private void Awake()
+    {
+        _timer = GetComponent<Timer>();
+        _spriteRenderer = GetComponent<SpriteRenderer>();
+        _audioSource = GetComponent<AudioSource>();
+    }
+
     // Start is called before the first frame update
     void Start()
     {
+        /*GetComponent<Animator>().Play("Spawned");
+        GetComponent<Animator>().Play("Active");*/
         Init();
         _ConstructBomDefusalSequence();
+        InvokeRepeating("PlayTickSound", 0f, 1f);
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Z))
+        /*if (Input.GetKeyDown(KeyCode.Z))
         {
             _ConstructBomDefusalSequence();
-        }
+        }*/
+        
     }
 
     private void Init()
@@ -61,11 +109,13 @@ public class Bomb : MonoBehaviour
 
         //_towersMasterList = Enum.GetValues(typeof(Towers)).Cast<Towers>().ToList();
 
-        Debug.Log("Towers master list: " + ConstructStringFromList(_towersMasterList));
+        //Debug.Log("Towers master list: " + ConstructStringFromList(_towersMasterList));
         foreach (TowerSpriteInfo towerSpriteInfo in _towerSprites)
         {
             _towerToSpriteMap[towerSpriteInfo.towerEnum] = towerSpriteInfo.towerSprite;
         }
+
+        _maxTimerPanelOpacity = _timerPanel.color.a;
     }
 
     private void _ConstructBomDefusalSequence()
@@ -98,7 +148,7 @@ public class Bomb : MonoBehaviour
             towerListForNextPass.Remove(randomTower);
         }
 
-        Debug.Log("Defusal sequence: " + ConstructStringFromList(_defusalSequence));
+        //Debug.Log("Defusal sequence: " + ConstructStringFromList(_defusalSequence));
     }
 
     private string ConstructStringFromList(List<Towers> towerList)
@@ -110,6 +160,11 @@ public class Bomb : MonoBehaviour
 
         }
         return towersMasterListLog;
+    }
+
+    private void PlayTickSound()
+    {
+        _audioSource.PlayOneShot(_tickSound);
     }
 
     private List<Towers> GetNElementsFromBack(int n, List<Towers> towersList)
@@ -143,8 +198,67 @@ public class Bomb : MonoBehaviour
         return true;
     }
 
+    private void OnTimerFinished()
+    {
+        foreach (var colliderInDamageRadius in Physics2D.OverlapCircleAll(transform.position, _damageRadius))
+        {
+            Health bombVictim = colliderInDamageRadius.GetComponent<Health>();
+            if (bombVictim != null && bombVictim.enabled)
+            {
+                //Debug.Log("Reducing health of bomb victim: "+bombVictim.gameObject.name);
+                bombVictim.ReduceHealth(_damage);
+            }
+        }
+        GameObject explosionObject = Instantiate(_explosionEffect, transform.position, Quaternion.identity);
+        AudioSource.PlayClipAtPoint(_explosionSound, Camera.main.transform.position);
+        Destroy(explosionObject, 2f);
+        Destroy(gameObject);
+    }
+
+    private void OnLastFewSecsRemaining()
+    {
+        CancelInvoke("PlayTickSound");
+        InvokeRepeating("PlayTickSound", 0f, 0.25f);
+    }
+
+    public void FadeOut(float fadeOutTime)
+    {
+        StartCoroutine(StartFadingOut(Time.time, fadeOutTime));
+    }
+
+    private IEnumerator StartFadingOut(float callTime, float fadeOutTime)
+    {
+        float coroutineRunningTime = Time.time - callTime;
+
+        while (coroutineRunningTime <= fadeOutTime)
+        {
+            //Bomb sprite
+            float opacity = Mathf.Lerp(1f, 0f, coroutineRunningTime / fadeOutTime);
+            Color color = new Color(1,1,1,opacity);
+            _spriteRenderer.color = color;
+
+            //Timer panel
+            Color timerColor = _timerPanel.color;
+            timerColor.a = opacity * _maxTimerPanelOpacity;
+            _timerPanel.color = timerColor;
+
+            //Timer text
+            timerColor = _timerText.color;
+            timerColor.a = opacity;
+            _timerText.color = timerColor;
+
+            coroutineRunningTime = Time.time - callTime;
+            yield return null;
+        }
+    }
+
     public void OnPlayerTeleport(Towers towerTeleportedTo)
     {
+        if (_isBombDefused)
+        {
+            return;
+        }
+
         _playerTeleportHistory.Add(towerTeleportedTo);
         //Debug.Log("Player teleprt history: " + ConstructStringFromList(_playerTeleportHistory));
 
@@ -158,19 +272,12 @@ public class Bomb : MonoBehaviour
             //Debug.Log("Last " + i + " teleportations match the first " + i + " towers in defusal sequence.");
             if (i == _defusalSequence.Count)
             {
-                Debug.Log("Bomb defused.");
+                DefuseBomb();
                 return;
             }
             else
             {
-                //fade i-1th child as all children before this will have already been faded.
-                Color translucent = new Color(1, 1, 1, 0.5f);
-                _defusalSeqInstdSprites[i - 1].GetComponent<Image>().color = translucent;
-                //Also reset opacity of all children after this one.
-                for (int j = i; j < _defusalSequence.Count; j++)
-                {
-                    _defusalSeqInstdSprites[j].GetComponent<Image>().color = Color.white;
-                }
+                UpdateDefusalSeqSpritesOnSubseqMatch(i);
                 return;
             }
         }
@@ -181,11 +288,62 @@ public class Bomb : MonoBehaviour
         ResetDefusalSeqSpritesOpacity();
     }
 
+    private void DefuseBomb()
+    {
+        //Debug.Log("Bomb defused.");
+        _isBombDefused = true;
+        Destroy(_defusalSeqPanel.gameObject);
+        
+        _timer.PauseTimer();
+        CancelInvoke("PlayTickSound");
+
+        GetComponent<Animator>().enabled = false;
+        _damageRadiusSprite.enabled = false;
+        _spriteRenderer.sprite = _defusedBombSprite;
+        FadeOut(_fadeOutTime);
+        Destroy(gameObject, _fadeOutTime);
+        return;
+    }
+
+    private void UpdateDefusalSeqSpritesOnSubseqMatch(int i)
+    {
+        //fade i-1th child as all children before this will have already been faded.
+        Color translucent = new Color(1, 1, 1, 0.5f);
+        _defusalSeqInstdSprites[i - 1].GetComponent<Image>().color = translucent;
+        //Also reset opacity of all children after this one.
+        for (int j = i; j < _defusalSequence.Count; j++)
+        {
+            _defusalSeqInstdSprites[j].GetComponent<Image>().color = Color.white;
+        }
+    }
+
     private void ResetDefusalSeqSpritesOpacity()
     {
         foreach (var defusalSeqSprite in _defusalSeqInstdSprites)
         {
             defusalSeqSprite.GetComponent<Image>().color = Color.white;
+        }
+    }
+
+    public void Interact()
+    {
+        //No interact behavior
+        return;
+    }
+
+    public void DisplayInteractMsg()
+    {
+        if (_defusalSeqPanel != null)
+        {
+            _defusalSeqPanel.gameObject.SetActive(true);
+        }
+    }
+
+    public void HideInteractMsg()
+    {
+        if (_defusalSeqPanel != null)
+        {
+            _defusalSeqPanel.gameObject.SetActive(false);
         }
     }
 }

@@ -19,9 +19,6 @@ public class LevelController : MonoBehaviour
     private int _numberOfTowersLeft;
 
     [SerializeField]
-    private TextMeshProUGUI _timerText;
-
-    [SerializeField]
     InGameMenu _pauseMenuPanel;
 
     int minutes, seconds;
@@ -30,16 +27,9 @@ public class LevelController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
-        minutes = _timeToLast / 60;
-        seconds = _timeToLast % 60;
-        UpdateTimerText();
-
+        GetComponent<Timer>().SetInitialTime(_timeToLast);
         ResumeGame();
         //Debug.Log("In game menu disabled from levelController.");
-
-        InvokeRepeating("UpdateTimeToLast", 0f, 1f);
-        //Debug.Log("LevelController start.");
     }
 
     private void Update()
@@ -49,15 +39,6 @@ public class LevelController : MonoBehaviour
             //Debug.Log("Escape key down event from "+gameObject.name);
             TogglePause();
         }
-    }
-
-    private void UpdateTimerText()
-    {
-        if (_timerText == null)
-        {
-            return;
-        }
-        _timerText.text = minutes.ToString("00") + ":" + seconds.ToString("00");
     }
 
     private void RestartLevel()
@@ -79,20 +60,9 @@ public class LevelController : MonoBehaviour
         }
     }
 
-    private void UpdateTimeToLast()
+    private void OnTimerFinished()
     {
-        _timeToLast--;
-
-        minutes = _timeToLast / 60;
-        seconds = _timeToLast % 60;
-
-        UpdateTimerText();
-
-        if (_timeToLast == 0)
-        {
-            Debug.Log("Players won!");
-            OnLevelEnd("Players won!");
-        }
+        OnLevelEnd("Players won!");
     }
 
     private void OnLevelEnd(string levelEndText)

@@ -95,3 +95,6 @@ Scrolling BG inspired by: https://www.youtube.com/watch?v=lF26yGJbsQk
 02 Jan - Added tutorial level.
 02 Jan - Improved placement of timer.
 No references.
+
+04 Jan - Added bomb and defusal mechanism.
+04 Jan - Added bomb animations.

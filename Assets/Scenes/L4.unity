@@ -4112,6 +4112,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 579889588}
     m_Modifications:
+    - target: {fileID: -7647358634436364072, guid: b750dc7dae822534eafd6c88e6711176, type: 3}
+      propertyPath: _healthyTower
+      value: 
+      objectReference: {fileID: 21300000, guid: 6689f2680a734831a59070fc51d12d66, type: 3}
     - target: {fileID: 1250626108847625937, guid: b750dc7dae822534eafd6c88e6711176, type: 3}
       propertyPath: _maxHealth
       value: 50
@@ -4184,6 +4188,10 @@ PrefabInstance:
       propertyPath: m_SpriteTilingProperty.newSize.x
       value: 2.5
       objectReference: {fileID: 0}
+    - target: {fileID: 8099084616119110109, guid: b750dc7dae822534eafd6c88e6711176, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 6689f2680a734831a59070fc51d12d66, type: 3}
     - target: {fileID: 8099084616119110109, guid: b750dc7dae822534eafd6c88e6711176, type: 3}
       propertyPath: m_DrawMode
       value: 1
@@ -4289,6 +4297,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 579889588}
     m_Modifications:
+    - target: {fileID: -7647358634436364072, guid: b750dc7dae822534eafd6c88e6711176, type: 3}
+      propertyPath: _healthyTower
+      value: 
+      objectReference: {fileID: 21300000, guid: 9070c0371fd540238bfc29f9559e1b92, type: 3}
     - target: {fileID: 1250626108847625937, guid: b750dc7dae822534eafd6c88e6711176, type: 3}
       propertyPath: _maxHealth
       value: 50
@@ -4365,6 +4377,10 @@ PrefabInstance:
       propertyPath: m_SpriteTilingProperty.newSize.x
       value: 2.5
       objectReference: {fileID: 0}
+    - target: {fileID: 8099084616119110109, guid: b750dc7dae822534eafd6c88e6711176, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 9070c0371fd540238bfc29f9559e1b92, type: 3}
     - target: {fileID: 8099084616119110109, guid: b750dc7dae822534eafd6c88e6711176, type: 3}
       propertyPath: m_DrawMode
       value: 1
@@ -9356,6 +9372,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 579889588}
     m_Modifications:
+    - target: {fileID: -7647358634436364072, guid: b750dc7dae822534eafd6c88e6711176, type: 3}
+      propertyPath: _healthyTower
+      value: 
+      objectReference: {fileID: 21300000, guid: 19b6eed4b17a4b65886b7d5550712d38, type: 3}
     - target: {fileID: 1250626108847625937, guid: b750dc7dae822534eafd6c88e6711176, type: 3}
       propertyPath: _maxHealth
       value: 50
@@ -9433,6 +9453,10 @@ PrefabInstance:
       value: 2.5
       objectReference: {fileID: 0}
     - target: {fileID: 8099084616119110109, guid: b750dc7dae822534eafd6c88e6711176, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 19b6eed4b17a4b65886b7d5550712d38, type: 3}
+    - target: {fileID: 8099084616119110109, guid: b750dc7dae822534eafd6c88e6711176, type: 3}
       propertyPath: m_DrawMode
       value: 1
       objectReference: {fileID: 0}
@@ -9458,6 +9482,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2295614335728870967, guid: f9331f1600b9f504399221efc1e1d4d4, type: 3}
+      propertyPath: _timerText
+      value: 
+      objectReference: {fileID: 1218474487}
     - target: {fileID: 5292322379348104487, guid: f9331f1600b9f504399221efc1e1d4d4, type: 3}
       propertyPath: m_Name
       value: LevelController
@@ -9502,10 +9530,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 8998300270870584637, guid: f9331f1600b9f504399221efc1e1d4d4, type: 3}
-      propertyPath: _timerText
-      value: 
-      objectReference: {fileID: 1218474487}
     - target: {fileID: 8998300270870584637, guid: f9331f1600b9f504399221efc1e1d4d4, type: 3}
       propertyPath: _timeToLast
       value: 120

@@ -72,10 +72,9 @@ public class Repairable : MonoBehaviour, IInteractable
     public void DisplayInteractMsg()
     {
         //Debug.Log("Inside Repairable::DisplayInteractMsg");
-        //TODO Do we want to display interact msg every time or only when health is not full?
         if (_interactMsgObject != null)
         {
-            _interactMsgObject?.SetActive(true);
+            _interactMsgObject.SetActive(true);
         }
     }
 
