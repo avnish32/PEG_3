@@ -2232,10 +2232,12 @@ MonoBehaviour:
   - {fileID: 1490340970}
   - {fileID: 1988113735}
   - {fileID: 1895109328}
+  _bomberSpawnPercent: 15
   _minSpawnDelay: 3
   _maxSpawnDelay: 10
   _timeFromMaxToMin: 45
   _enemyToSpawn: {fileID: 3521464968909104972, guid: 92dd6cd357e97ee419a043e2f29b8daa, type: 3}
+  _bomberToSpawn: {fileID: 0}
 --- !u!4 &1035211569
 Transform:
   m_ObjectHideFlags: 0
@@ -3076,7 +3078,7 @@ TilemapRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 1558165969
-  m_SortingLayer: 2
+  m_SortingLayer: 3
   m_SortingOrder: 0
   m_ChunkSize: {x: 32, y: 32, z: 32}
   m_ChunkCullingBounds: {x: 0, y: 0, z: 0}
@@ -7977,7 +7979,7 @@ TilemapRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 1558165969
-  m_SortingLayer: 2
+  m_SortingLayer: 3
   m_SortingOrder: 0
   m_ChunkSize: {x: 32, y: 32, z: 32}
   m_ChunkCullingBounds: {x: 0, y: 0, z: 0}
@@ -8934,6 +8936,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2295614335728870967, guid: f9331f1600b9f504399221efc1e1d4d4, type: 3}
+      propertyPath: _timerText
+      value: 
+      objectReference: {fileID: 837709596}
     - target: {fileID: 5292322379348104487, guid: f9331f1600b9f504399221efc1e1d4d4, type: 3}
       propertyPath: m_Name
       value: LevelController

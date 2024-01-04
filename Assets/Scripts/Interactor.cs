@@ -45,7 +45,10 @@ public class Interactor : MonoBehaviour
         if (collision != null && collision.gameObject.GetComponent<IInteractable>() != null)
         {
             //Debug.Log("Exited collider of interactable.");
-            _interactableWithinRange.HideInteractMsg();
+            if (_interactableWithinRange != null)
+            {
+                _interactableWithinRange.HideInteractMsg();
+            }
             _isInteractableWithinRange = false;
             _interactableWithinRange = null;
         }

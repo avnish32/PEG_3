@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using TMPro;
 using UnityEngine;
 using UnityEngine.Events;
@@ -21,12 +22,19 @@ public class LevelController : MonoBehaviour
     [SerializeField]
     InGameMenu _pauseMenuPanel;
 
+    private List<Towers> _towersInSceneBeginning = new List<Towers>();
     int minutes, seconds;
 
 
     // Start is called before the first frame update
     void Start()
     {
+        Tower[] towersInScene = GameObject.FindObjectsOfType<Tower>();
+        for (int i = 0; i < towersInScene.Length; i++)
+        {
+            _towersInSceneBeginning.Add(towersInScene[i].GetThisTower());
+        }
+
         GetComponent<Timer>().SetInitialTime(_timeToLast);
         ResumeGame();
         //Debug.Log("In game menu disabled from levelController.");
@@ -141,6 +149,11 @@ public class LevelController : MonoBehaviour
     public void LoadNextLevel()
     {
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+    }
+
+    public List<Towers> GetTowersAtBeginning()
+    {
+        return _towersInSceneBeginning;
     }
 
     public void QuitGame()

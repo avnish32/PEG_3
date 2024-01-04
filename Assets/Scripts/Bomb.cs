@@ -76,8 +76,6 @@ public class Bomb : MonoBehaviour, IInteractable
     // Start is called before the first frame update
     void Start()
     {
-        /*GetComponent<Animator>().Play("Spawned");
-        GetComponent<Animator>().Play("Active");*/
         Init();
         _ConstructBomDefusalSequence();
         InvokeRepeating("PlayTickSound", 0f, 1f);
@@ -98,14 +96,9 @@ public class Bomb : MonoBehaviour, IInteractable
         _defusalSequence = new List<Towers>();
         _defusalSeqInstdSprites = new List<GameObject>();
         _playerTeleportHistory = new List<Towers>();
-        _towersMasterList = new List<Towers>();
         _towerToSpriteMap = new Dictionary<Towers, Sprite>();
 
-        Tower[] towersInScene = GameObject.FindObjectsOfType<Tower>();
-       for (int i = 0; i < towersInScene.Length; i++)
-        {
-            _towersMasterList.Add(towersInScene[i].GetThisTower());
-        }
+        _towersMasterList = FindObjectOfType<LevelController>().GetTowersAtBeginning();
 
         //_towersMasterList = Enum.GetValues(typeof(Towers)).Cast<Towers>().ToList();
 
@@ -128,7 +121,7 @@ public class Bomb : MonoBehaviour, IInteractable
         }
         _defusalSeqInstdSprites.Clear();
         
-        int seqLength = UnityEngine.Random.Range(2, 7);
+        int seqLength = UnityEngine.Random.Range(2, 6);
         RectTransform defusalSeqPanelRect = _defusalSeqPanel.GetComponent<RectTransform>();
         defusalSeqPanelRect.sizeDelta = new Vector2(seqLength + 1, defusalSeqPanelRect.sizeDelta.y);
 
@@ -164,6 +157,10 @@ public class Bomb : MonoBehaviour, IInteractable
 
     private void PlayTickSound()
     {
+        if (!_audioSource.enabled)
+        {
+            return;
+        }
         _audioSource.PlayOneShot(_tickSound);
     }
 
@@ -212,7 +209,7 @@ public class Bomb : MonoBehaviour, IInteractable
         GameObject explosionObject = Instantiate(_explosionEffect, transform.position, Quaternion.identity);
         AudioSource.PlayClipAtPoint(_explosionSound, Camera.main.transform.position);
         Destroy(explosionObject, 2f);
-        Destroy(gameObject);
+        Destroy(transform.root.gameObject);
     }
 
     private void OnLastFewSecsRemaining()
@@ -297,7 +294,7 @@ public class Bomb : MonoBehaviour, IInteractable
         _timer.PauseTimer();
         CancelInvoke("PlayTickSound");
 
-        GetComponent<Animator>().enabled = false;
+        transform.root.GetComponent<Animator>().enabled = false;
         _damageRadiusSprite.enabled = false;
         _spriteRenderer.sprite = _defusedBombSprite;
         FadeOut(_fadeOutTime);
