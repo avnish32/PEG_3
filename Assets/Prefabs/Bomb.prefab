@@ -76,7 +76,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 1615750981
-  m_SortingLayer: 4
+  m_SortingLayer: 1
   m_SortingOrder: 100
   m_Sprite: {fileID: 21300000, guid: a1d2c3029bbe43c2b4d73714e17e3c56, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -157,7 +157,7 @@ MonoBehaviour:
   _explosionSound: {fileID: 8300000, guid: 61c8e1747584f304ba38b0ee33cb757b, type: 3}
   _tickSound: {fileID: 8300000, guid: 3656cbc0de31cb248a2086b31b1c6f66, type: 3}
   _damageRadius: 3.5
-  _damage: 5
+  _damage: 25
   _towerSprites:
   - towerEnum: 0
     towerSprite: {fileID: 21300000, guid: 6689f2680a734831a59070fc51d12d66, type: 3}
@@ -548,8 +548,8 @@ Canvas:
   m_VertexColorAlwaysGammaSpace: 0
   m_AdditionalShaderChannelsFlag: 25
   m_UpdateRectTransformForStandalone: 0
-  m_SortingLayerID: 1615750981
-  m_SortingOrder: 0
+  m_SortingLayerID: 1154196195
+  m_SortingOrder: 500
   m_TargetDisplay: 0
 --- !u!114 &8609079310142237872
 MonoBehaviour:
@@ -662,7 +662,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 1615750981
-  m_SortingLayer: 4
+  m_SortingLayer: 1
   m_SortingOrder: 0
   m_Sprite: {fileID: -2413806693520163455, guid: a86470a33a6bf42c4b3595704624658b, type: 3}
   m_Color: {r: 1, g: 0, b: 0, a: 0.43137255}

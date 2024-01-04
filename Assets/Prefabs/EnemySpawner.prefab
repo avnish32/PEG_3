@@ -77,8 +77,8 @@ MonoBehaviour:
   - {fileID: 5836446458677228304}
   - {fileID: 7402185924021466767}
   - {fileID: 5707698329042906337}
-  _bomberSpawnPercent: 15
-  _minSpawnDelay: 3
+  _bomberSpawnPercent: 25
+  _minSpawnDelay: 4
   _maxSpawnDelay: 10
   _timeFromMaxToMin: 45
   _enemyToSpawn: {fileID: 3521464968909104972, guid: 92dd6cd357e97ee419a043e2f29b8daa, type: 3}

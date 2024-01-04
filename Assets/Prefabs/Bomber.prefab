@@ -209,7 +209,7 @@ Rigidbody2D:
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
-  m_Constraints: 0
+  m_Constraints: 7
 --- !u!195 &1215903190990747733
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -247,7 +247,7 @@ MonoBehaviour:
   _currentHealth: 0
   _healthBarSlider: {fileID: 7609389707286254680}
   _healthBarColor: {fileID: 8037198161462420990}
-  _maxHealth: 25
+  _maxHealth: 10
   _deathAnimationLength: 3
   _deathSound: {fileID: 8300000, guid: 6d6a78aa8f55401478ecec02cdf2f1a0, type: 3}
   _spriteHitEffectBlinkDuration: 0.05
@@ -361,7 +361,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8303717848769638587, guid: 9a1271d098afa2546bfd6193dcb1eb10, type: 3}
       propertyPath: m_SortingLayerID
-      value: 1495818199
+      value: 1154196195
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

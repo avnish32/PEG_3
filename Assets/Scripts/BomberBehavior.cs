@@ -13,6 +13,7 @@ public class BomberBehavior : MonoBehaviour
     private bool _isReadyToThrow = false;
     private bool _hasThrownBomb = false;
     private bool _startedExitingArena = false;
+    private EnemySpawner _enemySpawner;
 
     [SerializeField]
     GameObject _bomb;
@@ -25,6 +26,7 @@ public class BomberBehavior : MonoBehaviour
     {
         _navMeshAgent.updateRotation = false;
         _navMeshAgent.updateUpAxis = false;
+        _enemySpawner = GameObject.FindObjectOfType<EnemySpawner>();
     }
 
     // Update is called once per frame
@@ -88,7 +90,7 @@ public class BomberBehavior : MonoBehaviour
     public void ExitArena()
     {
         _startedExitingArena = true;
-        Transform[] spawnPts = GameObject.FindObjectOfType<EnemySpawner>().GetSpawnPts();
+        Transform[] spawnPts = _enemySpawner.GetSpawnPts();
         _navMeshAgent.stoppingDistance = 0;
         SetTarget(spawnPts[Random.Range(0, spawnPts.Length)]);
     }
@@ -101,7 +103,8 @@ public class BomberBehavior : MonoBehaviour
         }
         //Debug.Log("Bomb thrown.");
         _hasThrownBomb = true;
-        Instantiate(_bomb, transform.position, Quaternion.identity);
+        GameObject newBomb = Instantiate(_bomb, transform.position, Quaternion.identity);
+        newBomb.GetComponentInChildren<Bomb>().SetEnemySpawner(_enemySpawner);
     }
 
     public void SetTarget(Transform target)

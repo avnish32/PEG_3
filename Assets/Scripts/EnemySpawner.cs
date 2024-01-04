@@ -34,12 +34,14 @@ public class EnemySpawner : MonoBehaviour
 
     private List<GameObject> _allTargets;
     private List<GameObject> _enemyTargets;
+    private Bomb _activeBomb;
 
     GameObject player2;
 
     // Start is called before the first frame update
     void Start()
     {
+        _activeBomb = null;
         GameObject[] targetArray = GameObject.FindGameObjectsWithTag("EnemyTarget");
         _allTargets = targetArray.ToList();
         _enemyTargets = targetArray.ToList();
@@ -71,7 +73,7 @@ public class EnemySpawner : MonoBehaviour
     {
         Transform randomSpawnPoint = _spawnPts[UnityEngine.Random.Range(0, _spawnPts.Length)];
         //Choose whether to spawn bomber or shooter enemy
-        if (UnityEngine.Random.Range(1, 101) <= _bomberSpawnPercent)
+        if (UnityEngine.Random.Range(1, 101) <= _bomberSpawnPercent && _activeBomb == null)
         {
             Transform target = _enemyTargets.ElementAt(UnityEngine.Random.Range(0, _enemyTargets.Count)).transform;
             GameObject spawnedBomber = Instantiate(_bomberToSpawn, randomSpawnPoint.position, Quaternion.identity);
@@ -97,6 +99,16 @@ public class EnemySpawner : MonoBehaviour
     {
         _allTargets.Remove(destroyedTarget);
         _enemyTargets.Remove(destroyedTarget);
+    }
+
+    public void RegisterBomb(Bomb spawnedBomb)
+    {
+        _activeBomb = spawnedBomb;
+    }
+
+    public void DeRegisterBomb()
+    {
+        _activeBomb = null;
     }
 
     public Transform[] GetSpawnPts()

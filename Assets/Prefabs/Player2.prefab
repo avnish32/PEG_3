@@ -80,7 +80,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -1191676993
-  m_SortingLayer: 2
+  m_SortingLayer: 5
   m_SortingOrder: 50
   m_Sprite: {fileID: 21300000, guid: 5c757809bf9d429ba7779a34713e82e7, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -286,6 +286,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 7009576883647668604}
     m_Modifications:
+    - target: {fileID: 1701156917107169250, guid: 9a1271d098afa2546bfd6193dcb1eb10, type: 3}
+      propertyPath: m_PresetInfoIsWorld
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 2713442221430003882, guid: 9a1271d098afa2546bfd6193dcb1eb10, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -384,7 +388,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8303717848769638587, guid: 9a1271d098afa2546bfd6193dcb1eb10, type: 3}
       propertyPath: m_SortingLayerID
-      value: -1191676993
+      value: 1154196195
       objectReference: {fileID: 0}
     - target: {fileID: 8303717848769638587, guid: 9a1271d098afa2546bfd6193dcb1eb10, type: 3}
       propertyPath: m_AdditionalShaderChannelsFlag

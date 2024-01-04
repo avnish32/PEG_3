@@ -18,6 +18,7 @@ public class Bomb : MonoBehaviour, IInteractable
     private Timer _timer;
     private bool _isBombDefused = false;
     private float _maxTimerPanelOpacity;
+    private EnemySpawner _enemySpawner;
 
     [SerializeField]
     private GameObject _defusalSeqSpriteObject;
@@ -78,6 +79,7 @@ public class Bomb : MonoBehaviour, IInteractable
     {
         Init();
         _ConstructBomDefusalSequence();
+        _timer.SetInitialTime(6 * _defusalSequence.Count);
         InvokeRepeating("PlayTickSound", 0f, 1f);
     }
 
@@ -320,6 +322,17 @@ public class Bomb : MonoBehaviour, IInteractable
         {
             defusalSeqSprite.GetComponent<Image>().color = Color.white;
         }
+    }
+
+    private void OnDestroy()
+    {
+        _enemySpawner.DeRegisterBomb();
+    }
+
+    public void SetEnemySpawner(EnemySpawner enemySpawner)
+    {
+        _enemySpawner = enemySpawner;
+        _enemySpawner.RegisterBomb(this);
     }
 
     public void Interact()
