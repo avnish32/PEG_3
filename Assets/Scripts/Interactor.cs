@@ -34,9 +34,9 @@ public class Interactor : MonoBehaviour
     {
         if (collision != null && collision.gameObject.GetComponent<IInteractable>() != null)
         {
-            //Debug.Log("Collided with an interactable.");
             _isInteractableWithinRange = true;
             _interactableWithinRange = collision.gameObject.GetComponent<IInteractable>();
+            Debug.Log("Collided with an interactable: " + _interactableWithinRange.ToString());
         }
     }
 

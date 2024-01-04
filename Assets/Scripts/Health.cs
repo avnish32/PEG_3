@@ -88,6 +88,11 @@ public class Health : MonoBehaviour
         return _maxHealth;
     }
 
+    public void SetMaxHealth(float maxHealth)
+    {
+        _maxHealth = maxHealth;
+    }
+
     public virtual void SetCurrentHealth(float health)
     {
         _currentHealth = Math.Min(health, _maxHealth);

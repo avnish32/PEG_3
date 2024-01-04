@@ -15,10 +15,11 @@ public class Bomb : MonoBehaviour, IInteractable
     private List<Towers> _playerTeleportHistory;
     private SpriteRenderer _spriteRenderer;
     private AudioSource _audioSource;
-    private Timer _timer;
     private bool _isBombDefused = false;
     private float _maxTimerPanelOpacity;
     private EnemySpawner _enemySpawner;
+
+    protected Timer _timer;
 
     [SerializeField]
     private GameObject _defusalSeqSpriteObject;
@@ -75,7 +76,7 @@ public class Bomb : MonoBehaviour, IInteractable
     }
 
     // Start is called before the first frame update
-    void Start()
+    protected void Start()
     {
         Init();
         _ConstructBomDefusalSequence();
@@ -298,6 +299,7 @@ public class Bomb : MonoBehaviour, IInteractable
 
         transform.root.GetComponent<Animator>().enabled = false;
         _damageRadiusSprite.enabled = false;
+        GetComponent<BoxCollider2D>().enabled = false;
         _spriteRenderer.sprite = _defusedBombSprite;
         FadeOut(_fadeOutTime);
         Destroy(gameObject, _fadeOutTime);
@@ -326,6 +328,10 @@ public class Bomb : MonoBehaviour, IInteractable
 
     private void OnDestroy()
     {
+        if (_enemySpawner == null)
+        {
+            return;
+        }
         _enemySpawner.DeRegisterBomb();
     }
 
@@ -341,7 +347,7 @@ public class Bomb : MonoBehaviour, IInteractable
         return;
     }
 
-    public void DisplayInteractMsg()
+    public virtual void DisplayInteractMsg()
     {
         if (_defusalSeqPanel != null)
         {

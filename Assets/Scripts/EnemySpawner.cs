@@ -7,7 +7,7 @@ using UnityEngine;
 public class EnemySpawner : MonoBehaviour
 {
     [SerializeField]
-    private Transform[] _spawnPts;
+    protected Transform[] _spawnPts;
 
     [SerializeField]
     int _bomberSpawnPercent = 15;
@@ -22,29 +22,30 @@ public class EnemySpawner : MonoBehaviour
     private float _timeFromMaxToMin;
 
     [SerializeField]
-    private GameObject _enemyToSpawn;
+    protected GameObject _enemyToSpawn;
 
     [SerializeField]
-    private GameObject _bomberToSpawn;
+    protected GameObject _bomberToSpawn;
 
     private float _timeElapsedSinceStart = 0f;
     private float _timeElapsedSinceLastSpawn = 0f;
     private float _currentSpawnDelay;
     private float _nextEnemySpawnDelay;
 
-    private List<GameObject> _allTargets;
-    private List<GameObject> _enemyTargets;
+    protected List<GameObject> _allTargets;
+    protected List<GameObject> _enemyTargets;
     private Bomb _activeBomb;
 
     GameObject player2;
 
     // Start is called before the first frame update
-    void Start()
+    protected void Start()
     {
         _activeBomb = null;
         GameObject[] targetArray = GameObject.FindGameObjectsWithTag("EnemyTarget");
         _allTargets = targetArray.ToList();
         _enemyTargets = targetArray.ToList();
+
         player2 = GameObject.FindGameObjectWithTag("Player2");
 
         if (player2 != null )
@@ -69,7 +70,7 @@ public class EnemySpawner : MonoBehaviour
         }
     }
 
-    protected float SpawnEnemy()
+    private float SpawnEnemy()
     {
         Transform randomSpawnPoint = _spawnPts[UnityEngine.Random.Range(0, _spawnPts.Length)];
         //Choose whether to spawn bomber or shooter enemy

@@ -21,6 +21,8 @@ public class TutorialController : MonoBehaviour
     [SerializeField]
     private string[] _tutorialMsgCommands;
 
+    private bool _canProceedAhead = false;
+
     private void Awake()
     {
         _panelFader = GetComponent<PanelFader>();
@@ -29,6 +31,8 @@ public class TutorialController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        //_enemySpawnerTutorial.gameObject.SetActive(false);
+        //_enemySpawnerTutorial.Start();
         StartCoroutine(StartTutorial());
     }
 
@@ -52,11 +56,18 @@ public class TutorialController : MonoBehaviour
                 GameObject.FindGameObjectWithTag("Player1").GetComponent<Teleporter>().enabled = false;
             }
 
-            if (msgCommands.Contains("SPAWNENEMY"))
+            if (msgCommands.Contains("SPAWNSHOOTER"))
             {
-                _enemySpawnerTutorial.enabled = true;
-                _enemySpawnerTutorial.SpawnEnemy();
-                _enemySpawnerTutorial.enabled = false;
+                //_enemySpawnerTutorial.enabled = true;
+                _enemySpawnerTutorial.SpawnShooter();
+                //_enemySpawnerTutorial.enabled = false;
+            }
+
+            if (msgCommands.Contains("SPAWNBOMBER"))
+            {
+                //_enemySpawnerTutorial.enabled = true;
+                _enemySpawnerTutorial.SpawnBomber();
+                //_enemySpawnerTutorial.enabled = false;
             }
 
             if (msgCommands.Contains("DURATION"))
@@ -71,11 +82,26 @@ public class TutorialController : MonoBehaviour
 
             //Debug.Log("msgDisplayDuration: " + msgDisplayDuration);
             _panelFader.FadeIn(1f);
-            yield return new WaitForSecondsRealtime(msgDisplayDuration);
+
+            if (msgCommands.Contains("WAITFOREXTGOAHEAD"))
+            {
+                yield return new WaitUntil(() => _canProceedAhead);
+            }
+            else
+            {
+                yield return new WaitForSecondsRealtime(msgDisplayDuration);
+            }
+            _canProceedAhead = false;
             Time.timeScale = 1f;
             _panelFader.FadeOut(1f);
             yield return new WaitForSecondsRealtime(1f);
         }      
         
+    }
+
+    public void ProceedWithTutorial()
+    {
+        _canProceedAhead = true;
+
     }
 }
