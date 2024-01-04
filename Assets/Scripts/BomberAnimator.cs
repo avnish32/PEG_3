@@ -7,7 +7,7 @@ public class BomberAnimator : MonoBehaviour
 {
     private enum BomberState
     {
-        THROWING, WALKING
+        THROWING, WALKING_W_BOMB, WALKING
     };
 
     private Animator _animator;
@@ -29,7 +29,7 @@ public class BomberAnimator : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        SetState(BomberState.WALKING);
+        SetState(BomberState.WALKING_W_BOMB);
     }
 
     // Update is called once per frame
@@ -40,7 +40,15 @@ public class BomberAnimator : MonoBehaviour
 
         if (Mathf.Abs(navMeshVelocity.x) > 0.1f || Mathf.Abs(navMeshVelocity.y) > 0.1f)
         {
-            SetState(BomberState.WALKING);
+            if (_bomberBehavior.HasThrownBomb())
+            {
+                SetState(BomberState.WALKING);
+            }
+            else
+            {
+                SetState(BomberState.WALKING_W_BOMB);
+            }
+            
             _xMovement = navMeshVelocity.x;
             _yMovement = navMeshVelocity.y;
         }
@@ -76,11 +84,14 @@ public class BomberAnimator : MonoBehaviour
             case BomberState.THROWING:
                 _animator.Play("Throwing");
                 break;
+            case BomberState.WALKING_W_BOMB:
+                _animator.Play("WalkingWithBomb");
+                break;
             case BomberState.WALKING:
                 _animator.Play("Walking");
                 break;
             default:
-                _currentState = BomberState.WALKING;
+                _currentState = BomberState.WALKING_W_BOMB;
                 _animator.Play("Walking");
                 break;
         }
