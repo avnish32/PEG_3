@@ -105,3 +105,4 @@ No references.
 04 Jan - Added walk animations without bomb adter dropping bomb.
 04 Jan - Added health to bomber.
 04 Jan - Added logic to check if a bomb is already in scene before spawning bomber.
+04 Jan - Replaced Tower prefab in scenes with its prefab variants.

@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -30,14 +31,14 @@ public class Teleporter : MonoBehaviour
         {
             _towerToLocationMap.Add(towerInfo.tower, towerInfo.towerPosition);
         }
-        _currentTower = Towers.TOWER_YELLOW;
+        _currentTower = _towerToLocationMap.ElementAt(_towerToLocationMap.Count-1).Key;
 
     }
 
     private void Start()
     {
         Debug.Log("Teleporter start.");
-        TeleportToTower(Towers.TOWER_RED, true);
+        TeleportToTower(_towerToLocationMap.ElementAt(0).Key, true);
     }
 
     private void Update()

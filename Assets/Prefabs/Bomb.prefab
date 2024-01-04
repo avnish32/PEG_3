@@ -150,7 +150,7 @@ MonoBehaviour:
   _defusalSeqPanel: {fileID: 3635946357459872636}
   _timerPanel: {fileID: 3362656335434353676}
   _timerText: {fileID: 652554680237753572}
-  _defusedBombSprite: {fileID: 21300000, guid: ffeedf7a6aa24117ad3e7ca5ae1bcb07, type: 3}
+  _defusedBombSprite: {fileID: 21300000, guid: cf74dcb1f3c31234db0fd1673b4a1caf, type: 3}
   _damageRadiusSprite: {fileID: 8484257517765626332}
   _fadeOutTime: 3
   _explosionEffect: {fileID: 1046623303800713772, guid: cdc8c798f05338a4c8583a3884a0df94, type: 3}
@@ -160,13 +160,13 @@ MonoBehaviour:
   _damage: 25
   _towerSprites:
   - towerEnum: 0
-    towerSprite: {fileID: 21300000, guid: 6689f2680a734831a59070fc51d12d66, type: 3}
+    towerSprite: {fileID: 21300000, guid: 351db0121cc30714693454d0741a955e, type: 3}
   - towerEnum: 1
-    towerSprite: {fileID: 21300000, guid: 65745db1a4584b5c80590eba821edd5c, type: 3}
+    towerSprite: {fileID: 21300000, guid: 3e3e90f4795c3dc4c8bd6231c687b2bd, type: 3}
   - towerEnum: 2
-    towerSprite: {fileID: 21300000, guid: 9070c0371fd540238bfc29f9559e1b92, type: 3}
+    towerSprite: {fileID: 21300000, guid: cfecb95105f513e42819709aa22c4065, type: 3}
   - towerEnum: 3
-    towerSprite: {fileID: 21300000, guid: 19b6eed4b17a4b65886b7d5550712d38, type: 3}
+    towerSprite: {fileID: 21300000, guid: 8bdc90a755703f64c93719fffccc66b3, type: 3}
 --- !u!114 &1576066065135394390
 MonoBehaviour:
   m_ObjectHideFlags: 0
