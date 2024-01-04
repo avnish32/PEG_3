@@ -37,8 +37,9 @@ public class BomberBehavior : MonoBehaviour
         {
             FindNewTarget();
         }
-        _navMeshAgent.SetDestination(_target.position);
-        //Debug.Log("remaining dist: " + navMeshAgent.remainingDistance);
+        //_navMeshAgent.SetDestination(_target.position);
+        /*Debug.Log(gameObject.name + " path pending: "+_navMeshAgent.pathPending 
+            + " remaining dist <= stopping dist: "+ (_navMeshAgent.remainingDistance <= _navMeshAgent.stoppingDistance));*/
         if (!_navMeshAgent.pathPending && _navMeshAgent.remainingDistance <= _navMeshAgent.stoppingDistance)
         {
             if (_startedExitingArena)
@@ -76,10 +77,11 @@ public class BomberBehavior : MonoBehaviour
     private void OnDeath()
     {
         this.enabled = false;
-        BoxCollider2D enemyBoxCollider = GetComponent<BoxCollider2D>();
-        if (enemyBoxCollider != null)
+        _navMeshAgent.isStopped = true;
+        BoxCollider2D bomberBoxCollider = GetComponent<BoxCollider2D>();
+        if (bomberBoxCollider != null)
         {
-            enemyBoxCollider.enabled = false;
+            bomberBoxCollider.enabled = false;
         }
     }
 

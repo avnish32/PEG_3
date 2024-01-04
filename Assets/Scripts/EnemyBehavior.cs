@@ -174,6 +174,7 @@ public class EnemyBehavior : MonoBehaviour
             enemyBoxCollider.enabled = false;
         }
         CancelInvoke("Shoot");
+        _navMeshAgent.isStopped = true;
     }
 
     public void SetTarget(Transform target)

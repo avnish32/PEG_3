@@ -103,3 +103,4 @@ No references.
 04 Jan - Added bomb explosion damage.
 04 Jan - Improved bomber walk animations.
 04 Jan - Added walk animations without bomb adter dropping bomb.
+04 Jan - Added health to bomber.
