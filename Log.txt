@@ -101,3 +101,4 @@ No references.
 04 Jan - Added tower sprites for various colors.
 04 Jan - Added bomber enemy with animations for throwing and running.
 04 Jan - Added bomb explosion damage.
+04 Jan - Improved bomber walk animations.
