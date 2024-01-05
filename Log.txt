@@ -112,6 +112,12 @@ SFX created using beta.blendwave.net
 
 05 Jan - Added fonts and scroll view for credits.
 05 Jan - Fixed bug for bomb root object not being destroyed on defusal.
+05 Jan - Level gameplay corrections:
+L2 - Enemy spawn interval = 4; tower health = 50.
+L3 seems fine.
+L4 - Enemy min spawn interval = 4; tower health = 100; bomber spawn percent = 33
+L5 - Decreased enemy spawn interval to 3 but increased tower health to 75.
+L6 - Enemy min spawn interval = 4; tower health = 50; spawn interval min to max time = 120, P2 health refill rate = 5; bomber spawn percent = 33.
 References:
 Dogica font: https://www.dafont.com/dogica.font
 Digital font for bomb timer: https://www.dafont.com/digital-7.font

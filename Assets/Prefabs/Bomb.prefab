@@ -157,7 +157,7 @@ MonoBehaviour:
   _explosionSound: {fileID: 8300000, guid: 61c8e1747584f304ba38b0ee33cb757b, type: 3}
   _tickSound: {fileID: 8300000, guid: 3656cbc0de31cb248a2086b31b1c6f66, type: 3}
   _defusedSound: {fileID: 8300000, guid: 97d6eccaf0921df44aaa48bfa7261de4, type: 3}
-  _damageRadius: 3.5
+  _damageRadius: 1.7
   _damage: 25
   _towerSprites:
   - towerEnum: 0

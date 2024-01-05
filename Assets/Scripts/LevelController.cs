@@ -22,6 +22,9 @@ public class LevelController : MonoBehaviour
     [SerializeField]
     InGameMenu _pauseMenuPanel;
 
+    [SerializeField]
+    private string _playersWonMsgAtLevelEnd = "Room clear.";
+
     private List<Towers> _towersInSceneBeginning = new List<Towers>();
     int minutes, seconds;
 
@@ -70,7 +73,7 @@ public class LevelController : MonoBehaviour
 
     private void OnTimerFinished()
     {
-        OnLevelEnd("Players won!");
+        OnLevelEnd(_playersWonMsgAtLevelEnd);
     }
 
     private void OnLevelEnd(string levelEndText)
@@ -99,7 +102,7 @@ public class LevelController : MonoBehaviour
 
         if (_pauseMenuPanel != null)
         {
-            _pauseMenuPanel.SetHeadingText("Enemies won");
+            _pauseMenuPanel.SetHeadingText("Ah, defeat.");
             _pauseMenuPanel.SetResumeRestartButton(delegate { RestartLevel(); }, "Restart");
             _pauseMenuPanel.gameObject.SetActive(true);
         }
