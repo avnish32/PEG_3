@@ -109,3 +109,8 @@ No references.
 04 Jan - Made necessary changes to the tutorial to include bomb training.
 References:
 SFX created using beta.blendwave.net
+
+05 Jan - 
+References:
+Dogica font: https://www.dafont.com/dogica.font
+Digital font for bomb timer: https://www.dafont.com/digital-7.font

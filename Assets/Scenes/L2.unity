@@ -131,9 +131,21 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 579889588}
     m_Modifications:
+    - target: {fileID: 2670497128550742259, guid: 691395f08ec817e4583e937085c2e082, type: 3}
+      propertyPath: m_fontSize
+      value: 35
+      objectReference: {fileID: 0}
+    - target: {fileID: 2670497128550742259, guid: 691395f08ec817e4583e937085c2e082, type: 3}
+      propertyPath: m_fontSizeMax
+      value: 35
+      objectReference: {fileID: 0}
     - target: {fileID: 3457089108279014225, guid: 691395f08ec817e4583e937085c2e082, type: 3}
       propertyPath: m_Name
       value: Red Tower
+      objectReference: {fileID: 0}
+    - target: {fileID: 6875353867836212122, guid: 691395f08ec817e4583e937085c2e082, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8155819576554725032, guid: 691395f08ec817e4583e937085c2e082, type: 3}
       propertyPath: m_AnchorMax.x
@@ -1262,6 +1274,22 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5752000253872731325, guid: 59e322af154ab0a4a946e46fdeebfc2e, type: 3}
+      propertyPath: m_fontSize
+      value: 66
+      objectReference: {fileID: 0}
+    - target: {fileID: 5752000253872731325, guid: 59e322af154ab0a4a946e46fdeebfc2e, type: 3}
+      propertyPath: m_fontAsset
+      value: 
+      objectReference: {fileID: 11400000, guid: c4f878de0696b564fa5a0a6f885f9da4, type: 2}
+    - target: {fileID: 5752000253872731325, guid: 59e322af154ab0a4a946e46fdeebfc2e, type: 3}
+      propertyPath: m_fontSizeBase
+      value: 66
+      objectReference: {fileID: 0}
+    - target: {fileID: 5752000253872731325, guid: 59e322af154ab0a4a946e46fdeebfc2e, type: 3}
+      propertyPath: m_sharedMaterial
+      value: 
+      objectReference: {fileID: 5949112570948636302, guid: c4f878de0696b564fa5a0a6f885f9da4, type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
