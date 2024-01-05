@@ -6,7 +6,6 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.SceneManagement;
-using static UnityEditor.Experimental.GraphView.GraphView;
 
 public class LevelController : MonoBehaviour
 {
