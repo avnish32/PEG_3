@@ -87,16 +87,6 @@ public class Bomb : MonoBehaviour, IInteractable
         InvokeRepeating("PlayTickSound", 0f, 1f);
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        /*if (Input.GetKeyDown(KeyCode.Z))
-        {
-            _ConstructBomDefusalSequence();
-        }*/
-        
-    }
-
     private void Init()
     {
         _defusalSequence = new List<Towers>();
@@ -311,7 +301,7 @@ public class Bomb : MonoBehaviour, IInteractable
         GetComponent<BoxCollider2D>().enabled = false;
         _spriteRenderer.sprite = _defusedBombSprite;
         FadeOut(_fadeOutTime);
-        Destroy(gameObject, _fadeOutTime);
+        Destroy(transform.root.gameObject, _fadeOutTime);
         return;
     }
 

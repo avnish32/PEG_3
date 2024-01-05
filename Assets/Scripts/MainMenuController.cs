@@ -21,6 +21,7 @@ public class MainMenuController : MonoBehaviour
 
     private void Start()
     {
+        Time.timeScale = 1;
         _currentActivePanel = _mainMenuButtonsPanel;
     }
 

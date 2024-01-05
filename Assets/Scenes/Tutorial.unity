@@ -869,26 +869,30 @@ MonoBehaviour:
   _msgText: {fileID: 1985970614}
   _enemySpawnerTutorial: {fileID: 1630278954}
   _tutorialMsgs:
-  - Welcome to <Protegir Juntos>! This tutorial will walk you through the basics
-    of the game.
-  - Use the mouse to rotate Player 1 and LEFT MOUSE BUTTON to SHOOT. For continuous
+  - Welcome to <Protegir Juntos>! Can you work together to protect your sub-terranian
+    hi-tech facility from intruders?
+  - Pedestals like these two are spread all over the facility, serving as nodes of
+    an interconnected network built to carry fuel to the building's core.
+  - But an evil, rival corporation has sent its minions to destroy these pedestals.
+    It is now up to you two to fend off the attack.
+  - Use the mouse to rotate Player BLUE and LEFT MOUSE BUTTON to SHOOT. For continuous
     shooting, hold the LEFT MOUSE BUTTON down.
-  - Player 2 can move using the WASD keys. But be wary...
-  - 'Moving out of the boundary of Player 1''s pedestal will deplete your health.
+  - Player GREEN can move using the WASD keys. But be wary...
+  - 'Moving out of the boundary of Player BLUE''s pedestal will deplete your health.
     Stay close to your companion and within their pedestal''s boundary to refill
     your health. '
   - Since your bullets can travel only a limited distance, you will need to teleport
     to different pedestals to kill enemies. Click on a pedestal to teleport to it.
-  - If a pedestal suffers damage, Player 2 can carry out repairs by standing next
-    to it and holding the  'E' button.
+  - If a pedestal suffers damage, Player GREEN can carry out repairs by standing
+    next to it and holding the  'E' button.
   - Keeping all pedestals healthy is essential...
-  - If Player 1 is on a pedestal when it gets destroyed, they will die with it.
+  - If Player BLUE is on a pedestal when it gets destroyed, they will die with it.
   - Occasionally, an enemy will drop a bomb on pedestals.
   - The bomb is set to go off, dealing heavy damage to everything in its blast radius.
     But it can be defused using its defusal sequence.
   - The defusal sequence can be viewed by standing next to the bomb.
   - You will see a series of pedestals in the sequence.
-  - This is the order in which Player 1 needs to teleport over pedestals to defuse
+  - This is the order in which Player BLUE needs to teleport over pedestals to defuse
     the bomb.
   - Work together and communicate to defuse the bomb before it goes off.
   - The timer on the top shows how much longer you need to survive to advance.
@@ -896,6 +900,8 @@ MonoBehaviour:
   - Good luck and happy protecting!
   _tutorialMsgCommands:
   - DISABLETELEPORT
+  - 
+  - 
   - 
   - 
   - DURATION:;10

@@ -66,6 +66,9 @@ TagManager:
   - name: PlayerSprites
     uniqueID: 3103290303
     locked: 0
+  - name: FX
+    uniqueID: 1595429127
+    locked: 0
   - name: UI
     uniqueID: 1154196195
     locked: 0

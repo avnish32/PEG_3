@@ -110,7 +110,8 @@ No references.
 References:
 SFX created using beta.blendwave.net
 
-05 Jan - 
+05 Jan - Added fonts and scroll view for credits.
+05 Jan - Fixed bug for bomb root object not being destroyed on defusal.
 References:
 Dogica font: https://www.dafont.com/dogica.font
 Digital font for bomb timer: https://www.dafont.com/digital-7.font
