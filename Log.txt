@@ -125,3 +125,5 @@ Digital font for bomb timer: https://www.dafont.com/digital-7.font
 06 Jan - Added audio mixer to control sound volume.
 06 Jan - Moved sound playing to single source.
 06 Jan - Added options panel to pause menu.
+06 Jan - Created a variant of controls panel for pause menu, but then decided against it as controls are simple enough and felt that player might not need to check them again while playing the game. So didn't add the Controls button in the pause menu.
+06 Jan - Added Options button in main menu.

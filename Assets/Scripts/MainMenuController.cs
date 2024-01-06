@@ -15,6 +15,9 @@ public class MainMenuController : MonoBehaviour
     private GameObject _controlsPanel;
 
     [SerializeField]
+    private GameObject _optionsPanel;
+
+    [SerializeField]
     private GameObject _creditsPanel;
 
     private GameObject _currentActivePanel;
@@ -49,6 +52,13 @@ public class MainMenuController : MonoBehaviour
         _currentActivePanel.SetActive(false);
         _mainMenuButtonsPanel.SetActive(true);
         _currentActivePanel = _mainMenuButtonsPanel;
+    }
+
+    public void DisplayOptions()
+    {
+        _currentActivePanel.SetActive(false);
+        _optionsPanel.SetActive(true);
+        _currentActivePanel = _optionsPanel;
     }
 
     public void DisplayCredits()
