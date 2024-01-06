@@ -963,6 +963,10 @@ PrefabInstance:
       propertyPath: m_Color.r
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 3222716919378547661, guid: 38ad1af7c74edbb4b9905936e3526193, type: 3}
+      propertyPath: _audioPlayer
+      value: 
+      objectReference: {fileID: 801652526}
     - target: {fileID: 4833463712994011895, guid: 38ad1af7c74edbb4b9905936e3526193, type: 3}
       propertyPath: up
       value: 

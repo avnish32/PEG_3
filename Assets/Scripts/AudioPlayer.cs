@@ -25,9 +25,22 @@ public class AudioPlayer : MonoBehaviour
     [SerializeField]
     Slider _sfxVolSlider;
 
+    private const string MUSIC_VOLUME_PLAYER_PREFS_KEY = "musicVolume";
+    private const string SFX_VOLUME_PLAYER_PREFS_KEY = "sfxVolume";
+
     // Start is called before the first frame update
     void Start()
     {
+        if (PlayerPrefs.HasKey(MUSIC_VOLUME_PLAYER_PREFS_KEY))
+        {
+            _musicVolSlider.value = PlayerPrefs.GetFloat(MUSIC_VOLUME_PLAYER_PREFS_KEY);
+        }
+
+        if (PlayerPrefs.HasKey(SFX_VOLUME_PLAYER_PREFS_KEY))
+        {
+            _sfxVolSlider.value = PlayerPrefs.GetFloat(SFX_VOLUME_PLAYER_PREFS_KEY);
+        }
+
         _audioMixer.SetFloat("MusicVolume", Mathf.Log10(_musicVolSlider.value) * 20);
         _audioMixer.SetFloat("SFXVolume", Mathf.Log10(_sfxVolSlider.value) * 20);
 
@@ -44,10 +57,12 @@ public class AudioPlayer : MonoBehaviour
     public void SetMusicVolume()
     {
         _audioMixer.SetFloat("MusicVolume", Mathf.Log10(_musicVolSlider.value)*20);
+        PlayerPrefs.SetFloat(MUSIC_VOLUME_PLAYER_PREFS_KEY, _musicVolSlider.value);
     }
 
     public void SetSFXVolume()
     {
         _audioMixer.SetFloat("SFXVolume", Mathf.Log10(_sfxVolSlider.value) * 20);
+        PlayerPrefs.SetFloat(SFX_VOLUME_PLAYER_PREFS_KEY , _sfxVolSlider.value);
     }
 }
