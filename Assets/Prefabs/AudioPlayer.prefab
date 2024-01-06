@@ -238,8 +238,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3dc38a49461327e459c41f87398450af, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _audioMixer: {fileID: 24100000, guid: 0b10e132b031dfe41845fb90ed3a56e5, type: 2}
   _BGMs:
   - {fileID: 8300000, guid: f60b33f9f5cc27645ad209846b67b54a, type: 3}
   - {fileID: 8300000, guid: 88ea0b05b5d844f459513c030b091918, type: 3}
   _musicSource: {fileID: 6628931841650903689}
   _sfxSource: {fileID: 4263684593169580275}
+  _musicVolSlider: {fileID: 0}
+  _sfxVolSlider: {fileID: 0}

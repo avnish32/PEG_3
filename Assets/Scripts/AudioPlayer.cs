@@ -22,12 +22,16 @@ public class AudioPlayer : MonoBehaviour
     [SerializeField]
     Slider _musicVolSlider;
 
+    [SerializeField]
+    Slider _sfxVolSlider;
+
     // Start is called before the first frame update
     void Start()
     {
         _audioMixer.SetFloat("MusicVolume", Mathf.Log10(_musicVolSlider.value) * 20);
-        _musicSource.loop = true;
+        _audioMixer.SetFloat("SFXVolume", Mathf.Log10(_sfxVolSlider.value) * 20);
 
+        _musicSource.loop = true;
         _musicSource.clip = _BGMs[SceneManager.GetActiveScene().buildIndex%_BGMs.Length];
         _musicSource.Play();
     }
@@ -40,5 +44,10 @@ public class AudioPlayer : MonoBehaviour
     public void SetMusicVolume()
     {
         _audioMixer.SetFloat("MusicVolume", Mathf.Log10(_musicVolSlider.value)*20);
+    }
+
+    public void SetSFXVolume()
+    {
+        _audioMixer.SetFloat("SFXVolume", Mathf.Log10(_sfxVolSlider.value) * 20);
     }
 }

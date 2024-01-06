@@ -22,10 +22,14 @@ public class LevelController : MonoBehaviour
     InGameMenu _pauseMenuPanel;
 
     [SerializeField]
+    private GameObject _optionsPanel;
+
+    [SerializeField]
     private string _playersWonMsgAtLevelEnd = "Room clear.";
 
     private List<Towers> _towersInSceneBeginning = new List<Towers>();
     int minutes, seconds;
+    private GameObject _currentPanel;
 
 
     // Start is called before the first frame update
@@ -134,6 +138,7 @@ public class LevelController : MonoBehaviour
         isGamePaused = false;
         Time.timeScale = 1;
         _pauseMenuPanel.gameObject.SetActive(false);
+        _currentPanel = null;
     }
 
     public void PauseGame()
@@ -145,6 +150,21 @@ public class LevelController : MonoBehaviour
         Debug.Log("Resume game added to onclick listeners.");
         _pauseMenuPanel.SetResumeRestartButton(delegate { ResumeGame(); }, "Resume");
         _pauseMenuPanel.gameObject.SetActive(true);
+        _currentPanel = _pauseMenuPanel.gameObject;
+    }
+
+    public void ShowPauseMenu()
+    {
+        _currentPanel.gameObject.SetActive(false);
+        _pauseMenuPanel.gameObject.SetActive(true);
+        _currentPanel = _pauseMenuPanel.gameObject;
+    }
+
+    public void ShowOptions()
+    {
+        _currentPanel.gameObject.SetActive(false);
+        _optionsPanel.SetActive(true);
+        _currentPanel = _optionsPanel;
     }
 
     public void LoadLevel(string levelName)

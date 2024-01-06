@@ -46,8 +46,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _timeToLast: 120
-  _numberOfTowersLeft: 4
+  _numberOfTowersLeft: 2
   _pauseMenuPanel: {fileID: 0}
+  _optionsPanel: {fileID: 0}
+  _playersWonMsgAtLevelEnd: Room clear.
 --- !u!114 &2295614335728870967
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -62,3 +64,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _initialTime: 10
   _timerText: {fileID: 0}
+  _lastFewSecsThreshold: 0

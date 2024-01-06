@@ -124,3 +124,4 @@ Digital font for bomb timer: https://www.dafont.com/digital-7.font
 
 06 Jan - Added audio mixer to control sound volume.
 06 Jan - Moved sound playing to single source.
+06 Jan - Added options panel to pause menu.
