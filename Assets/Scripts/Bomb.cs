@@ -14,7 +14,6 @@ public class Bomb : MonoBehaviour, IInteractable
     private List<GameObject> _defusalSeqInstdSprites;
     private List<Towers> _playerTeleportHistory;
     private SpriteRenderer _spriteRenderer;
-    private AudioSource _audioSource;
     private bool _isBombDefused = false;
     private float _maxTimerPanelOpacity;
     private EnemySpawner _enemySpawner;
@@ -55,7 +54,10 @@ public class Bomb : MonoBehaviour, IInteractable
     private AudioClip _defusedSound;
 
     [SerializeField]
-    [Tooltip("This needs to be the half of damage radius sprite scale.")]
+    private AudioPlayer _audioPlayer;
+
+    [SerializeField]
+    [Tooltip("This needs to be same as radius of damage radius sprite. Move bomb in the scene to get a measure.")]
     private float _damageRadius;
 
     [SerializeField]
@@ -75,7 +77,11 @@ public class Bomb : MonoBehaviour, IInteractable
     {
         _timer = GetComponent<Timer>();
         _spriteRenderer = GetComponent<SpriteRenderer>();
-        _audioSource = GetComponent<AudioSource>();
+
+        if (_audioPlayer == null)
+        {
+            _audioPlayer = GameObject.FindFirstObjectByType<AudioPlayer>();
+        }
     }
 
     // Start is called before the first frame update
@@ -158,11 +164,11 @@ public class Bomb : MonoBehaviour, IInteractable
 
     private void PlayTickSound()
     {
-        if (!_audioSource.enabled)
+        if (_audioPlayer == null)
         {
             return;
         }
-        _audioSource.PlayOneShot(_tickSound);
+        _audioPlayer.PlaySFX(_tickSound);
     }
 
     private List<Towers> GetNElementsFromBack(int n, List<Towers> towersList)
@@ -208,7 +214,7 @@ public class Bomb : MonoBehaviour, IInteractable
             }
         }
         GameObject explosionObject = Instantiate(_explosionEffect, transform.position, Quaternion.identity);
-        AudioSource.PlayClipAtPoint(_explosionSound, Camera.main.transform.position);
+        _audioPlayer.PlaySFX(_explosionSound);
         Destroy(explosionObject, 2f);
         Destroy(transform.root.gameObject);
     }
@@ -289,7 +295,7 @@ public class Bomb : MonoBehaviour, IInteractable
     private void DefuseBomb()
     {
         //Debug.Log("Bomb defused.");
-        _audioSource.PlayOneShot(_defusedSound);
+        _audioPlayer.PlaySFX(_defusedSound);
         _isBombDefused = true;
         Destroy(_defusalSeqPanel.gameObject);
         

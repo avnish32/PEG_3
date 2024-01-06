@@ -31,16 +31,20 @@ public class EnemyBehavior : MonoBehaviour
 
     [SerializeField]
     private AudioClip _shootSound;
+    [SerializeField]
+    private AudioPlayer _audioPlayer;
 
     private Vector2 _lookAtDir;
-
-    private AudioSource _audioSource;
 
     // Start is called before the first frame update
     private void Awake()
     {
         _navMeshAgent = GetComponent<NavMeshAgent>();
-        _audioSource = GetComponent<AudioSource>();
+
+        if (_audioPlayer == null)
+        {
+            _audioPlayer = GameObject.FindFirstObjectByType<AudioPlayer>();
+        }
     }
     void Start()
     {
@@ -141,7 +145,7 @@ public class EnemyBehavior : MonoBehaviour
     private void Shoot()
     {
         Instantiate(_bullet, _currentBulletSpawnPt.position, _currentBulletSpawnPt.rotation);
-        _audioSource.PlayOneShot(_shootSound);
+        _audioPlayer.PlaySFX(_shootSound);
     }
 
     public void OnTriggerEnter2D(Collider2D collision)

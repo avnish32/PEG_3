@@ -121,3 +121,6 @@ L6 - Enemy min spawn interval = 4; tower health = 50; spawn interval min to max 
 References:
 Dogica font: https://www.dafont.com/dogica.font
 Digital font for bomb timer: https://www.dafont.com/digital-7.font
+
+06 Jan - Added audio mixer to control sound volume.
+06 Jan - Moved sound playing to single source.

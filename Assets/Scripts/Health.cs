@@ -27,6 +27,9 @@ public class Health : MonoBehaviour
     [SerializeField]
     float _spriteHitEffectBlinkDuration = 0.05f;
 
+    [SerializeField]
+    AudioPlayer _audioPlayer;
+
     protected SpriteRenderer _spriteRenderer;
     protected bool _isBulletHitSpriteEffectRunning = false;
 
@@ -35,6 +38,11 @@ public class Health : MonoBehaviour
         //Debug.Log("Audio clip on awake: " + _deathSound);
         //Debug.Log("Sine pi/2: " + Mathf.Sin(Mathf.PI / 2));
         _spriteRenderer = GetComponent<SpriteRenderer>();
+
+        if (_audioPlayer == null)
+        {
+            _audioPlayer = GameObject.FindFirstObjectByType<AudioPlayer>();
+        }
     }
 
     private void Start()
@@ -65,7 +73,8 @@ public class Health : MonoBehaviour
 
     private void OnDeath()
     {
-        AudioSource.PlayClipAtPoint(_deathSound, Camera.main.transform.position);
+        _audioPlayer.PlaySFX(_deathSound);
+
         Destroy(_healthBarSlider.gameObject);
         Animator animator = GetComponent<Animator>();
 

@@ -8936,6 +8936,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2397843735971668044, guid: aff74602d996f984aaaf719e7e3887d0, type: 3}
+      propertyPath: _BGMs.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2397843735971668044, guid: aff74602d996f984aaaf719e7e3887d0, type: 3}
+      propertyPath: _BGMs.Array.data[0]
+      value: 
+      objectReference: {fileID: 8300000, guid: d610911bf8ff4144386c0f4bdfb0a4d9, type: 3}
     - target: {fileID: 6094821026388388814, guid: aff74602d996f984aaaf719e7e3887d0, type: 3}
       propertyPath: m_Name
       value: BGMPlayer
@@ -8952,8 +8960,7 @@ PrefabInstance:
       propertyPath: m_PlayOnAwake
       value: 1
       objectReference: {fileID: 0}
-    m_RemovedComponents:
-    - {fileID: 2397843735971668044, guid: aff74602d996f984aaaf719e7e3887d0, type: 3}
+    m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []

@@ -16,16 +16,22 @@ public class Teleporter : MonoBehaviour
     [SerializeField]
     private AudioClip _teleportSound;
 
+    [SerializeField]
+    private AudioPlayer _audioPlayer;
+
     private Dictionary<Towers, Vector3> _towerToLocationMap;
     private Towers _currentTower;
     private Tower _towerUnderCursor;
     private Tower _towerOnLMBDown;
     private float _timeOnLastLMBPressOnTower;
-    private AudioSource _audioSource;
 
     private void Awake()
     {
-        _audioSource = GetComponent<AudioSource>();
+        if (_audioPlayer == null)
+        {
+            _audioPlayer = GameObject.FindFirstObjectByType<AudioPlayer>();
+        }
+
         _towerToLocationMap = new Dictionary<Towers, Vector3>();
         foreach (TowerInfo towerInfo in _towersInfo)
         {
@@ -114,7 +120,9 @@ public class Teleporter : MonoBehaviour
         Vector3 destinationPosition = _towerToLocationMap[destinationTower];
         transform.position = destinationPosition;
         _currentTower = destinationTower;
-        _audioSource.PlayOneShot(_teleportSound);
+
+        _audioPlayer.PlaySFX(_teleportSound);
+        //_audioSource.PlayOneShot(_teleportSound);
 
         if (!isStartCall)
         {
