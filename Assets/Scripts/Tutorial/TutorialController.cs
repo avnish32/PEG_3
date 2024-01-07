@@ -21,7 +21,7 @@ public class TutorialController : MonoBehaviour
     [SerializeField]
     private string[] _tutorialMsgCommands;
 
-    private bool _canProceedAhead = false, _isDefusalSeqRead = false;
+    private bool _isBombDefused = false, _isDefusalSeqRead = false;
     private int _currentMsgIndex = 0;
 
     private void Awake()
@@ -34,7 +34,7 @@ public class TutorialController : MonoBehaviour
     {
         //_enemySpawnerTutorial.gameObject.SetActive(false);
         //_enemySpawnerTutorial.Start();
-        _canProceedAhead = false;
+        _isBombDefused = false;
         _isDefusalSeqRead = false;
         StartCoroutine(StartTutorial());
     }
@@ -64,9 +64,7 @@ public class TutorialController : MonoBehaviour
                 //_enemySpawnerTutorial.enabled = true;
                 _enemySpawnerTutorial.SpawnShooter();
                 //_enemySpawnerTutorial.enabled = false;
-            }
-
-            if (msgCommands.Contains("SPAWNBOMBER"))
+            } else if (msgCommands.Contains("SPAWNBOMBER"))
             {
                 //_enemySpawnerTutorial.enabled = true;
                 _enemySpawnerTutorial.SpawnBomber();
@@ -81,17 +79,12 @@ public class TutorialController : MonoBehaviour
             //Debug.Log("msgDisplayDuration: " + msgDisplayDuration);
             _panelFader.FadeIn(1f);
 
-            if (msgCommands.Contains("WAITFOREXTGOAHEAD"))
+            if (msgCommands.Contains("WAITFORDEFUSALSEQREAD"))
             {
-                if (!_canProceedAhead)
-                {
-                    yield return new WaitUntil(() => _canProceedAhead);
-                }
-                else
-                {
-                    yield return new WaitForSeconds(msgDisplayDuration);
-                }
-                _canProceedAhead = false;
+                yield return !_isDefusalSeqRead ? new WaitUntil(() => _isDefusalSeqRead) : new WaitForSeconds(msgDisplayDuration);
+            } else if (msgCommands.Contains("WAITFORBOMBDEFUSAL"))
+            {
+                yield return !_isBombDefused ? new WaitUntil(() => _isBombDefused) : new WaitForSeconds(msgDisplayDuration);
             }
             else
             {
@@ -110,9 +103,9 @@ public class TutorialController : MonoBehaviour
 
     }
 
-    public void ProceedWithTutorial()
+    public void OnBombDefused()
     {
-        _canProceedAhead = true;
+        _isBombDefused = true;
     }
 
     public void OnDefusalSeqRead()
@@ -122,6 +115,5 @@ public class TutorialController : MonoBehaviour
             return;
         }
         _isDefusalSeqRead = true;
-        ProceedWithTutorial();
     }
 }

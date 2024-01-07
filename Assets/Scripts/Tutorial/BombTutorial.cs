@@ -26,7 +26,7 @@ public class BombTutorial : Bomb
     protected override void DefuseBomb()
     {
         base.DefuseBomb();
-        _tutorialController.ProceedWithTutorial();
+        _tutorialController.OnBombDefused();
 
     }
 }
