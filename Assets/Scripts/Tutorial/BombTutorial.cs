@@ -4,6 +4,13 @@ using UnityEngine;
 
 public class BombTutorial : Bomb
 {
+    private TutorialController _tutorialController;
+
+    new private void Awake()
+    {
+        base.Awake();
+        _tutorialController = GameObject.FindObjectOfType<TutorialController>();
+    }
     new private void Start()
     {
         base.Start();
@@ -13,6 +20,13 @@ public class BombTutorial : Bomb
     public override void DisplayInteractMsg()
     {
         base.DisplayInteractMsg();
-        GameObject.FindObjectOfType<TutorialController>().ProceedWithTutorial();
+        _tutorialController.OnDefusalSeqRead();
+    }
+
+    protected override void DefuseBomb()
+    {
+        base.DefuseBomb();
+        _tutorialController.ProceedWithTutorial();
+
     }
 }

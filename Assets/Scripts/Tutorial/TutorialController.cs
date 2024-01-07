@@ -21,7 +21,8 @@ public class TutorialController : MonoBehaviour
     [SerializeField]
     private string[] _tutorialMsgCommands;
 
-    private bool _canProceedAhead = false;
+    private bool _canProceedAhead = false, _isDefusalSeqRead = false;
+    private int _currentMsgIndex = 0;
 
     private void Awake()
     {
@@ -33,16 +34,18 @@ public class TutorialController : MonoBehaviour
     {
         //_enemySpawnerTutorial.gameObject.SetActive(false);
         //_enemySpawnerTutorial.Start();
+        _canProceedAhead = false;
+        _isDefusalSeqRead = false;
         StartCoroutine(StartTutorial());
     }
 
     private IEnumerator StartTutorial()
     {
-        for (int i = 0; i < _tutorialMsgs.Length; i++)
+        for (_currentMsgIndex = 0; _currentMsgIndex < _tutorialMsgs.Length; _currentMsgIndex++)
         {
-            _msgText.text = _tutorialMsgs[i];
+            _msgText.text = _tutorialMsgs[_currentMsgIndex];
             float msgDisplayDuration = 5f;
-            string[] msgCommands = _tutorialMsgCommands[i].Split(":;");
+            string[] msgCommands = _tutorialMsgCommands[_currentMsgIndex].Split(":;");
 
             if (msgCommands.Contains("PAUSE"))
             {
@@ -78,19 +81,26 @@ public class TutorialController : MonoBehaviour
             //Debug.Log("msgDisplayDuration: " + msgDisplayDuration);
             _panelFader.FadeIn(1f);
 
-            if (msgCommands.Contains("WAITFOREXTGOAHEAD") && !_canProceedAhead)
+            if (msgCommands.Contains("WAITFOREXTGOAHEAD"))
             {
-                yield return new WaitUntil(() => _canProceedAhead);
+                if (!_canProceedAhead)
+                {
+                    yield return new WaitUntil(() => _canProceedAhead);
+                }
+                else
+                {
+                    yield return new WaitForSeconds(msgDisplayDuration);
+                }
+                _canProceedAhead = false;
             }
             else
             {
-                yield return new WaitForSecondsRealtime(msgDisplayDuration);
+                yield return new WaitForSeconds(msgDisplayDuration);
             }
 
-            _canProceedAhead = false;
             Time.timeScale = 1f;
             _panelFader.FadeOut(1f);
-            yield return new WaitForSecondsRealtime(1f);
+            yield return new WaitForSeconds(1f);
 
             if (msgCommands.Contains("TUTORIALENDED"))
             {
@@ -103,6 +113,15 @@ public class TutorialController : MonoBehaviour
     public void ProceedWithTutorial()
     {
         _canProceedAhead = true;
+    }
 
+    public void OnDefusalSeqRead()
+    {
+        if (_isDefusalSeqRead)
+        {
+            return;
+        }
+        _isDefusalSeqRead = true;
+        ProceedWithTutorial();
     }
 }

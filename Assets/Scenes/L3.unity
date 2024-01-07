@@ -5981,6 +5981,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: OptionsPanel
       objectReference: {fileID: 0}
+    - target: {fileID: 6311527739142178293, guid: 21b53e8cfa4f2434bb2ac3ed41e765ff, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 4596635826820979471}
+    - target: {fileID: 6311527739142178293, guid: 21b53e8cfa4f2434bb2ac3ed41e765ff, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: ShowPauseMenu
+      objectReference: {fileID: 0}
     - target: {fileID: 7742713998242732179, guid: 21b53e8cfa4f2434bb2ac3ed41e765ff, type: 3}
       propertyPath: m_OnValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
@@ -6117,6 +6125,14 @@ PrefabInstance:
     - target: {fileID: 5739984651093912866, guid: bb29304ed38b98c4292d2c0d496fbe03, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6818522224725229680, guid: bb29304ed38b98c4292d2c0d496fbe03, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 4596635826820979471}
+    - target: {fileID: 6818522224725229680, guid: bb29304ed38b98c4292d2c0d496fbe03, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: ShowOptions
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -7813,6 +7829,17 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f9331f1600b9f504399221efc1e1d4d4, type: 3}
+--- !u!114 &4596635826820979471 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 8998300270870584637, guid: f9331f1600b9f504399221efc1e1d4d4, type: 3}
+  m_PrefabInstance: {fileID: 4596635826820979470}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dec8ecfe84f609840b4b0eb04a1c4205, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0

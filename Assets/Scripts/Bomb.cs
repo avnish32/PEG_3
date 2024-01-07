@@ -73,7 +73,7 @@ public class Bomb : MonoBehaviour, IInteractable
     [SerializeField]
     private TowerSpriteInfo[] _towerSprites;
 
-    private void Awake()
+    protected void Awake()
     {
         _timer = GetComponent<Timer>();
         _spriteRenderer = GetComponent<SpriteRenderer>();
@@ -292,7 +292,7 @@ public class Bomb : MonoBehaviour, IInteractable
         ResetDefusalSeqSpritesOpacity();
     }
 
-    private void DefuseBomb()
+    virtual protected void DefuseBomb()
     {
         //Debug.Log("Bomb defused.");
         _audioPlayer.PlaySFX(_defusedSound);

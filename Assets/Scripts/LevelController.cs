@@ -96,6 +96,7 @@ public class LevelController : MonoBehaviour
         }
         
         _pauseMenuPanel.gameObject.SetActive(true);
+        _currentPanel = _pauseMenuPanel.gameObject;
     }
 
     private void OnEnemyWon()
@@ -137,7 +138,7 @@ public class LevelController : MonoBehaviour
         Debug.Log("Resume game called.");
         isGamePaused = false;
         Time.timeScale = 1;
-        _pauseMenuPanel.gameObject.SetActive(false);
+        _currentPanel.SetActive(false);
         _currentPanel = null;
     }
 
