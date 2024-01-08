@@ -51,6 +51,11 @@ public class ControlledShooting : MonoBehaviour
 
     private void Update()
     {
+        if(LevelController.isGamePaused)
+        {
+            return;
+        }
+
         UpdateCrosshairPos();
         CheckForEnemyInCrosshair();
     }

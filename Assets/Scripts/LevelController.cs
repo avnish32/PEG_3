@@ -71,7 +71,7 @@ public class LevelController : MonoBehaviour
         }
         else
         {
-             PauseGame();
+             OnUserPauseEvent();
         }
     }
 
@@ -134,20 +134,39 @@ public class LevelController : MonoBehaviour
         OnLevelEnd("End of tutorial.");
     }
 
+    public void PauseGame()
+    {
+        isGamePaused = true;
+        Time.timeScale = 0;
+    }
+
     public void ResumeGame()
     {
         Debug.Log("Resume game called.");
         isGamePaused = false;
         Time.timeScale = 1;
+    }
+
+    private void ResetCurrentPanel()
+    {
         _currentPanel.SetActive(false);
         _currentPanel = null;
     }
 
-    public void PauseGame()
+    public void OnUserResumeEvent()
     {
-        isGamePaused = true;
-        Time.timeScale = 0;
+        ResumeGame();
+        ResetCurrentPanel();
+    }
 
+    public void OnUserPauseEvent()
+    {
+        PauseGame();
+        ConstructAndDisplayPauseMenu();
+    }
+
+    private void ConstructAndDisplayPauseMenu()
+    {
         _pauseMenuPanel.SetHeadingText("Game paused");
         Debug.Log("Resume game added to onclick listeners.");
         _pauseMenuPanel.SetResumeRestartButton(delegate { ResumeGame(); }, "Resume");
@@ -157,7 +176,7 @@ public class LevelController : MonoBehaviour
 
     public void ShowPauseMenu()
     {
-        _currentPanel.gameObject.SetActive(false);
+        _currentPanel.SetActive(false);
         _pauseMenuPanel.gameObject.SetActive(true);
         _currentPanel = _pauseMenuPanel.gameObject;
     }

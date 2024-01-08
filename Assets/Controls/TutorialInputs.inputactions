@@ -1,0 +1,45 @@
+{
+    "name": "TutorialInputs",
+    "maps": [
+        {
+            "name": "Tutorial",
+            "id": "bea75fc5-3f55-43e9-aa9a-bea7063b3987",
+            "actions": [
+                {
+                    "name": "Continue",
+                    "type": "Button",
+                    "id": "07cb77d6-cb38-4e5d-a93e-a64c5ccae4ef",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                }
+            ],
+            "bindings": [
+                {
+                    "name": "",
+                    "id": "4b4990ff-cd47-4ce4-810f-fb6a0258a19f",
+                    "path": "<Keyboard>/enter",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Continue",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "966acb04-301d-4168-a370-7e0a19d5d7b5",
+                    "path": "<Keyboard>/numpadEnter",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Continue",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                }
+            ]
+        }
+    ],
+    "controlSchemes": []
+}

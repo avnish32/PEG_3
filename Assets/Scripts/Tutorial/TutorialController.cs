@@ -23,10 +23,12 @@ public class TutorialController : MonoBehaviour
 
     private bool _isBombDefused = false, _isDefusalSeqRead = false;
     private int _currentMsgIndex = 0;
+    private LevelController _levelController;
 
     private void Awake()
     {
         _panelFader = GetComponent<PanelFader>();
+        _levelController = GameObject.FindFirstObjectByType<LevelController>();
     }
 
     // Start is called before the first frame update
@@ -46,11 +48,6 @@ public class TutorialController : MonoBehaviour
             _msgText.text = _tutorialMsgs[_currentMsgIndex];
             float msgDisplayDuration = 5f;
             string[] msgCommands = _tutorialMsgCommands[_currentMsgIndex].Split(":;");
-
-            if (msgCommands.Contains("PAUSE"))
-            {
-                Time.timeScale = 0f;
-            }
 
             if (msgCommands.Contains("ENABLETELEPORT")) {
                 GameObject.FindGameObjectWithTag("Player1").GetComponent<Teleporter>().enabled = true;
@@ -79,6 +76,13 @@ public class TutorialController : MonoBehaviour
             //Debug.Log("msgDisplayDuration: " + msgDisplayDuration);
             _panelFader.FadeIn(1f);
 
+            if (msgCommands.Contains("PAUSE"))
+            {
+                yield return new WaitForSeconds(1f);
+                _levelController.PauseGame();
+                msgDisplayDuration = 0.5f;
+            }
+
             if (msgCommands.Contains("WAITFORDEFUSALSEQREAD"))
             {
                 yield return !_isDefusalSeqRead ? new WaitUntil(() => _isDefusalSeqRead) : new WaitForSeconds(msgDisplayDuration);
@@ -91,6 +95,7 @@ public class TutorialController : MonoBehaviour
                 yield return new WaitForSeconds(msgDisplayDuration);
             }
 
+            Debug.Log("Game resumed in coroutine.");
             Time.timeScale = 1f;
             _panelFader.FadeOut(1f);
             yield return new WaitForSeconds(1f);
@@ -115,5 +120,16 @@ public class TutorialController : MonoBehaviour
             return;
         }
         _isDefusalSeqRead = true;
+    }
+
+    public void ResumeTutorial()
+    {
+        Time.timeScale = 1f;
+    }
+
+    public void OnContinue()
+    {
+        Debug.Log("Game resumed in continue.");
+        _levelController.ResumeGame();
     }
 }
