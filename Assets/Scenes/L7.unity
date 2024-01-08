@@ -912,6 +912,14 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
       value: ShowOptions
       objectReference: {fileID: 0}
+    - target: {fileID: 8639628476733682531, guid: bb29304ed38b98c4292d2c0d496fbe03, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 4596635826820979471}
+    - target: {fileID: 8639628476733682531, guid: bb29304ed38b98c4292d2c0d496fbe03, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: OnUserResumeEvent
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []

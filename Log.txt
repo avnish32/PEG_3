@@ -137,6 +137,6 @@ Audio volume settings tutorial: https://www.youtube.com/watch?v=G-JUp8AMEx0
 08 Jan - Changed interact key from E to Spacebar
 08 Jan - Added damage modifier to P2 so its health effectively decreases when it is shot inside health refill range.
 08 Jan - Added crosshair to represent shooting range. It also turns red when an enemy is under it. Didn't remove cursor as player will need it to click on Towers even if tower is beyond crosshair range.
-
-Disable tower expansion when paused
-Disable resume when Esc is pressed while tutorial is running
+08 Jan - Tutorial feedback implemented
+References:
+Inverted mask for highlighter: https://www.youtube.com/watch?v=XJJl19N2KFM
