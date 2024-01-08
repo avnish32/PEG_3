@@ -9,7 +9,9 @@ using UnityEngine;
 public class DistanceBasedDestroyer : MonoBehaviour
 {
     [SerializeField]
+    [Tooltip("Should be the same as shoot range of the controlled shooting component of the object that instantiates this object.")]
     private float _destroyDistance;
+
     [SerializeField]
     private SpriteRenderer _spriteRenderer;
 

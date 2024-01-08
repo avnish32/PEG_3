@@ -42,6 +42,7 @@ public class LevelController : MonoBehaviour
         }
 
         GetComponent<Timer>().SetInitialTime(_timeToLast);
+        _currentPanel = _pauseMenuPanel.gameObject;
         ResumeGame();
         //Debug.Log("In game menu disabled from levelController.");
     }

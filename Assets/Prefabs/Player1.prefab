@@ -250,9 +250,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c73dc303ba595ec4cbd39bdf891c56d7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _controlledShooting: {fileID: 0}
   _bulletSpawnPt: {fileID: 9052640415717767548}
-  spriteRenderer: {fileID: -5581963546021442635}
   cam: {fileID: 0}
   down: {fileID: 21300000, guid: 4c46d6df534c06c4db874b7a93b07225, type: 3}
   up: {fileID: 21300000, guid: 57911bf358dd3fd43ab2541fba7e6913, type: 3}
@@ -306,6 +304,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _bulletSpawnPt: {fileID: 0}
   bullet: {fileID: 7912317989692930135, guid: 3430c3ffa81599b4a87fc48f029e6904, type: 3}
+  _crosshair: {fileID: 6329660013160054848, guid: 2234d1da7f7ea8f459deaab7704ac703, type: 3}
+  _shootRange: 4
   _bulletSound: {fileID: 8300000, guid: d20e5f57752c38044a5ecdb7daa77585, type: 3}
   _deathSound: {fileID: 8300000, guid: b57584abb6905904e8add7ab7b5ceca2, type: 3}
   _audioPlayer: {fileID: 0}

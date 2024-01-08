@@ -12,6 +12,12 @@ public class ControlledShooting : MonoBehaviour
     private GameObject bullet;
 
     [SerializeField]
+    private GameObject _crosshair;
+
+    [SerializeField]
+    private float _shootRange = 4f;
+
+    [SerializeField]
     private AudioClip _bulletSound;
 
     [SerializeField]
@@ -38,6 +44,47 @@ public class ControlledShooting : MonoBehaviour
     void Start()
     {
         InvokeRepeating("CheckAndShoot", 0f, 0.1f);
+    }
+
+    private void Update()
+    {
+        UpdateCrosshairPos();
+
+        Physics2D.queriesHitTriggers = false;
+        RaycastHit2D hit = Physics2D.Raycast(_crosshair.transform.position, Vector2.zero, 0f, LayerMask.GetMask("PlayerTarget"));
+
+        if (!hit)
+        {
+            //Debug.Log("PlayerTargetNotHit");
+            _crosshair.GetComponentInChildren<SpriteRenderer>().color = Color.black;
+            return;
+        }
+        Health playerTargetHealthUnderCursor = hit.collider.GetComponent<Health>();
+        if (playerTargetHealthUnderCursor == null)
+        {
+            _crosshair.GetComponentInChildren<SpriteRenderer>().color = Color.black;
+            return;
+        }
+
+        //Debug.Log("PlayerTarget with health hit");
+        _crosshair.GetComponentInChildren<SpriteRenderer>().color = Color.red;
+    }
+
+    private void UpdateCrosshairPos()
+    {
+        Vector2 cursorScreenPos = Input.mousePosition;
+        Vector3 cursorWorldPos = Camera.main.ScreenToWorldPoint(cursorScreenPos);
+
+        Vector3 clampedPosWrtOrigin = Vector3.ClampMagnitude(new Vector3(cursorWorldPos.x - transform.position.x, cursorWorldPos.y - transform.position.y, 0f), _shootRange);
+
+        float horiExtent = Camera.main.orthographicSize * ((float)Screen.width / Screen.height);
+        float vertExtent = Camera.main.orthographicSize;
+
+        //Debug.Log("Hori/vert extent: "+horiExtent+" "+vertExtent);
+
+        float xCoordinateClamped = Mathf.Clamp(clampedPosWrtOrigin.x + transform.position.x, -horiExtent, horiExtent);
+        float yCoordinateClamped = Mathf.Clamp(clampedPosWrtOrigin.y + transform.position.y, -vertExtent, vertExtent);
+        _crosshair.transform.position = new Vector3(xCoordinateClamped, yCoordinateClamped, 0f);
     }
 
     void OnFire()
@@ -71,5 +118,10 @@ public class ControlledShooting : MonoBehaviour
     public void SetBulletSpawnPt(Transform bulletSpawnPt)
     {
         _bulletSpawnPt = bulletSpawnPt;
+    }
+
+    public float GetShootRange()
+    {
+        return _shootRange;
     }
 }

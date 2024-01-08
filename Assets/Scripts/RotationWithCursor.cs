@@ -6,13 +6,7 @@ using UnityEngine;
 public class RotationWithCursor : MonoBehaviour
 {
     [SerializeField]
-    private ControlledShooting _controlledShooting;
-
-    [SerializeField]
     private Transform _bulletSpawnPt;
-
-    [SerializeField]
-    private SpriteRenderer spriteRenderer;
 
     [SerializeField]
     private Camera cam;
@@ -36,16 +30,18 @@ public class RotationWithCursor : MonoBehaviour
     private Transform _bulletSpawnPtLeft;
 
     private float _rotationInDegrees;
+    private SpriteRenderer _spriteRenderer;
+    private ControlledShooting _controlledShooting;
+
+    private void Awake()
+    {
+        _spriteRenderer = GetComponent<SpriteRenderer>();
+        _controlledShooting = GetComponent<ControlledShooting>();
+    }
 
     // Start is called before the first frame update
     void Start()
     {
-        if (spriteRenderer == null)
-        {
-            spriteRenderer = GetComponent<SpriteRenderer>();
-        }
-
-        _controlledShooting = GetComponent<ControlledShooting>();
     }
 
     // Update is called once per frame
@@ -56,7 +52,10 @@ public class RotationWithCursor : MonoBehaviour
             return;
         }
 
-        CalculateRotationFromCursorPos();
+        Vector2 cursorScreenPos = Input.mousePosition;
+        Vector3 cursorWorldPos = cam.ScreenToWorldPoint(cursorScreenPos);
+
+        CalculateRotationFromCursorPos(cursorWorldPos);
 
         //Debug.Log("rotationInDegrees = " + _rotationInDegrees);
 
@@ -68,11 +67,10 @@ public class RotationWithCursor : MonoBehaviour
         }
     }
 
-    private void CalculateRotationFromCursorPos()
+    private void CalculateRotationFromCursorPos(Vector3 cursorWorldPos)
     {
-        Vector2 mousePos = Input.mousePosition;
-        Vector3 cursorScreenPos = cam.ScreenToWorldPoint(mousePos);
-        Vector3 posDir = cursorScreenPos - transform.position;
+        
+        Vector3 posDir = cursorWorldPos - transform.position;
         double rotationInRadians = Math.Atan2(posDir.y, posDir.x);
         _rotationInDegrees = (float)rotationInRadians * Mathf.Rad2Deg;
 
@@ -87,22 +85,22 @@ public class RotationWithCursor : MonoBehaviour
     {
         if (_rotationInDegrees > 315f || _rotationInDegrees < 45f)
         {
-            spriteRenderer.sprite = up;
+            _spriteRenderer.sprite = up;
             _bulletSpawnPt = _bulletSpawnPtUp;
         }
         else if (_rotationInDegrees >= 45f && _rotationInDegrees < 135f)
         {
-            spriteRenderer.sprite = left;
+            _spriteRenderer.sprite = left;
             _bulletSpawnPt = _bulletSpawnPtLeft;
         }
         else if (_rotationInDegrees >= 135f && _rotationInDegrees < 225f)
         {
-            spriteRenderer.sprite = down;
+            _spriteRenderer.sprite = down;
             _bulletSpawnPt = _bulletSpawnPtDown;
         }
         else
         {
-            spriteRenderer.sprite = right;
+            _spriteRenderer.sprite = right;
             _bulletSpawnPt = _bulletSpawnPtRight;
         }
     }
