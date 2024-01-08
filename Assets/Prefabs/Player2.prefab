@@ -237,6 +237,7 @@ MonoBehaviour:
   _healthBarSlider: {fileID: 6573868424872555970}
   _healthBarColor: {fileID: 6713517097256944740}
   _maxHealth: 100
+  _damageModifier: 1
   _deathAnimationLength: 3
   _deathSound: {fileID: 8300000, guid: 8132ea3f7ce7c004396a3d664bfbdb6d, type: 3}
   _spriteHitEffectBlinkDuration: 0.1

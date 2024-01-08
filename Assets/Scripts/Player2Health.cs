@@ -44,11 +44,13 @@ public class Player2Health : Health
     {
         if (_isInHealthRefillRange)
         {
+            _damageModifier = 2.25f;
             SetCurrentHealth(GetCurrentHealth() + (_healthRefillRate * Time.deltaTime));
             CheckToStartHealthRefillEffect();
         }
         else
         {
+            _damageModifier = 1f;
             ReduceHealth(_healthDepletionRate * Time.deltaTime);
             CheckToStartHealthDepletionEffect();
         }

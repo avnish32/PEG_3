@@ -19,6 +19,9 @@ public class Health : MonoBehaviour
     protected float _maxHealth = 100f;
 
     [SerializeField]
+    protected float _damageModifier = 1f;
+
+    [SerializeField]
     private float _deathAnimationLength = 0f;
 
     [SerializeField]
@@ -127,7 +130,7 @@ public class Health : MonoBehaviour
     {
         BroadcastMessage("OnBulletHitBroadcast", SendMessageOptions.DontRequireReceiver);
 
-        ReduceHealth(damage);
+        ReduceHealth(damage * _damageModifier);
         StartCoroutine(_ShowBulletHitSpriteEffect(Time.time));
     }
 

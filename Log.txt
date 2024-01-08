@@ -133,3 +133,6 @@ Audio mixer tutorial: https://www.youtube.com/watch?v=IxHPzrEq1Tc
 Audio volume settings tutorial: https://www.youtube.com/watch?v=G-JUp8AMEx0
 
 07 Jan - Tutorial improvements - Made the bomb defusal into a trigger for the tutorial to proceed, so now the message won't be displayed for 15 secs with the player not having a clue what to do.
+
+08 Jan - Changed interact key from E to Spacebar
+08 Jan - Added damage modifier to P2 so its health effectively decreases when it is shot inside health refill range.
