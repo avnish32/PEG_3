@@ -32,6 +32,8 @@ public class ControlledShooting : MonoBehaviour
     private InputActionReference playerFire; //This is useful for when only one particular action needs to be referenced.
                                              //It also doesn't need a string to be referenced, so avoids hardcoding.
 
+    private GameObject _instantiatedCrosshair;
+
     private void Awake()
     {
         if (_audioPlayer == null)
@@ -44,30 +46,35 @@ public class ControlledShooting : MonoBehaviour
     void Start()
     {
         InvokeRepeating("CheckAndShoot", 0f, 0.1f);
+        _instantiatedCrosshair = Instantiate(_crosshair);
     }
 
     private void Update()
     {
         UpdateCrosshairPos();
+        CheckForEnemyInCrosshair();
+    }
 
+    private void CheckForEnemyInCrosshair()
+    {
         Physics2D.queriesHitTriggers = false;
-        RaycastHit2D hit = Physics2D.Raycast(_crosshair.transform.position, Vector2.zero, 0f, LayerMask.GetMask("PlayerTarget"));
+        RaycastHit2D hit = Physics2D.Raycast(_instantiatedCrosshair.transform.position, Vector2.zero, 0f, LayerMask.GetMask("PlayerTarget"));
 
         if (!hit)
         {
             //Debug.Log("PlayerTargetNotHit");
-            _crosshair.GetComponentInChildren<SpriteRenderer>().color = Color.black;
+            _instantiatedCrosshair.GetComponentInChildren<SpriteRenderer>().color = Color.black;
             return;
         }
         Health playerTargetHealthUnderCursor = hit.collider.GetComponent<Health>();
         if (playerTargetHealthUnderCursor == null)
         {
-            _crosshair.GetComponentInChildren<SpriteRenderer>().color = Color.black;
+            _instantiatedCrosshair.GetComponentInChildren<SpriteRenderer>().color = Color.black;
             return;
         }
 
         //Debug.Log("PlayerTarget with health hit");
-        _crosshair.GetComponentInChildren<SpriteRenderer>().color = Color.red;
+        _instantiatedCrosshair.GetComponentInChildren<SpriteRenderer>().color = Color.red;
     }
 
     private void UpdateCrosshairPos()
@@ -84,7 +91,7 @@ public class ControlledShooting : MonoBehaviour
 
         float xCoordinateClamped = Mathf.Clamp(clampedPosWrtOrigin.x + transform.position.x, -horiExtent, horiExtent);
         float yCoordinateClamped = Mathf.Clamp(clampedPosWrtOrigin.y + transform.position.y, -vertExtent, vertExtent);
-        _crosshair.transform.position = new Vector3(xCoordinateClamped, yCoordinateClamped, 0f);
+        _instantiatedCrosshair.transform.position = new Vector3(xCoordinateClamped, yCoordinateClamped, 0f);
     }
 
     void OnFire()
