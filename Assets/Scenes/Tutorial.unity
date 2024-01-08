@@ -496,6 +496,11 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!224 &380389855 stripped
+RectTransform:
+  m_CorrespondingSourceObject: {fileID: 4861580635729678851, guid: d1a482398f0cd4749aa62de292cf1929, type: 3}
+  m_PrefabInstance: {fileID: 3737583794731806984}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &418896727
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1162,6 +1167,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _msgText: {fileID: 1985970614}
+  _enterToContinueText: {fileID: 2019926581}
+  _highlighter: {fileID: 380389855}
+  _darkPanel: {fileID: 1182531257}
   _enemySpawnerTutorial: {fileID: 1630278954}
   _tutorialMsgs:
   - Welcome to <Protegir Juntos>! Can you work together to protect your sub-terranian
@@ -1170,49 +1178,56 @@ MonoBehaviour:
     an interconnected network built to carry fuel to the building's core.
   - But an evil, rival corporation has sent its minions to destroy these pedestals.
     It is now up to you two to fend off the attack.
-  - Use the mouse to rotate Player BLUE and LEFT MOUSE BUTTON to SHOOT. For continuous
-    shooting, hold the LEFT MOUSE BUTTON down.
-  - Player GREEN can move using the WASD keys. But be wary...
-  - 'Moving out of the boundary of Player BLUE''s pedestal will deplete your health.
+  - Use the mouse to rotate the SHOOTER (Blue) and LEFT MOUSE BUTTON to SHOOT. For
+    continuous shooting, hold the LEFT MOUSE BUTTON down.
+  - The ENGINEER (Green) can move using the WASD keys. But be wary...
+  - '....moving out of the boundary of SHOOTER''S pedestal will deplete your health.
     Stay close to your companion and within their pedestal''s boundary to refill
     your health. '
   - Since your bullets can travel only a limited distance, you will need to teleport
-    to different pedestals to kill enemies. Click on a pedestal to teleport to it.
-  - If a pedestal suffers damage, Player GREEN can carry out repairs by standing
-    next to it and holding the  'E' button.
+    to different pedestals to kill enemies.
+  - Click on a pedestal to teleport to it.
+  - If a pedestal suffers damage, the ENGINEER can carry out repairs by standing
+    next to it and holding down SPACEBAR.
   - Keeping all pedestals healthy is essential...
-  - If Player BLUE is on a pedestal when it gets destroyed, they will die with it.
+  - ...if the SHOOTER is on a pedestal when it gets destroyed, they will die with
+    it.
   - Occasionally, an enemy will drop a bomb on pedestals.
   - The bomb is set to go off, dealing heavy damage to everything in its blast radius.
     But it can be defused using its defusal sequence.
   - The defusal sequence can be viewed by standing next to the bomb.
   - You will see a series of pedestals in the sequence.
-  - This is the order in which Player BLUE needs to teleport over pedestals to defuse
+  - This is the order in which the SHOOTER needs to teleport over pedestals to defuse
     the bomb.
   - Work together and communicate to defuse the bomb before it goes off.
   - The timer on the top shows how much longer you need to survive to advance.
-  - Press the 'ESC' button anytime to pause the game.
-  - Good luck and happy protecting!
+  - Press the 'ESC' key anytime to pause the game.
+  - Good luck! The fate of this facility rests in your hands.
   _tutorialMsgCommands:
-  - DISABLETELEPORT:;PAUSE
-  - 
-  - 
-  - 
-  - 
-  - DURATION:;10
-  - SPAWNSHOOTER:;ENABLETELEPORT:;DURATION:;10
-  - DURATION:;5
-  - DURATION:;3
-  - DURATION:;5
-  - SPAWNBOMBER
-  - 
-  - WAITFORDEFUSALSEQREAD
-  - DURATION:;5:;BLOCKPROCEED
-  - WAITFORBOMBDEFUSAL
-  - 
-  - 
-  - 
-  - TUTORIALENDED
+  - PAUSE
+  - PAUSE
+  - PAUSE
+  - PAUSE:;SECSB4NEXTMSG:;5:;HIGHLIGHTOBJECT:;1:;HIGHLIGHTSCALE:;0.5
+  - PAUSE:;HIGHLIGHTOBJECT:;2:;HIGHLIGHTSCALE:;0.5
+  - SECSB4NEXTMSG:;5:;PAUSE:;HIGHLIGHTOBJECT:;1
+  - SPAWNSHOOTER:;DISPLAYDURATION:;5
+  - PAUSE:;HIGHLIGHTOBJECT:;0:;SECSB4NEXTMSG:;5
+  - PAUSE:;SECSB4NEXTMSG:;5
+  - PAUSE
+  - PAUSE:;SECSB4NEXTMSG:;3
+  - PAUSE:;SPAWNBOMBER:;SECSB4NEXTMSG:;10
+  - PAUSE
+  - SECSB4NEXTMSG:;3:;WAITFORDEFUSALSEQREAD
+  - PAUSE
+  - SECSB4NEXTMSG:;3:;WAITFORBOMBDEFUSAL
+  - PAUSE
+  - PAUSE
+  - PAUSE:;SECSB4NEXTMSG:;3
+  - PAUSE:;TUTORIALENDED
+  _gameobjectsToHighlight:
+  - {fileID: 1490453885}
+  - {fileID: 1635272973}
+  - {fileID: 1121839093}
 --- !u!4 &729158580
 Transform:
   m_ObjectHideFlags: 0
@@ -1370,7 +1385,7 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 999323089}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -1814,6 +1829,11 @@ Tilemap:
     e31: 0
     e32: 0
     e33: 1
+--- !u!1 &1121839093 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6433250577585045444, guid: d56f707938ef6484aa99d1405cef7751, type: 3}
+  m_PrefabInstance: {fileID: 2017172886}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1162272998
 GameObject:
   m_ObjectHideFlags: 0
@@ -2202,6 +2222,81 @@ Tilemap:
     e31: 0
     e32: 0
     e33: 1
+--- !u!1 &1182531257
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1182531258}
+  - component: {fileID: 1182531260}
+  - component: {fileID: 1182531259}
+  m_Layer: 5
+  m_Name: DarkPanel
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 0
+--- !u!224 &1182531258
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1182531257}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 2054366161}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 1, y: 1}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 0, y: 0}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &1182531259
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1182531257}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 0, g: 0, b: 0, a: 0.6156863}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_Sprite: {fileID: 10907, guid: 0000000000000000f000000000000000, type: 0}
+  m_Type: 1
+  m_PreserveAspect: 0
+  m_FillCenter: 1
+  m_FillMethod: 4
+  m_FillAmount: 1
+  m_FillClockwise: 1
+  m_FillOrigin: 0
+  m_UseSpriteMesh: 0
+  m_PixelsPerUnitMultiplier: 1
+--- !u!222 &1182531260
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1182531257}
+  m_CullTransparentMesh: 1
 --- !u!1 &1253897033
 GameObject:
   m_ObjectHideFlags: 0
@@ -2361,6 +2456,11 @@ PrefabInstance:
 --- !u!4 &1462742289 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 8495116946206065572, guid: 691395f08ec817e4583e937085c2e082, type: 3}
+  m_PrefabInstance: {fileID: 1462742288}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &1490453885 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3457089108279014225, guid: 691395f08ec817e4583e937085c2e082, type: 3}
   m_PrefabInstance: {fileID: 1462742288}
   m_PrefabAsset: {fileID: 0}
 --- !u!1 &1507146138
@@ -4989,6 +5089,11 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.09266281, y: 18.82153}
   m_EdgeRadius: 0
+--- !u!1 &1635272973 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5019717006544369266, guid: 38ad1af7c74edbb4b9905936e3526193, type: 3}
+  m_PrefabInstance: {fileID: 418896727}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1707917340
 GameObject:
   m_ObjectHideFlags: 0
@@ -5207,6 +5312,14 @@ PrefabInstance:
     - target: {fileID: 6818522224725229680, guid: bb29304ed38b98c4292d2c0d496fbe03, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
       value: ShowOptions
+      objectReference: {fileID: 0}
+    - target: {fileID: 8639628476733682531, guid: bb29304ed38b98c4292d2c0d496fbe03, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 4596635826820979471}
+    - target: {fileID: 8639628476733682531, guid: bb29304ed38b98c4292d2c0d496fbe03, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: OnUserResumeEvent
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -5575,7 +5688,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Presse 'Enter' to continue
+  m_text: Press 'Enter' to continue
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -6426,6 +6539,8 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1462440212}
+  - {fileID: 380389855}
+  - {fileID: 1182531258}
   - {fileID: 999323090}
   - {fileID: 1802800094}
   - {fileID: 518192187}
@@ -6534,6 +6649,107 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 7402185924021466767, guid: fdb87a1a94429064382b7f1dca3aa8a7, type: 3}
   m_PrefabInstance: {fileID: 1630278952}
   m_PrefabAsset: {fileID: 0}
+--- !u!1001 &3737583794731806984
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 2054366161}
+    m_Modifications:
+    - target: {fileID: 4861580635729678851, guid: d1a482398f0cd4749aa62de292cf1929, type: 3}
+      propertyPath: m_Pivot.x
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 4861580635729678851, guid: d1a482398f0cd4749aa62de292cf1929, type: 3}
+      propertyPath: m_Pivot.y
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 4861580635729678851, guid: d1a482398f0cd4749aa62de292cf1929, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 4861580635729678851, guid: d1a482398f0cd4749aa62de292cf1929, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 4861580635729678851, guid: d1a482398f0cd4749aa62de292cf1929, type: 3}
+      propertyPath: m_AnchorMin.x
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 4861580635729678851, guid: d1a482398f0cd4749aa62de292cf1929, type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 4861580635729678851, guid: d1a482398f0cd4749aa62de292cf1929, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 256
+      objectReference: {fileID: 0}
+    - target: {fileID: 4861580635729678851, guid: d1a482398f0cd4749aa62de292cf1929, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 256
+      objectReference: {fileID: 0}
+    - target: {fileID: 4861580635729678851, guid: d1a482398f0cd4749aa62de292cf1929, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4861580635729678851, guid: d1a482398f0cd4749aa62de292cf1929, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4861580635729678851, guid: d1a482398f0cd4749aa62de292cf1929, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4861580635729678851, guid: d1a482398f0cd4749aa62de292cf1929, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4861580635729678851, guid: d1a482398f0cd4749aa62de292cf1929, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4861580635729678851, guid: d1a482398f0cd4749aa62de292cf1929, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4861580635729678851, guid: d1a482398f0cd4749aa62de292cf1929, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4861580635729678851, guid: d1a482398f0cd4749aa62de292cf1929, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: -205
+      objectReference: {fileID: 0}
+    - target: {fileID: 4861580635729678851, guid: d1a482398f0cd4749aa62de292cf1929, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -35
+      objectReference: {fileID: 0}
+    - target: {fileID: 4861580635729678851, guid: d1a482398f0cd4749aa62de292cf1929, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4861580635729678851, guid: d1a482398f0cd4749aa62de292cf1929, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4861580635729678851, guid: d1a482398f0cd4749aa62de292cf1929, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5747855198591342113, guid: d1a482398f0cd4749aa62de292cf1929, type: 3}
+      propertyPath: m_Name
+      value: Highlighter
+      objectReference: {fileID: 0}
+    - target: {fileID: 5747855198591342113, guid: d1a482398f0cd4749aa62de292cf1929, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: d1a482398f0cd4749aa62de292cf1929, type: 3}
 --- !u!1001 &4596635826820979470
 PrefabInstance:
   m_ObjectHideFlags: 0

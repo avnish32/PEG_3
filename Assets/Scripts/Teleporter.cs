@@ -44,11 +44,16 @@ public class Teleporter : MonoBehaviour
     private void Start()
     {
         Debug.Log("Teleporter start.");
-        TeleportToTower(_towerToLocationMap.ElementAt(0).Key, true);
+        TeleportToTower(_towerToLocationMap.ElementAt(0).Key);
     }
 
     private void Update()
     {
+        if (LevelController.isGamePaused)
+        {
+            return;
+        }
+
         CheckForCursorOnTower();
     }
 
@@ -90,14 +95,14 @@ public class Teleporter : MonoBehaviour
             if (_towerOnLMBDown != null && _towerOnLMBDown == _towerUnderCursor && Time.time - _timeOnLastLMBPressOnTower <= 1.0f)
             {
                 //Debug.Log("Teleporting.");
-                TeleportToTower(_towerOnLMBDown.GetThisTower(), false);
+                TeleportToTower(_towerOnLMBDown.GetThisTower());
             }
             return;
         }
     }
 
 
-    private void TeleportToTower(Towers destinationTower, bool isStartCall)
+    private void TeleportToTower(Towers destinationTower)
     {
         if (!this.enabled)
         {
@@ -110,12 +115,6 @@ public class Teleporter : MonoBehaviour
             Debug.Log("Teleporter: current tower is same as destination.");
             return;
         } 
-        
-        if (LevelController.isGamePaused && !isStartCall)
-        {
-            Debug.Log("Teleporter: Game is paused.");
-            return;
-        }
 
         Vector3 destinationPosition = _towerToLocationMap[destinationTower];
         transform.position = destinationPosition;
@@ -124,12 +123,9 @@ public class Teleporter : MonoBehaviour
         _audioPlayer.PlaySFX(_teleportSound);
         //_audioSource.PlayOneShot(_teleportSound);
 
-        if (!isStartCall)
+        foreach (var bomb in FindObjectsOfType<Bomb>())
         {
-            foreach (var bomb in FindObjectsOfType<Bomb>())
-            {
-                bomb.BroadcastMessage("OnPlayerTeleport", destinationTower);
-            };
+            bomb.BroadcastMessage("OnPlayerTeleport", destinationTower);
         }
     }
 
@@ -140,17 +136,17 @@ public class Teleporter : MonoBehaviour
 
     public void TeleportToTower1()
     {
-        TeleportToTower(Towers.TOWER_RED, false);
+        TeleportToTower(Towers.TOWER_RED);
     }
 
     public void TeleportToTower2()
     {
-        TeleportToTower(Towers.TOWER_BLUE, false);
+        TeleportToTower(Towers.TOWER_BLUE);
     }
 
     public void TeleportToTower3()
     {
-        TeleportToTower(Towers.TOWER_YELLOW, false);
+        TeleportToTower(Towers.TOWER_YELLOW);
     }
 
     public Towers GetCurrentTower()

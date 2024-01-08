@@ -43,7 +43,7 @@ public class LevelController : MonoBehaviour
 
         GetComponent<Timer>().SetInitialTime(_timeToLast);
         _currentPanel = _pauseMenuPanel.gameObject;
-        ResumeGame();
+        OnUserResumeEvent();
         //Debug.Log("In game menu disabled from levelController.");
     }
 
@@ -67,7 +67,15 @@ public class LevelController : MonoBehaviour
     {
         if (isGamePaused)
         {
-            ResumeGame();
+            //Below check for when game is paused during the tutorial
+            if (_currentPanel == null)
+            {
+                ConstructAndDisplayPauseMenu();
+            }
+            else
+            {
+                OnUserResumeEvent();
+            }
         }
         else
         {
