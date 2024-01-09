@@ -3995,11 +3995,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4184629433597822837, guid: fdb87a1a94429064382b7f1dca3aa8a7, type: 3}
       propertyPath: _minSpawnDelay
-      value: 4
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 4184629433597822837, guid: fdb87a1a94429064382b7f1dca3aa8a7, type: 3}
       propertyPath: _timeFromMaxToMin
-      value: 120
+      value: 150
       objectReference: {fileID: 0}
     - target: {fileID: 4184629433597822837, guid: fdb87a1a94429064382b7f1dca3aa8a7, type: 3}
       propertyPath: _bomberSpawnPercent

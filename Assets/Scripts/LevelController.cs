@@ -104,8 +104,7 @@ public class LevelController : MonoBehaviour
             _pauseMenuPanel.SetResumeRestartButton(() => { LoadNextLevel(); }, "Next");
         }
         
-        _pauseMenuPanel.gameObject.SetActive(true);
-        _currentPanel = _pauseMenuPanel.gameObject;
+        ShowPauseMenu();
     }
 
     private void OnEnemyWon()
@@ -117,7 +116,7 @@ public class LevelController : MonoBehaviour
         {
             _pauseMenuPanel.SetHeadingText("Ah, defeat.");
             _pauseMenuPanel.SetResumeRestartButton(delegate { RestartLevel(); }, "Restart");
-            _pauseMenuPanel.gameObject.SetActive(true);
+            ShowPauseMenu();
         }
     }
 
@@ -155,6 +154,16 @@ public class LevelController : MonoBehaviour
         Time.timeScale = 1;
     }
 
+    private void ShowPanel(GameObject panel)
+    {
+        if (_currentPanel != null)
+        {
+            _currentPanel.SetActive(false);
+        }
+        _currentPanel = panel;
+        _currentPanel.SetActive(true);
+    }
+
     private void ResetCurrentPanel()
     {
         _currentPanel.SetActive(false);
@@ -178,22 +187,17 @@ public class LevelController : MonoBehaviour
         _pauseMenuPanel.SetHeadingText("Game paused");
         Debug.Log("Resume game added to onclick listeners.");
         _pauseMenuPanel.SetResumeRestartButton(delegate { ResumeGame(); }, "Resume");
-        _pauseMenuPanel.gameObject.SetActive(true);
-        _currentPanel = _pauseMenuPanel.gameObject;
+        ShowPanel(_pauseMenuPanel.gameObject);
     }
 
     public void ShowPauseMenu()
     {
-        _currentPanel.SetActive(false);
-        _pauseMenuPanel.gameObject.SetActive(true);
-        _currentPanel = _pauseMenuPanel.gameObject;
+        ShowPanel(_pauseMenuPanel.gameObject);
     }
 
     public void ShowOptions()
     {
-        _currentPanel.gameObject.SetActive(false);
-        _optionsPanel.SetActive(true);
-        _currentPanel = _optionsPanel;
+        ShowPanel(_optionsPanel.gameObject);
     }
 
     public void LoadLevel(string levelName)

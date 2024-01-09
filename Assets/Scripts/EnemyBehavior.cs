@@ -64,6 +64,11 @@ public class EnemyBehavior : MonoBehaviour
         {
             FindNewTarget();
         }
+        if(_target == null)
+        {
+            return;
+        }
+
         _navMeshAgent.SetDestination(_target.position);
         //Debug.Log("remaining dist: " + navMeshAgent.remainingDistance);
         if (_isPlayerWithinShootingRange && _player2.GetComponent<Health>().enabled)
