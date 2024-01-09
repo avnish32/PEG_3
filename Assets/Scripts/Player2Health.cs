@@ -17,9 +17,6 @@ public class Player2Health : Health
     private float _healthRefillRadius = 2f;
 
     [SerializeField]
-    private float _healthReplenishSpriteEffectBlinkDuration = 2f;
-
-    [SerializeField]
     private ParticleSystem _healingEffect;
 
     [SerializeField]
@@ -64,7 +61,7 @@ public class Player2Health : Health
         if (_spriteRenderer != null && !_isHealthDepletionSpriteEffectRunning && !_isBulletHitSpriteEffectRunning)
         {
             //Debug.Log("Started depletion coroutine.");
-            _healthDepletionCoroutine = StartCoroutine(_ShowHealthDepletionSpriteEffect(Time.time));
+            _healthDepletionCoroutine = StartCoroutine(ShowHealthDepletionSpriteEffect(Time.time));
         }
     }
 
@@ -72,7 +69,7 @@ public class Player2Health : Health
     {
         if (!_isHealingEffectRunning && _currentHealth < _maxHealth)
         {
-            StartCoroutine(_ShowHealingEffect(Time.time));
+            StartCoroutine(ShowHealingEffect());
         }
     }
 
@@ -95,7 +92,7 @@ public class Player2Health : Health
         }
     }
 
-    private IEnumerator _ShowHealingEffect(float coroutineCallTime)
+    private IEnumerator ShowHealingEffect()
     {
         _isHealingEffectRunning = true;
 
@@ -115,7 +112,7 @@ public class Player2Health : Health
         _isHealingEffectRunning = false;
     }
 
-    private IEnumerator _ShowHealthDepletionSpriteEffect(float coroutineCallTime)
+    private IEnumerator ShowHealthDepletionSpriteEffect(float coroutineCallTime)
     {
         _isHealthDepletionSpriteEffectRunning = true;
         float sineAngle;

@@ -88,7 +88,7 @@ public class Bomb : MonoBehaviour, IInteractable
     protected void Start()
     {
         Init();
-        _ConstructBomDefusalSequence();
+        ConstructBombDefusalSequence();
         _timer.SetInitialTime(6 * _defusalSequence.Count);
         InvokeRepeating("PlayTickSound", 0f, 1f);
     }
@@ -100,8 +100,21 @@ public class Bomb : MonoBehaviour, IInteractable
         _playerTeleportHistory = new List<Towers>();
         _towerToSpriteMap = new Dictionary<Towers, Sprite>();
 
-        _towersMasterList = FindObjectOfType<LevelController>().GetTowersAtBeginning();
-
+        //_towersMasterList = FindObjectOfType<LevelController>().GetTowersAtBeginning();
+        Tower[] towersInScene = GameObject.FindObjectsOfType<Tower>();
+        if (towersInScene.Length <2)
+        {
+            _towersMasterList = FindObjectOfType<LevelController>().GetTowersAtBeginning();
+        }
+        else
+        {
+            _towersMasterList = new();
+            foreach (var towerInScene in towersInScene)
+            {
+                _towersMasterList.Add(towerInScene.GetThisTower());
+            }
+        }
+        
         //_towersMasterList = Enum.GetValues(typeof(Towers)).Cast<Towers>().ToList();
 
         //Debug.Log("Towers master list: " + ConstructStringFromList(_towersMasterList));
@@ -113,7 +126,7 @@ public class Bomb : MonoBehaviour, IInteractable
         _maxTimerPanelOpacity = _timerPanel.color.a;
     }
 
-    private void _ConstructBomDefusalSequence()
+    private void ConstructBombDefusalSequence()
     {
         _playerTeleportHistory.Clear();
         _defusalSequence.Clear();
@@ -127,7 +140,7 @@ public class Bomb : MonoBehaviour, IInteractable
         RectTransform defusalSeqPanelRect = _defusalSeqPanel.GetComponent<RectTransform>();
         defusalSeqPanelRect.sizeDelta = new Vector2(seqLength + 1, defusalSeqPanelRect.sizeDelta.y);
 
-        List<Towers> towerListForNextPass = new List<Towers>(_towersMasterList);
+        List<Towers> towerListForNextPass = new(_towersMasterList);
         GameObject player1 = GameObject.FindGameObjectWithTag("Player1");
         if (player1 != null )
         {
@@ -151,6 +164,7 @@ public class Bomb : MonoBehaviour, IInteractable
         //Debug.Log("Defusal sequence: " + ConstructStringFromList(_defusalSequence));
     }
 
+    //To print list in debug logs
     private string ConstructStringFromList(List<Towers> towerList)
     {
         string towersMasterListLog = "";
@@ -173,7 +187,7 @@ public class Bomb : MonoBehaviour, IInteractable
 
     private List<Towers> GetNElementsFromBack(int n, List<Towers> towersList)
     {
-        List<Towers> resultList = new List<Towers>();
+        List<Towers> resultList = new();
         if (n >= towersList.Count)
         {
             return towersList;
@@ -238,7 +252,7 @@ public class Bomb : MonoBehaviour, IInteractable
         {
             //Bomb sprite
             float opacity = Mathf.Lerp(1f, 0f, coroutineRunningTime / fadeOutTime);
-            Color color = new Color(1,1,1,opacity);
+            Color color = new(1,1,1,opacity);
             _spriteRenderer.color = color;
 
             //Timer panel
@@ -314,7 +328,7 @@ public class Bomb : MonoBehaviour, IInteractable
     private void UpdateDefusalSeqSpritesOnSubseqMatch(int i)
     {
         //fade i-1th child as all children before this will have already been faded.
-        Color translucent = new Color(1, 1, 1, 0.5f);
+        Color translucent = new(1, 1, 1, 0.5f);
         _defusalSeqInstdSprites[i - 1].GetComponent<Image>().color = translucent;
         //Also reset opacity of all children after this one.
         for (int j = i; j < _defusalSequence.Count; j++)

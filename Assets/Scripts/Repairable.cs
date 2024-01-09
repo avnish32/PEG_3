@@ -15,12 +15,8 @@ public class Repairable : MonoBehaviour, IInteractable
     [Tooltip("Amount of health to replenish per second")]
     private float repairSpeed = 10f;
 
-    [SerializeField]
-    private float _spriteRepairEffectBlinkDuration = 0.5f;
-
     private Health _health;
     private bool _isSpriteRepairEffectRunning = false;
-    private Coroutine _repairEffectCoroutine;
 
     private void Awake()
     {
@@ -31,11 +27,11 @@ public class Repairable : MonoBehaviour, IInteractable
     {
         if (_interactMsgObject != null)
         {
-            _interactMsgObject?.SetActive(false);
+            _interactMsgObject.SetActive(false);
         }
     }
 
-    private IEnumerator _ShowRepairSpriteEffect()
+    private IEnumerator ShowRepairSpriteEffect()
     {
         _isSpriteRepairEffectRunning = true;
 
@@ -61,7 +57,7 @@ public class Repairable : MonoBehaviour, IInteractable
 
         if (!_isSpriteRepairEffectRunning && _health.GetCurrentHealth() < _health.GetMaxHealth())
         {
-            _repairEffectCoroutine = StartCoroutine(_ShowRepairSpriteEffect());
+            StartCoroutine(ShowRepairSpriteEffect());
         }
     }
 
