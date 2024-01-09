@@ -136,7 +136,7 @@ NavMeshAgent:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3521464968909104972}
   m_Enabled: 1
-  m_AgentTypeID: 0
+  m_AgentTypeID: -1372625422
   m_Radius: 1.8
   m_Speed: 3.5
   m_Acceleration: 8
@@ -258,6 +258,7 @@ MonoBehaviour:
   _healthBarSlider: {fileID: 7996294834201831004}
   _healthBarColor: {fileID: 7559482685329528826}
   _maxHealth: 25
+  _damageModifier: 1
   _deathAnimationLength: 3
   _deathSound: {fileID: 8300000, guid: 6d6a78aa8f55401478ecec02cdf2f1a0, type: 3}
   _spriteHitEffectBlinkDuration: 0.05

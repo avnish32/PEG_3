@@ -59,7 +59,7 @@ public class Health : MonoBehaviour
         _healthBarColor.color = Color.Lerp(Color.red, Color.green, _currentHealth / _maxHealth); ;
     }    
 
-    private IEnumerator _ShowBulletHitSpriteEffect(float coroutineCallTime)
+    private IEnumerator ShowBulletHitSpriteEffect(float coroutineCallTime)
     {
         _isBulletHitSpriteEffectRunning = true;
         float sineAngle;
@@ -131,7 +131,7 @@ public class Health : MonoBehaviour
         BroadcastMessage("OnBulletHitBroadcast", SendMessageOptions.DontRequireReceiver);
 
         ReduceHealth(damage * _damageModifier);
-        StartCoroutine(_ShowBulletHitSpriteEffect(Time.time));
+        StartCoroutine(ShowBulletHitSpriteEffect(Time.time));
     }
 
     public bool IsBulletHitSpriteEffectRunning()

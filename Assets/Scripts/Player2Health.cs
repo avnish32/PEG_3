@@ -20,13 +20,16 @@ public class Player2Health : Health
     private float _healthReplenishSpriteEffectBlinkDuration = 2f;
 
     [SerializeField]
+    private ParticleSystem _healingEffect;
+
+    [SerializeField]
     private float _healthDepletionSpriteEffectBlinkDuration = 2f;
 
     private bool _isInHealthRefillRange = false;
-    private bool _isHealthReplenishSpriteEffectRunning = false;
+    private bool _isHealingEffectRunning = false;
     private bool _isHealthDepletionSpriteEffectRunning = false;
 
-    private Coroutine _healthRefillCoroutine, _healthDepletionCoroutine;
+    private Coroutine _healthDepletionCoroutine;
 
     // Start is called before the first frame update
     void Start()
@@ -46,7 +49,7 @@ public class Player2Health : Health
         {
             _damageModifier = 2.25f;
             SetCurrentHealth(GetCurrentHealth() + (_healthRefillRate * Time.deltaTime));
-            CheckToStartHealthRefillEffect();
+            CheckToStartHealingEffect();
         }
         else
         {
@@ -60,30 +63,16 @@ public class Player2Health : Health
     {
         if (_spriteRenderer != null && !_isHealthDepletionSpriteEffectRunning && !_isBulletHitSpriteEffectRunning)
         {
-            if (_healthRefillCoroutine != null)
-            {
-                StopCoroutine(_healthRefillCoroutine);
-            }
-            _isHealthReplenishSpriteEffectRunning = false;
-
             //Debug.Log("Started depletion coroutine.");
             _healthDepletionCoroutine = StartCoroutine(_ShowHealthDepletionSpriteEffect(Time.time));
         }
     }
 
-    private void CheckToStartHealthRefillEffect()
+    private void CheckToStartHealingEffect()
     {
-        if (_spriteRenderer != null && !_isBulletHitSpriteEffectRunning
-                        && !_isHealthReplenishSpriteEffectRunning && _currentHealth < _maxHealth)
+        if (!_isHealingEffectRunning && _currentHealth < _maxHealth)
         {
-            if (_healthDepletionCoroutine != null)
-            {
-                StopCoroutine(_healthDepletionCoroutine);
-            }
-            _isHealthDepletionSpriteEffectRunning = false;
-
-            //Debug.Log("Started replenish coroutine.");
-            _healthRefillCoroutine = StartCoroutine(_ShowHealthReplenishSpriteEffect(Time.time));
+            StartCoroutine(_ShowHealingEffect(Time.time));
         }
     }
 
@@ -106,19 +95,24 @@ public class Player2Health : Health
         }
     }
 
-    private IEnumerator _ShowHealthReplenishSpriteEffect(float coroutineCallTime)
+    private IEnumerator _ShowHealingEffect(float coroutineCallTime)
     {
-        _isHealthReplenishSpriteEffectRunning = true;
-        float sineAngle;
+        _isHealingEffectRunning = true;
+
+        /*float sineAngle;
         do
         {
             sineAngle = ((Time.time - coroutineCallTime) / _healthReplenishSpriteEffectBlinkDuration) * Mathf.PI;
             _spriteRenderer.color = Color.Lerp(Color.white, Color.green, Mathf.Sin(sineAngle));
 
             yield return null;
-        } while (sineAngle <= Mathf.PI);
+        } while (sineAngle <= Mathf.PI);*/
 
-        _isHealthReplenishSpriteEffectRunning = false;
+        _healingEffect.Play();
+        yield return new WaitForSeconds(0.5f);
+        _healingEffect.Stop();
+
+        _isHealingEffectRunning = false;
     }
 
     private IEnumerator _ShowHealthDepletionSpriteEffect(float coroutineCallTime)
@@ -141,16 +135,9 @@ public class Player2Health : Health
         if (_healthDepletionCoroutine != null)
         {
             StopCoroutine(_healthDepletionCoroutine);
-        }
-
-        if (_healthRefillCoroutine != null)
-        {
-            StopCoroutine(_healthRefillCoroutine);
-        }
-        
+        }        
         
         _isHealthDepletionSpriteEffectRunning = false;
-        _isHealthReplenishSpriteEffectRunning = false;
         base.OnBulletHit(damage);
     }
 }
