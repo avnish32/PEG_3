@@ -144,3 +144,4 @@ Inverted mask for highlighter: https://www.youtube.com/watch?v=XJJl19N2KFM
 09 Jan - Added new healing effect to towers and P2
 09 Jan - Improved bomb defusal sequence generation logic - If there's only 1 tower left, the sequence will contain all towers present at the beginning. Else, it will contain only the ones present when bomb was instantiated.
 09 Jan - Fixed bug where menu was unresponsive after enemies win.
+09 Jan - Improved UI appearance.
