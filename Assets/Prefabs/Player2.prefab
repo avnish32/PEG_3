@@ -18,6 +18,7 @@ GameObject:
   - component: {fileID: 691679355209689241}
   - component: {fileID: 7526597234213439344}
   - component: {fileID: 3211691186301577706}
+  - component: {fileID: 5410778846874578778}
   m_Layer: 8
   m_Name: Player2
   m_TagString: Player2
@@ -246,7 +247,6 @@ MonoBehaviour:
   _healthRefillRate: 5
   _healthDepletionRate: 5
   _healthRefillRadius: 2
-  _healthReplenishSpriteEffectBlinkDuration: 2
   _healingEffect: {fileID: 619432343264617842}
   _healthDepletionSpriteEffectBlinkDuration: 2
 --- !u!95 &7526597234213439344
@@ -280,6 +280,18 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 130c796fb5e83cf46848fc0dec1f16ea, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &5410778846874578778
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6433250577585045444}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bcdb947e7700435409a683391b02ee0c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1001 &4979162133484815530
