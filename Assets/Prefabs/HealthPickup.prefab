@@ -393,6 +393,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a77ae81cd36796c4da026a73fbe2ec5e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _pickupSound: {fileID: 8300000, guid: 17036d80ec3e881458af239f37b332cf, type: 3}
   _healAmountText: {fileID: 3287479666720878053}
   _minDuration: 2
   _maxDuration: 5

@@ -8,6 +8,9 @@ using UnityEngine;
 public class HealthPickup : MonoBehaviour, IPickable
 {
     [SerializeField]
+    private AudioClip _pickupSound;
+
+    [SerializeField]
     private TextMeshProUGUI _healAmountText;
 
     [SerializeField]
@@ -18,6 +21,12 @@ public class HealthPickup : MonoBehaviour, IPickable
 
     private int _healAmountPercentage;
     private float _lifetime;
+    private AudioPlayer _audioPlayer;
+
+    private void Awake()
+    {
+        _audioPlayer = GameObject.FindFirstObjectByType<AudioPlayer>();
+    }
 
     // Start is called before the first frame update
     void Start()
@@ -52,6 +61,8 @@ public class HealthPickup : MonoBehaviour, IPickable
 
         float amountToHeal = ((float)_healAmountPercentage / 100) * pickerHealth.GetMaxHealth();
         pickerHealth.SetCurrentHealth(pickerHealth.GetCurrentHealth() + amountToHeal);
+
+        _audioPlayer.PlaySFX(_pickupSound);
 
         DestroyPickup();
     }
