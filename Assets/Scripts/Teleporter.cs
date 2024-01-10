@@ -59,7 +59,7 @@ public class Teleporter : MonoBehaviour
 
     private void CheckForCursorOnTower()
     {
-        Physics2D.queriesHitTriggers = false;
+        Physics2D.queriesHitTriggers = true;
         RaycastHit2D hit = Physics2D.Raycast(Camera.main.ScreenToWorldPoint(Input.mousePosition), Vector2.zero, 0f, LayerMask.GetMask("EnemyTarget"));
 
         if (!hit || hit.transform.gameObject.GetComponent<Tower>() == null)

@@ -15,6 +15,7 @@ GameObject:
   - component: {fileID: 3414788046266960217}
   - component: {fileID: 6580795016148218465}
   - component: {fileID: -7647358634436364072}
+  - component: {fileID: 2092042281044943062}
   m_Layer: 8
   m_Name: Tower
   m_TagString: EnemyTarget
@@ -167,7 +168,6 @@ MonoBehaviour:
   _interactMsgObject: {fileID: 468588033265338831}
   _repairEffect: {fileID: 4696976072568522482}
   repairSpeed: 5
-  _spriteRepairEffectBlinkDuration: 0.5
 --- !u!114 &6580795016148218465
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -205,6 +205,41 @@ MonoBehaviour:
   _audioPlayer: {fileID: 0}
   _damagedTower: {fileID: 21300000, guid: 4ff1013a9adb38b4a83d494b09df7954, type: 3}
   _healthyTower: {fileID: 21300000, guid: 3e3e90f4795c3dc4c8bd6231c687b2bd, type: 3}
+--- !u!58 &2092042281044943062
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8507554255566829828}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  serializedVersion: 2
+  m_Radius: 4
 --- !u!1001 &913704202036340522
 PrefabInstance:
   m_ObjectHideFlags: 0
