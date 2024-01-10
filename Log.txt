@@ -147,3 +147,8 @@ Inverted mask for highlighter: https://www.youtube.com/watch?v=XJJl19N2KFM
 09 Jan - Improved UI appearance.
 
 10 Jan - Improved buttons response.
+10 Jan - Added pickup mechanism.
+10 Jan - Increased teleport click area.
+10 Jan - Added custom cursor.
+References: 
+Health pickup icon created using https://www.pixilart.com/draw
