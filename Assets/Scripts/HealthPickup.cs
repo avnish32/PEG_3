@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;
@@ -10,10 +11,10 @@ public class HealthPickup : MonoBehaviour, IPickable
     private TextMeshProUGUI _healAmountText;
 
     [SerializeField]
-    private int _minDuration = 2;
+    private int _minDuration = 1;
 
     [SerializeField]
-    private int _maxDuration = 5;
+    private int _maxDuration = 3;
 
     private int _healAmountPercentage;
     private float _lifetime;
@@ -25,7 +26,7 @@ public class HealthPickup : MonoBehaviour, IPickable
 
         //pickup needs to last longer if amount to heal is low, and vice-versa
         _lifetime = _minDuration + ((1 - ((float)_healAmountPercentage / 100)) * (_maxDuration - _minDuration));
-        _healAmountText.text = _healAmountPercentage.ToString() + "%";
+        _healAmountText.text = _healAmountPercentage.ToString() + "\n%";
 
         StartCoroutine(DestroyAfterDuration());
     }
@@ -39,10 +40,20 @@ public class HealthPickup : MonoBehaviour, IPickable
             return;
         }
 
+        try
+        {
+            Player2Health p2Health = (Player2Health)pickerHealth;
+            p2Health.CheckToStartHealingEffect();
+        }
+        catch (InvalidCastException)
+        {
+            Debug.Log("Invalid cast exception : Object that picked pickup is not Player .");
+        }
+
         float amountToHeal = ((float)_healAmountPercentage / 100) * pickerHealth.GetMaxHealth();
         pickerHealth.SetCurrentHealth(pickerHealth.GetCurrentHealth() + amountToHeal);
 
-        Destroy(gameObject);
+        DestroyPickup();
     }
 
     public void DestroyPickup()

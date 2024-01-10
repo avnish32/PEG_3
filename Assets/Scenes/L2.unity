@@ -1303,7 +1303,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2895437416562675429, guid: 59e322af154ab0a4a946e46fdeebfc2e, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -100
+      value: -25
       objectReference: {fileID: 0}
     - target: {fileID: 2895437416562675429, guid: 59e322af154ab0a4a946e46fdeebfc2e, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -7354,6 +7354,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: PickupSpawner
       objectReference: {fileID: 0}
+    - target: {fileID: 3524927936744834214, guid: 2a7fa108a5bfef746be99999d887ba9f, type: 3}
+      propertyPath: _maxSpawnDelay
+      value: 30
+      objectReference: {fileID: 0}
+    - target: {fileID: 3524927936744834214, guid: 2a7fa108a5bfef746be99999d887ba9f, type: 3}
+      propertyPath: _minSpawnDelay
+      value: 5
+      objectReference: {fileID: 0}
     - target: {fileID: 7687987514100860507, guid: 2a7fa108a5bfef746be99999d887ba9f, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -7854,10 +7862,10 @@ SceneRoots:
   - {fileID: 1529149303}
   - {fileID: 418896727}
   - {fileID: 1168259350898096522}
+  - {fileID: 4727760891187984002}
   - {fileID: 2054366161}
   - {fileID: 589803609}
   - {fileID: 2017172886}
   - {fileID: 4596635826820979470}
   - {fileID: 1707917341}
   - {fileID: 1009702381}
-  - {fileID: 4727760891187984002}

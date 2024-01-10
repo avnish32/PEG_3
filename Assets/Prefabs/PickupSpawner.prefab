@@ -307,8 +307,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 947a52464c3153848baa691e91454150, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _minSpawnDelay: 20
-  _maxSpawnDelay: 50
+  _minSpawnDelay: 5
+  _maxSpawnDelay: 30
   _spawnPts:
   - {fileID: 7640292173753782098}
   - {fileID: 5171534104682961980}
@@ -316,11 +316,11 @@ MonoBehaviour:
   - {fileID: 8078905248729872751}
   - {fileID: 4355808489802339609}
   - {fileID: 7844949937387997807}
-  - {fileID: 6364255377816784882}
+  - {fileID: 0}
   - {fileID: 1073606095194114001}
   - {fileID: 6796478641712143680}
   - {fileID: 4064269599607673587}
-  - {fileID: 3502024568547951745}
+  - {fileID: 0}
   _pickup: {fileID: 8243675682151518285, guid: 687355579ee2cab488fd84825208e088, type: 3}
 --- !u!1 &4317753714610670360
 GameObject:

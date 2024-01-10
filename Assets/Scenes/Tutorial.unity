@@ -1210,8 +1210,8 @@ MonoBehaviour:
   - PAUSE:;SECSB4NEXTMSG:;5:;HIGHLIGHTOBJECT:;1:;HIGHLIGHTSCALE:;0.5
   - PAUSE:;HIGHLIGHTOBJECT:;2:;HIGHLIGHTSCALE:;0.5
   - SECSB4NEXTMSG:;5:;PAUSE:;HIGHLIGHTOBJECT:;1
-  - SPAWNSHOOTER:;DISPLAYDURATION:;5
-  - PAUSE:;HIGHLIGHTOBJECT:;0:;SECSB4NEXTMSG:;5
+  - PAUSE:;SPAWNSHOOTER:;HIGHLIGHTOBJECT:;0
+  - SECSB4NEXTMSG:;5:;DISPLAYDURATION:;5
   - PAUSE:;SECSB4NEXTMSG:;5
   - PAUSE
   - PAUSE:;SECSB4NEXTMSG:;3
@@ -6924,7 +6924,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2895437416562675429, guid: 59e322af154ab0a4a946e46fdeebfc2e, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -100
+      value: -25
       objectReference: {fileID: 0}
     - target: {fileID: 2895437416562675429, guid: 59e322af154ab0a4a946e46fdeebfc2e, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x

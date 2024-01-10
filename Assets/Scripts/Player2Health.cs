@@ -65,7 +65,7 @@ public class Player2Health : Health
         }
     }
 
-    private void CheckToStartHealingEffect()
+    public void CheckToStartHealingEffect()
     {
         if (!_isHealingEffectRunning && _currentHealth < _maxHealth)
         {

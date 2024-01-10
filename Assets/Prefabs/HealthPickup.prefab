@@ -34,8 +34,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 2, y: 2}
+  m_AnchoredPosition: {x: 0, y: -0.22}
+  m_SizeDelta: {x: 3, y: 1}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &5088497534088889583
 CanvasRenderer:
@@ -65,7 +65,9 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: '100%
+  m_text: '100
+
+    %
 
 '
   m_isRightToLeft: 0
@@ -94,8 +96,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 0.4
-  m_fontSizeBase: 0.4
+  m_fontSize: 0.75
+  m_fontSizeBase: 0.75
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -106,7 +108,7 @@ MonoBehaviour:
   m_textAlignment: 65535
   m_characterSpacing: 0
   m_wordSpacing: 0
-  m_lineSpacing: 0
+  m_lineSpacing: 25
   m_lineSpacingMax: 0
   m_paragraphSpacing: 0
   m_charWidthMaxAdj: 0
@@ -246,6 +248,22 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 157928902423170232, guid: 4b4a1941558302c4cb336966281cf88f, type: 3}
+      propertyPath: m_Size.x
+      value: 3.262446
+      objectReference: {fileID: 0}
+    - target: {fileID: 157928902423170232, guid: 4b4a1941558302c4cb336966281cf88f, type: 3}
+      propertyPath: m_Size.y
+      value: 3.1950223
+      objectReference: {fileID: 0}
+    - target: {fileID: 157928902423170232, guid: 4b4a1941558302c4cb336966281cf88f, type: 3}
+      propertyPath: m_Offset.x
+      value: 0.02996564
+      objectReference: {fileID: 0}
+    - target: {fileID: 157928902423170232, guid: 4b4a1941558302c4cb336966281cf88f, type: 3}
+      propertyPath: m_Offset.y
+      value: -0.041203856
+      objectReference: {fileID: 0}
     - target: {fileID: 5574379543491959640, guid: 4b4a1941558302c4cb336966281cf88f, type: 3}
       propertyPath: m_LocalScale.x
       value: 0.2
@@ -325,6 +343,10 @@ PrefabInstance:
     - target: {fileID: 6117083024399411776, guid: 4b4a1941558302c4cb336966281cf88f, type: 3}
       propertyPath: m_Color.r
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6117083024399411776, guid: 4b4a1941558302c4cb336966281cf88f, type: 3}
+      propertyPath: m_SortingOrder
+      value: 100
       objectReference: {fileID: 0}
     - target: {fileID: 6117083024399411776, guid: 4b4a1941558302c4cb336966281cf88f, type: 3}
       propertyPath: m_WasSpriteAssigned
