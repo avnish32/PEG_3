@@ -157,6 +157,4 @@ Health pickup icon created using https://www.pixilart.com/draw
 12 Jan - Added restart button to pause menu.
 12 Jan - Made bomb explosion sound louder.
 12 Jan - Changed script execution order for teleporter to load earlier than P2Health, so on restart P2 won't flash red once before teleporter brings P1 within its refill range.
-
-Make enemies black.
-Think of a name.
+12 Jan - Changed shooter enemy sprites to black colored. Bombers are still white, too much work.
