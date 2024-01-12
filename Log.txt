@@ -152,3 +152,11 @@ Inverted mask for highlighter: https://www.youtube.com/watch?v=XJJl19N2KFM
 10 Jan - Added custom cursor.
 References: 
 Health pickup icon created using https://www.pixilart.com/draw
+
+12 Jan - Fixed bug where player can press 'Esc' after level ends to get rid of level end panel.
+12 Jan - Added restart button to pause menu.
+12 Jan - Made bomb explosion sound louder.
+12 Jan - Changed script execution order for teleporter to load earlier than P2Health, so on restart P2 won't flash red once before teleporter brings P1 within its refill range.
+
+Make enemies black.
+Think of a name.

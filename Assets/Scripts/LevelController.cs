@@ -1,11 +1,7 @@
-using System;
-using System.Collections;
 using System.Collections.Generic;
-using System.Linq;
-using TMPro;
 using UnityEngine;
-using UnityEngine.Events;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class LevelController : MonoBehaviour
 {
@@ -22,6 +18,9 @@ public class LevelController : MonoBehaviour
     InGameMenu _pauseMenuPanel;
 
     [SerializeField]
+    Button _pauseMenuRestartButton;
+
+    [SerializeField]
     private GameObject _optionsPanel;
 
     [SerializeField]
@@ -30,7 +29,7 @@ public class LevelController : MonoBehaviour
     private List<Towers> _towersInSceneBeginning = new List<Towers>();
     int minutes, seconds;
     private GameObject _currentPanel;
-
+    private bool _hasLevelEnded = false;
 
     // Start is called before the first frame update
     void Start()
@@ -56,7 +55,7 @@ public class LevelController : MonoBehaviour
         }
     }
 
-    private void RestartLevel()
+    public void RestartLevel()
     {
         Debug.Log("Level restarting.");
         //ResumeGame();
@@ -65,6 +64,10 @@ public class LevelController : MonoBehaviour
 
     private void TogglePause()
     {
+        if (_hasLevelEnded)
+        {
+            return;
+        }
         if (isGamePaused)
         {
             //Below check for when game is paused during the tutorial
@@ -90,6 +93,7 @@ public class LevelController : MonoBehaviour
 
     private void OnLevelEnd(string levelEndText)
     {
+        _hasLevelEnded = true;
         isGamePaused = true;
         Time.timeScale = 0;
 
@@ -99,6 +103,7 @@ public class LevelController : MonoBehaviour
         if(SceneManager.GetActiveScene().buildIndex == SceneManager.sceneCountInBuildSettings - 1)
         {
             _pauseMenuPanel.SetResumeRestartButton(() => { RestartLevel(); }, "Restart");
+            _pauseMenuRestartButton.gameObject.SetActive(false);
         } else
         {
             _pauseMenuPanel.SetResumeRestartButton(() => { LoadNextLevel(); }, "Next");
@@ -109,12 +114,14 @@ public class LevelController : MonoBehaviour
 
     private void OnEnemyWon()
     {
+        _hasLevelEnded = true;
         isGamePaused = true;
         Time.timeScale = 0;
 
         if (_pauseMenuPanel != null)
         {
             _pauseMenuPanel.SetHeadingText("Ah, defeat.");
+            _pauseMenuRestartButton.gameObject.SetActive(false);
             _pauseMenuPanel.SetResumeRestartButton(delegate { RestartLevel(); }, "Restart");
             ShowPauseMenu();
         }
@@ -185,6 +192,7 @@ public class LevelController : MonoBehaviour
     private void ConstructAndDisplayPauseMenu()
     {
         _pauseMenuPanel.SetHeadingText("Game paused");
+        _pauseMenuRestartButton.gameObject.SetActive(true);
         Debug.Log("Resume game added to onclick listeners.");
         _pauseMenuPanel.SetResumeRestartButton(delegate { ResumeGame(); }, "Resume");
         ShowPanel(_pauseMenuPanel.gameObject);

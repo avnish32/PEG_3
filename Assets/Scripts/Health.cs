@@ -36,7 +36,7 @@ public class Health : MonoBehaviour
     protected SpriteRenderer _spriteRenderer;
     protected bool _isBulletHitSpriteEffectRunning = false;
 
-    private void Awake()
+    protected virtual void Awake()
     {
         //Debug.Log("Audio clip on awake: " + _deathSound);
         //Debug.Log("Sine pi/2: " + Mathf.Sin(Mathf.PI / 2));

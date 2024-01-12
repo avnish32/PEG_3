@@ -7337,6 +7337,10 @@ PrefabInstance:
       propertyPath: _numberOfTowersLeft
       value: 2
       objectReference: {fileID: 0}
+    - target: {fileID: 8998300270870584637, guid: f9331f1600b9f504399221efc1e1d4d4, type: 3}
+      propertyPath: _pauseMenuRestartButton
+      value: 
+      objectReference: {fileID: 5431085711299785573}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -7624,6 +7628,17 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: bb29304ed38b98c4292d2c0d496fbe03, type: 3}
+--- !u!114 &5431085711299785573 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2296951581349867838, guid: bb29304ed38b98c4292d2c0d496fbe03, type: 3}
+  m_PrefabInstance: {fileID: 5431085711299785572}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &6373145810402994166
 PrefabInstance:
   m_ObjectHideFlags: 0

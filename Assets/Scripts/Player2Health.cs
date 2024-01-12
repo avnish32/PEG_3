@@ -25,16 +25,25 @@ public class Player2Health : Health
     private bool _isInHealthRefillRange = false;
     private bool _isHealingEffectRunning = false;
     private bool _isHealthDepletionSpriteEffectRunning = false;
+    private GameObject _player1;
 
     private Coroutine _healthDepletionCoroutine;
+
+    protected override void Awake()
+    {
+        base.Awake();
+        _player1 = GameObject.FindGameObjectWithTag("Player1");
+    }
 
     // Start is called before the first frame update
     void Start()
     {
-        GameObject player1 = GameObject.FindGameObjectWithTag("Player1");
-        float distanceFromP1 = Vector3.Distance(transform.position, player1.transform.position);
+        //GameObject player1 = GameObject.FindGameObjectWithTag("Player1");
+
+        float distanceFromP1 = Vector3.Distance(transform.position, _player1.transform.position);
         if (distanceFromP1 <= _healthRefillRadius)
         {
+            //Debug.Log("P2 is in refill range. Distance from P1: " + distanceFromP1);
             _isInHealthRefillRange = true;
         }
     }
@@ -69,6 +78,7 @@ public class Player2Health : Health
     {
         if (!_isHealingEffectRunning && _currentHealth < _maxHealth)
         {
+            //Debug.Log("Started healing coroutine.");
             StartCoroutine(ShowHealingEffect());
         }
     }
