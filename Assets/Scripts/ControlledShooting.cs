@@ -123,7 +123,9 @@ public class ControlledShooting : MonoBehaviour
     private void OnDeath()
     {
         CancelInvoke();
+        Destroy(_instantiatedCrosshair);
         _audioPlayer.PlaySFX(_deathSound);
+        this.enabled = false;
         //AudioSource.PlayClipAtPoint(_deathSound, Camera.main.transform.position);
     }
 
