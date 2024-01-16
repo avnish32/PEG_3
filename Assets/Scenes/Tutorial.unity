@@ -1172,7 +1172,7 @@ MonoBehaviour:
   _darkPanel: {fileID: 1182531257}
   _enemySpawnerTutorial: {fileID: 1630278954}
   _tutorialMsgs:
-  - Welcome to <Protegir Juntos>! Can you work together to protect your sub-terranian
+  - Welcome to 'Army of Two'! Can you work together to protect your sub-terranian
     hi-tech facility from intruders?
   - Pedestals like these two are spread all over the facility, serving as nodes of
     an interconnected network built to carry fuel to the building's core.

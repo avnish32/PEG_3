@@ -7035,7 +7035,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "<Protegir \n\nJuntos>"
+  m_text: Army of Two
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: a954130711fb1ea49a37cfb9ec5facd3, type: 2}
   m_sharedMaterial: {fileID: -9193840682053738318, guid: a954130711fb1ea49a37cfb9ec5facd3, type: 2}
@@ -7074,7 +7074,7 @@ MonoBehaviour:
   m_textAlignment: 65535
   m_characterSpacing: 0
   m_wordSpacing: 0
-  m_lineSpacing: 0
+  m_lineSpacing: 75
   m_lineSpacingMax: 0
   m_paragraphSpacing: 0
   m_charWidthMaxAdj: 0
